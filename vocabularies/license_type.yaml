@@ -1,0 +1,72 @@
+scheme: olcc.license_type
+title: OLCC Cannabis License Types
+description: >
+  Controlled vocabulary for the License Type field published in the OLCC
+  Cannabis Licensee public report. Terms preserve OLCC's exact published
+  spelling and casing. Labels are the presentation form used in UI.
+source:
+  name: Oregon Liquor and Cannabis Commission
+  url: https://data.olcc.state.or.us/t/OLCCPublic/views/CannabisBusinessLicensesEndorsements/CannabisLicensesEndorsements
+verified_at: 2026-04-24
+
+terms:
+  - id: RECREATIONAL_PRODUCER
+    preferred_label: Recreational Producer
+    source_term: RECREATIONAL PRODUCER
+    license_prefix: "020"
+    definition: >
+      Licensed to cultivate cannabis for the recreational market. Canopy size
+      is regulated by tier (see vocabularies/tier.yaml when added).
+
+  - id: RECREATIONAL_PROCESSOR
+    preferred_label: Recreational Processor
+    source_term: RECREATIONAL PROCESSOR
+    license_prefix: "030"
+    definition: >
+      Licensed to process cannabis into extracts, edibles, topicals, or other
+      finished goods for the recreational market.
+
+  - id: RECREATIONAL_WHOLESALER
+    preferred_label: Recreational Wholesaler
+    source_term: RECREATIONAL WHOLESALER
+    license_prefix: "040"
+    definition: >
+      Licensed to buy cannabis from producers/processors and sell to other
+      licensees (not to consumers).
+
+  - id: RECREATIONAL_RETAILER
+    preferred_label: Recreational Retailer
+    source_term: RECREATIONAL RETAILER
+    license_prefix: "050"
+    definition: >
+      Licensed to sell cannabis products directly to adult consumers.
+
+  - id: LABORATORY
+    preferred_label: Laboratory
+    source_term: LABORATORY
+    license_prefix: "010"
+    definition: >
+      Accredited testing laboratory authorized to test cannabis products for
+      potency, pesticides, microbiological contaminants, and other compliance
+      measures.
+
+  - id: RESEARCH_CERTIFICATE
+    preferred_label: Research Certificate
+    source_term: RESEARCH CERTIFICATE
+    definition: >
+      Authorization to conduct cannabis research under OLCC oversight.
+
+  - id: HEMP_GROWER_CERTIFICATE
+    preferred_label: Hemp Grower Certificate
+    source_term: HEMP GROWER CERTIFICATE
+    definition: >
+      Certificate authorizing cultivation of industrial hemp. Historically
+      administered by ODA but OLCC has regulatory oversight of hemp that
+      enters the cannabis supply chain.
+
+  - id: HEMP_HANDLER_CERTIFICATE
+    preferred_label: Hemp Handler Certificate
+    source_term: HEMP HANDLER CERTIFICATE
+    definition: >
+      Certificate authorizing handling, processing, or transfer of hemp
+      biomass or products.

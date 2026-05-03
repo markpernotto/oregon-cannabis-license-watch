@@ -1,0 +1,56 @@
+scheme: olcc.status
+title: OLCC License Status
+description: >
+  Controlled vocabulary for the Status field in the OLCC Cannabis Licensee
+  public report. The source view is pre-filtered to ACTIVE licenses only;
+  other values are retained here for completeness against potential future
+  source expansion or for cross-referencing OLCC bulletins.
+source:
+  name: Oregon Liquor and Cannabis Commission
+  url: https://data.olcc.state.or.us/t/OLCCPublic/views/CannabisBusinessLicensesEndorsements/CannabisLicensesEndorsements
+verified_at: 2026-04-24
+
+terms:
+  - id: ACTIVE
+    preferred_label: Active
+    source_term: ACTIVE
+    observable_in_source: true
+    definition: License is in good standing; licensee is authorized to operate.
+
+  - id: INACTIVE
+    preferred_label: Inactive
+    source_term: INACTIVE
+    observable_in_source: false
+    definition: >
+      License is not currently active. Not observable directly from the source
+      view; inferred from REMOVED diff events.
+
+  - id: SURRENDERED
+    preferred_label: Surrendered
+    source_term: SURRENDERED
+    observable_in_source: false
+    definition: Licensee voluntarily relinquished the license.
+
+  - id: REVOKED
+    preferred_label: Revoked
+    source_term: REVOKED
+    observable_in_source: false
+    definition: OLCC terminated the license for cause.
+
+  - id: SUSPENDED
+    preferred_label: Suspended
+    source_term: SUSPENDED
+    observable_in_source: false
+    definition: License operations temporarily halted by OLCC action.
+
+  - id: EXPIRED
+    preferred_label: Expired
+    source_term: EXPIRED
+    observable_in_source: false
+    definition: License was not renewed before its expiration date.
+
+  - id: PENDING
+    preferred_label: Pending
+    source_term: PENDING
+    observable_in_source: false
+    definition: Application submitted; license not yet issued.

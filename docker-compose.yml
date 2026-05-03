@@ -1,0 +1,35 @@
+services:
+  db:
+    image: postgres:16
+    environment:
+      POSTGRES_USER: oc_data
+      POSTGRES_PASSWORD: oc_data
+      POSTGRES_DB: oc_data
+    ports:
+      - "5432:5432"
+    volumes:
+      - db_data:/var/lib/postgresql/data
+      - ./etl/schema.sql:/docker-entrypoint-initdb.d/schema.sql:ro
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U oc_data"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+  etl:
+    build: .
+    depends_on:
+      db:
+        condition: service_healthy
+    env_file:
+      - .env
+    environment:
+      DATABASE_URL: postgresql://oc_data:oc_data@db:5432/oc_data
+    volumes:
+      - ./data:/app/data
+      - ./etl:/app/etl
+      - ./vocabularies:/app/vocabularies
+    profiles: ["run"]
+
+volumes:
+  db_data:
