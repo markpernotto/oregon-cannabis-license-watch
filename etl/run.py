@@ -57,7 +57,7 @@ def _live_pipeline(database_url: str) -> None:
     loaded = load(rows, database_url)
     print(f"      upserted {loaded} rows for snapshot_date={snapshot_date}")
 
-    print(f"[4/4] diff against prior snapshot")
+    print("[4/4] diff against prior snapshot")
     n = diff(database_url, snapshot_date)
     print(f"      emitted {n} change rows")
 
