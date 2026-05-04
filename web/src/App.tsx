@@ -6,7 +6,9 @@ const VALID_WINDOWS = [30, 90, 180] as const;
 type WindowDays = (typeof VALID_WINDOWS)[number];
 
 const REPO_URL = "https://github.com/markpernotto/oregon-cannabis-license-watch";
+const SITE_URL = "https://oregon-cannabis-license-watch.vercel.app";
 const SNAPSHOT_BASE = `${REPO_URL}/blob/main/data/snapshots`;
+void SITE_URL; // available if we want canonical-URL meta later
 
 function readWindowFromUrl(): WindowDays {
   if (typeof window === "undefined") return 30;

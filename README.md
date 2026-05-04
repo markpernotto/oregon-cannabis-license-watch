@@ -1,5 +1,9 @@
 # Oregon Cannabis License Watch
 
+**Live site:** https://oregon-cannabis-license-watch.vercel.app/
+&nbsp;·&nbsp; **RSS:** https://oregon-cannabis-license-watch.vercel.app/rss.xml
+&nbsp;·&nbsp; **Raw JSON:** https://oregon-cannabis-license-watch.vercel.app/changes.json
+
 ## What this is, in plain English
 
 Oregon publishes a list of every business with a license to grow, process,
@@ -26,9 +30,11 @@ something I got wrong, please open an issue.
 
 ## Status
 
-Phase 1 backend is complete and running nightly against live OLCC data.
-The React UI works locally and reads the same JSON the public feed uses.
-The five-day green-nightly streak is in progress.
+Phase 1 is functionally complete and deployed: the backend pipeline is
+running nightly against live OLCC data, the React UI is live on Vercel,
+and the public RSS feed is consumable in any reader. The five-day
+green-nightly streak (last item in the Phase 1 Definition of Done) is in
+progress.
 
 ## How it works (the short version)
 
