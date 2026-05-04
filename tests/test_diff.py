@@ -29,8 +29,12 @@ PROV = Provenance(
 
 @pytest.fixture
 def clean_db():
-    """Wipe both tables for the test license-numbers we use."""
-    test_dates = [date(2099, 1, 1), date(2099, 1, 2), date(2099, 1, 3)]
+    """Wipe both tables for the test license-numbers we use.
+
+    Test dates are pre-1970 so MAX(snapshot_date < d1) is deterministically
+    NULL even when real-data snapshots are present in the shared local DB.
+    """
+    test_dates = [date(1900, 1, 1), date(1900, 1, 2), date(1900, 1, 3)]
     with psycopg.connect(DATABASE_URL) as conn, conn.cursor() as cur:
         cur.execute("DELETE FROM licensees_snapshots WHERE snapshot_date = ANY(%s)", (test_dates,))
         cur.execute("DELETE FROM license_changes WHERE source_snapshot_date = ANY(%s)", (test_dates,))

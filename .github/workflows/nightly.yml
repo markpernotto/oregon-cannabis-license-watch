@@ -24,13 +24,23 @@ jobs:
           python -m pip install --upgrade pip
           pip install -e '.'
 
+      - name: Apply schema (idempotent)
+        env:
+          DATABASE_URL: ${{ secrets.DATABASE_URL }}
+        run: |
+          python - <<'PY'
+          import os, psycopg
+          from pathlib import Path
+          with psycopg.connect(os.environ["DATABASE_URL"]) as conn, conn.cursor() as cur:
+              cur.execute(Path("etl/schema.sql").read_text())
+              conn.commit()
+          PY
+
       - name: Run pipeline
         env:
           DATABASE_URL: ${{ secrets.DATABASE_URL }}
           EXTRACTOR_USER_AGENT: "OregonCannabisDataProject/0.1 (+mark@pernotto.com)"
-        run: |
-          python -m etl.extract
-          # transform / load / diff / publish invocations go here once implemented
+        run: python -m etl.run
 
       - name: Commit snapshot + artifacts
         run: |

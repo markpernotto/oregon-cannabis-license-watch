@@ -17,7 +17,7 @@ web/dist/
 coverage.xml
 htmlcov/
 
-data/snapshots/*.csv
-!data/snapshots/seed.csv
-data/archive/
-!data/archive/.gitkeep
+# data/snapshots/ — daily CSVs are committed by the nightly Action (archival series).
+# data/archive/   — monthly tarball rollups are committed too.
+# Both directories are intentionally NOT gitignored.
+

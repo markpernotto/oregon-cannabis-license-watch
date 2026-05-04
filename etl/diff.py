@@ -72,8 +72,20 @@ def _summary_removed(row: dict) -> str:
     return f"REMOVED: {name} ({row['license_number']})"
 
 
+def _format_value(value) -> str:
+    if value is None:
+        return "(empty)"
+    if isinstance(value, datetime):
+        return value.isoformat()
+    if isinstance(value, date):
+        return value.isoformat()
+    if isinstance(value, list):
+        return ", ".join(str(v) for v in value) if value else "(empty)"
+    return str(value)
+
+
 def _summary_field_change(license_number: str, field: str, prev, new) -> str:
-    return f"{license_number} {field}: {prev!r} -> {new!r}"
+    return f"{license_number} {field}: {_format_value(prev)} -> {_format_value(new)}"
 
 
 def diff(database_url: str, snapshot_date: date) -> int:

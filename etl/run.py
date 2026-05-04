@@ -22,6 +22,7 @@ from etl import __version__
 from etl.diff import diff
 from etl.extract import OLCC_LICENSEE_URL, extract
 from etl.load import load
+from etl.publish import publish
 from etl.transform import Provenance, transform
 
 
@@ -36,12 +37,12 @@ def _provenance_for_seed(path: Path, as_of: date) -> Provenance:
 
 
 def _live_pipeline(database_url: str) -> None:
-    print(f"[1/4] extracting from {OLCC_LICENSEE_URL}")
+    print(f"[1/5] extracting from {OLCC_LICENSEE_URL}")
     result = extract()
     print(f"      wrote {result.path} ({result.row_count} rows)")
     print(f"      sha256: {result.source_checksum}")
 
-    print("[2/4] transforming")
+    print("[2/5] transforming")
     csv_bytes = result.path.read_bytes()
     snapshot_date = date.fromisoformat(result.path.stem)
     prov = Provenance(
@@ -53,13 +54,18 @@ def _live_pipeline(database_url: str) -> None:
     rows = transform(csv_bytes, snapshot_date=snapshot_date, provenance=prov)
     print(f"      transformed {len(rows)} rows")
 
-    print(f"[3/4] loading to Postgres ({_safe_url(database_url)})")
+    print(f"[3/5] loading to Postgres ({_safe_url(database_url)})")
     loaded = load(rows, database_url)
     print(f"      upserted {loaded} rows for snapshot_date={snapshot_date}")
 
-    print("[4/4] diff against prior snapshot")
+    print("[4/5] diff against prior snapshot")
     n = diff(database_url, snapshot_date)
     print(f"      emitted {n} change rows")
+
+    print("[5/5] publishing public/changes.json + public/rss.xml")
+    pub = publish(database_url)
+    print(f"      wrote {pub['json_path']} ({pub['total_changes']} changes)")
+    print(f"      wrote {pub['rss_path']}")
 
 
 def _seed_pipeline(database_url: str, seed_path: Path, as_of: date) -> None:
