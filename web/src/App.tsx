@@ -2,6 +2,24 @@ import { useEffect, useMemo, useState } from "react";
 import type { Change, ChangesPayload } from "./types";
 
 const ALL = "__all__";
+const VALID_WINDOWS = [30, 90, 180] as const;
+type WindowDays = (typeof VALID_WINDOWS)[number];
+
+const REPO_URL = "https://github.com/markpernotto/oregon-cannabis-license-watch";
+const SNAPSHOT_BASE = `${REPO_URL}/blob/main/data/snapshots`;
+
+function readWindowFromUrl(): WindowDays {
+  if (typeof window === "undefined") return 30;
+  const params = new URLSearchParams(window.location.search);
+  const v = Number(params.get("window"));
+  return (VALID_WINDOWS as readonly number[]).includes(v) ? (v as WindowDays) : 30;
+}
+
+function writeWindowToUrl(w: WindowDays) {
+  const params = new URLSearchParams(window.location.search);
+  params.set("window", String(w));
+  window.history.replaceState({}, "", `?${params.toString()}${window.location.hash}`);
+}
 
 export default function App() {
   const [data, setData] = useState<ChangesPayload | null>(null);
@@ -9,6 +27,7 @@ export default function App() {
   const [licenseTypeFilter, setLicenseTypeFilter] = useState(ALL);
   const [changeTypeFilter, setChangeTypeFilter] = useState(ALL);
   const [search, setSearch] = useState("");
+  const [windowDays, setWindowDays] = useState<WindowDays>(readWindowFromUrl);
 
   useEffect(() => {
     fetch("/changes.json")
@@ -20,26 +39,35 @@ export default function App() {
       .catch((e) => setError(String(e)));
   }, []);
 
-  const licenseTypes = useMemo(() => {
+  const cutoffMs = useMemo(
+    () => Date.now() - windowDays * 86_400_000,
+    [windowDays],
+  );
+
+  const inWindow = useMemo(() => {
     if (!data) return [];
+    return data.changes.filter(
+      (c) => new Date(c.observed_at).getTime() >= cutoffMs,
+    );
+  }, [data, cutoffMs]);
+
+  const licenseTypes = useMemo(() => {
     const set = new Set<string>();
-    for (const c of data.changes) {
+    for (const c of inWindow) {
       const lt = guessLicenseTypeFromNumber(c.license_number);
       if (lt) set.add(lt);
     }
     return Array.from(set).sort();
-  }, [data]);
+  }, [inWindow]);
 
   const changeTypes = useMemo(() => {
-    if (!data) return [];
-    const set = new Set(data.changes.map((c) => c.change_type));
+    const set = new Set(inWindow.map((c) => c.change_type));
     return Array.from(set).sort();
-  }, [data]);
+  }, [inWindow]);
 
   const filtered = useMemo(() => {
-    if (!data) return [];
     const needle = search.trim().toLowerCase();
-    return data.changes.filter((c) => {
+    return inWindow.filter((c) => {
       if (changeTypeFilter !== ALL && c.change_type !== changeTypeFilter) return false;
       if (licenseTypeFilter !== ALL) {
         const lt = guessLicenseTypeFromNumber(c.license_number);
@@ -48,28 +76,49 @@ export default function App() {
       if (needle && !c.summary.toLowerCase().includes(needle)) return false;
       return true;
     });
-  }, [data, changeTypeFilter, licenseTypeFilter, search]);
+  }, [inWindow, changeTypeFilter, licenseTypeFilter, search]);
+
+  const handleWindowChange = (w: WindowDays) => {
+    setWindowDays(w);
+    writeWindowToUrl(w);
+  };
 
   return (
     <main>
       <header>
         <h1>Oregon Cannabis License Watch</h1>
-        <p>
-          Daily change feed derived from the OLCC Cannabis Licensee public report.
-        </p>
+        <p>Daily change feed from the OLCC Cannabis Licensee public report.</p>
+
+        <details className="about">
+          <summary>What is this?</summary>
+          <p>
+            Oregon publishes a list of every business licensed to grow, process,
+            sell, or test cannabis. The list shows what's true <em>right now</em>;
+            it doesn't keep history. This project takes a snapshot every night,
+            compares it to yesterday's, and publishes what changed — new
+            licenses, removed licenses, name updates, expiration renewals.
+          </p>
+          <p>
+            Each row below is one change. Every change carries provenance
+            (which snapshot it came from, when, with a checksum) so you can
+            verify it independently. The same data is available as{" "}
+            <a href={REPO_URL}>open-source code</a>, raw{" "}
+            <a href="/changes.json">JSON</a>, and an{" "}
+            <a href="/rss.xml">RSS feed</a>.
+          </p>
+        </details>
+
         {data && (
           <div className="meta">
+            <a className="rss-cta" href="/rss.xml" title="Subscribe in any RSS reader (Feedly, Inoreader, NetNewsWire, etc.)">
+              <span aria-hidden="true">📡</span> Subscribe via RSS
+            </a>
+            <span>Updated {formatRelative(data.generated_at)}</span>
+            <span>Freshness SLO: ≤ {data.freshness_sla_hours}h</span>
             <span>
-              <strong>{data.total_changes}</strong> changes in last {data.window_days} days
-            </span>
-            <span>
-              Updated {formatRelative(data.generated_at)}
-            </span>
-            <span>
-              Freshness SLO: ≤ {data.freshness_sla_hours}h
-            </span>
-            <span>
-              <a href="/rss.xml">RSS</a> · <a href="/changes.json">JSON</a>
+              <a href="/changes.json">JSON</a>
+              {" · "}
+              <a href={REPO_URL}>Source on GitHub</a>
             </span>
           </div>
         )}
@@ -80,6 +129,21 @@ export default function App() {
 
       {data && (
         <>
+          <div className="window-toggle">
+            <span className="window-toggle-label">Window:</span>
+            {VALID_WINDOWS.map((w) => (
+              <button
+                key={w}
+                type="button"
+                onClick={() => handleWindowChange(w)}
+                className={w === windowDays ? "active" : ""}
+                aria-pressed={w === windowDays}
+              >
+                {w} days
+              </button>
+            ))}
+          </div>
+
           <div className="filters">
             <div>
               <label htmlFor="license-type">License type</label>
@@ -120,7 +184,8 @@ export default function App() {
           </div>
 
           <p className="summary">
-            Showing {filtered.length} of {data.total_changes} changes
+            Showing <strong>{filtered.length}</strong> of {inWindow.length} changes
+            in the last {windowDays} days
           </p>
 
           {filtered.length === 0 ? (
@@ -136,19 +201,29 @@ export default function App() {
       )}
 
       <footer>
-        Data from the{" "}
-        <a href="https://www.oregon.gov/olcc" target="_blank" rel="noopener noreferrer">
-          Oregon Liquor and Cannabis Commission
-        </a>
-        . Republished under{" "}
-        <a href="https://creativecommons.org/publicdomain/zero/1.0/" target="_blank" rel="noopener noreferrer">
-          CC0
-        </a>
-        .{" "}
-        <a href="https://github.com/markpernotto/oregon-cannabis-license-watch" target="_blank" rel="noopener noreferrer">
-          Source on GitHub
-        </a>
-        .
+        <p>
+          Data from the{" "}
+          <a href="https://www.oregon.gov/olcc" target="_blank" rel="noopener noreferrer">
+            Oregon Liquor and Cannabis Commission
+          </a>
+          . Republished under{" "}
+          <a href="https://creativecommons.org/publicdomain/zero/1.0/" target="_blank" rel="noopener noreferrer">
+            CC0
+          </a>
+          .{" "}
+          <a href={REPO_URL} target="_blank" rel="noopener noreferrer">
+            Source on GitHub
+          </a>
+          .
+        </p>
+        <p>
+          Need history beyond 180 days?{" "}
+          <a href={`${REPO_URL}/issues/new`} target="_blank" rel="noopener noreferrer">
+            Open an issue
+          </a>{" "}
+          — the underlying database keeps everything; the public window is
+          just the rolling view.
+        </p>
       </footer>
     </main>
   );
@@ -156,6 +231,7 @@ export default function App() {
 
 function ChangeRow({ change }: { change: Change }) {
   const cls = change.change_type.toLowerCase();
+  const sourceUrl = `${SNAPSHOT_BASE}/${change.snapshot_date}.csv`;
   return (
     <li className="change-card">
       <span className={`change-type ${cls}`}>{change.change_type}</span>
@@ -169,14 +245,23 @@ function ChangeRow({ change }: { change: Change }) {
           renderNewRemovedSummary(change)
         )}
       </div>
-      <span className="change-date">{change.snapshot_date}</span>
+      <div className="change-meta">
+        <span className="change-date">{change.snapshot_date}</span>
+        <a
+          className="change-source"
+          href={sourceUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          title={`View the source CSV for ${change.snapshot_date} on GitHub`}
+        >
+          source
+        </a>
+      </div>
     </li>
   );
 }
 
 function renderNewRemovedSummary(c: Change): React.ReactNode {
-  // Strip the leading "NEW <type>: " or "REMOVED: " from diff_summary so we
-  // don't repeat the badge text in the line. Falls back to the raw summary.
   const stripped = c.summary
     .replace(/^NEW [A-Z_]+:\s*/, "")
     .replace(/^REMOVED:\s*/, "")
@@ -205,8 +290,6 @@ function formatRelative(iso: string): string {
 }
 
 // License number prefix encodes the broad license type in OLCC's scheme.
-// 010 = Lab, 020 = Producer, 030 = Processor, 040 = Wholesaler,
-// 050 = Retailer, 060 = (variant), 330 = Hemp.
 function guessLicenseTypeFromNumber(n: string): string {
   const prefix = n.slice(0, 3);
   switch (prefix) {

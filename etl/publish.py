@@ -22,7 +22,10 @@ from psycopg.rows import dict_row
 from etl import __version__
 
 DEFAULT_OUT_DIR = Path("public")
-DEFAULT_WINDOW_DAYS = 30
+# 180-day window so the UI can offer 30/90/180 client-side without refetching.
+# JSON size at full saturation is roughly 320 KB, comfortably under any
+# bandwidth threshold worth caring about.
+DEFAULT_WINDOW_DAYS = 180
 
 PROJECT_URL = "https://github.com/markpernotto/oregon-cannabis-license-watch"
 SOURCE_NAME = "OLCC Cannabis Licensee Public Report"
