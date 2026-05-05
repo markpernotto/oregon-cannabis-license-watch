@@ -235,13 +235,29 @@ header p { margin: 0.25rem 0; color: var(--muted); font-size: 0.95rem; }
 .change-type.removed { background: var(--removed-bg); color: var(--removed); }
 .change-type.field_change { background: var(--change-bg); color: var(--change); }
 
-.change-summary { font-size: 0.95rem; }
+.change-summary { font-size: 0.95rem; display: flex; flex-direction: column; gap: 0.15rem; }
 .change-summary code {
   font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
   font-size: 0.85em;
   background: var(--bg);
   padding: 0.05rem 0.3rem;
   border-radius: 0.2rem;
+}
+
+.change-name {
+  font-weight: 600;
+  font-size: 1rem;
+}
+
+.change-detail {
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+
+.change-detail code { font-size: 0.85em; }
+
+.change-legal {
+  font-style: italic;
 }
 
 .change-date {

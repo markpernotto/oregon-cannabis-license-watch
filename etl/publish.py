@@ -35,11 +35,20 @@ SOURCE_URL = (
 )
 
 _QUERY = """
-SELECT change_id, observed_at, license_number, change_type, field_name,
-       prev_value, new_value, diff_summary, source_snapshot_date
-FROM license_changes
-WHERE observed_at >= %s
-ORDER BY observed_at DESC, change_id DESC
+SELECT lc.change_id, lc.observed_at, lc.license_number, lc.change_type,
+       lc.field_name, lc.prev_value, lc.new_value, lc.diff_summary,
+       lc.source_snapshot_date,
+       ls.legal_name, ls.trade_name, ls.license_type, ls.county
+FROM license_changes lc
+LEFT JOIN LATERAL (
+    SELECT legal_name, trade_name, license_type, county
+    FROM licensees_snapshots
+    WHERE license_number = lc.license_number
+    ORDER BY snapshot_date DESC
+    LIMIT 1
+) ls ON TRUE
+WHERE lc.observed_at >= %s
+ORDER BY lc.observed_at DESC, lc.change_id DESC
 """
 
 
@@ -57,6 +66,10 @@ def _to_change_dict(row: dict) -> dict:
         "observed_at": row["observed_at"].isoformat(),
         "snapshot_date": row["source_snapshot_date"].isoformat(),
         "license_number": row["license_number"],
+        "license_type": row.get("license_type"),
+        "legal_name": row.get("legal_name"),
+        "trade_name": row.get("trade_name"),
+        "county": row.get("county"),
         "change_type": row["change_type"],
         "field_name": row["field_name"],
         "prev_value": row["prev_value"],

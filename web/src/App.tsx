@@ -235,18 +235,29 @@ export default function App() {
 function ChangeRow({ change }: { change: Change }) {
   const cls = change.change_type.toLowerCase();
   const sourceUrl = `${SNAPSHOT_BASE}/${change.snapshot_date}.csv`;
+  const displayName = change.trade_name || change.legal_name;
   return (
     <li className="change-card">
       <span className={`change-type ${cls}`}>{change.change_type}</span>
       <div className="change-summary">
-        <code>{change.license_number}</code>
-        {change.field_name ? (
-          <>
-            {" "}— {change.field_name}: {formatValue(change.prev_value)} → {formatValue(change.new_value)}
-          </>
-        ) : (
-          renderNewRemovedSummary(change)
-        )}
+        {displayName && <span className="change-name">{displayName}</span>}
+        <span className="change-detail">
+          {change.legal_name && change.trade_name && change.legal_name !== change.trade_name && (
+            <span className="change-legal" title="Legal entity name">
+              {change.legal_name}
+              {" · "}
+            </span>
+          )}
+          {change.county && <span>{change.county} County · </span>}
+          <code>{change.license_number}</code>
+          {change.field_name ? (
+            <>
+              {" "}— {change.field_name}: {formatValue(change.prev_value)} → {formatValue(change.new_value)}
+            </>
+          ) : (
+            renderNewRemovedSummary(change)
+          )}
+        </span>
       </div>
       <div className="change-meta">
         <span className="change-date">{change.snapshot_date}</span>

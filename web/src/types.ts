@@ -5,6 +5,10 @@ export interface Change {
   observed_at: string;
   snapshot_date: string;
   license_number: string;
+  license_type: string | null;
+  legal_name: string | null;
+  trade_name: string | null;
+  county: string | null;
   change_type: ChangeType;
   field_name: string | null;
   prev_value: unknown;
