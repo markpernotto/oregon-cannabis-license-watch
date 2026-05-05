@@ -115,8 +115,9 @@ export default function App() {
             <a className="rss-cta" href="/rss.xml" title="Subscribe in any RSS reader (Feedly, Inoreader, NetNewsWire, etc.)">
               <span aria-hidden="true">📡</span> Subscribe via RSS
             </a>
-            <span>Updated {formatRelative(data.generated_at)}</span>
-            <span>Freshness SLO: ≤ {data.freshness_sla_hours}h</span>
+            <span title={`Source pulled at ${data.generated_at}`}>
+              Data is {formatStaleness(data.generated_at)} old
+            </span>
             <span>
               <a href="/changes.json">JSON</a>
               {" · "}
@@ -281,14 +282,16 @@ function formatValue(v: unknown): string {
   return String(v);
 }
 
-function formatRelative(iso: string): string {
+function formatStaleness(iso: string): string {
   const then = new Date(iso).getTime();
   const now = Date.now();
   const seconds = Math.max(0, (now - then) / 1000);
-  if (seconds < 60) return "just now";
-  if (seconds < 3600) return `${Math.floor(seconds / 60)} min ago`;
-  if (seconds < 86400) return `${Math.floor(seconds / 3600)} h ago`;
-  return `${Math.floor(seconds / 86400)} d ago`;
+  if (seconds < 60) return "less than a minute";
+  if (seconds < 3600) return `${Math.floor(seconds / 60)} min`;
+  if (seconds < 86400) return `${Math.floor(seconds / 3600)} h`;
+  const days = Math.floor(seconds / 86400);
+  const hours = Math.floor((seconds % 86400) / 3600);
+  return hours ? `${days} d ${hours} h` : `${days} d`;
 }
 
 // License number prefix encodes the broad license type in OLCC's scheme.
