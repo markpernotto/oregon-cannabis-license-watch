@@ -28,6 +28,7 @@ export default function App() {
   const [error, setError] = useState<string | null>(null);
   const [licenseTypeFilter, setLicenseTypeFilter] = useState(ALL);
   const [changeTypeFilter, setChangeTypeFilter] = useState(ALL);
+  const [countyFilter, setCountyFilter] = useState(ALL);
   const [search, setSearch] = useState("");
   const [windowDays, setWindowDays] = useState<WindowDays>(readWindowFromUrl);
 
@@ -67,6 +68,14 @@ export default function App() {
     return Array.from(set).sort();
   }, [inWindow]);
 
+  const counties = useMemo(() => {
+    const set = new Set<string>();
+    for (const c of inWindow) {
+      if (c.county) set.add(c.county);
+    }
+    return Array.from(set).sort();
+  }, [inWindow]);
+
   const filtered = useMemo(() => {
     const needle = search.trim().toLowerCase();
     return inWindow.filter((c) => {
@@ -75,10 +84,23 @@ export default function App() {
         const lt = guessLicenseTypeFromNumber(c.license_number);
         if (lt !== licenseTypeFilter) return false;
       }
-      if (needle && !c.summary.toLowerCase().includes(needle)) return false;
+      if (countyFilter !== ALL && c.county !== countyFilter) return false;
+      if (needle) {
+        const haystack = [
+          c.summary,
+          c.license_number,
+          c.legal_name,
+          c.trade_name,
+          c.county,
+        ]
+          .filter(Boolean)
+          .join(" ")
+          .toLowerCase();
+        if (!haystack.includes(needle)) return false;
+      }
       return true;
     });
-  }, [inWindow, changeTypeFilter, licenseTypeFilter, search]);
+  }, [inWindow, changeTypeFilter, licenseTypeFilter, countyFilter, search]);
 
   const handleWindowChange = (w: WindowDays) => {
     setWindowDays(w);
@@ -175,11 +197,24 @@ export default function App() {
               </select>
             </div>
             <div>
+              <label htmlFor="county">County</label>
+              <select
+                id="county"
+                value={countyFilter}
+                onChange={(e) => setCountyFilter(e.target.value)}
+              >
+                <option value={ALL}>All</option>
+                {counties.map((c) => (
+                  <option key={c} value={c}>{c}</option>
+                ))}
+              </select>
+            </div>
+            <div>
               <label htmlFor="search">Search</label>
               <input
                 id="search"
                 type="search"
-                placeholder="License number or text…"
+                placeholder="Name, license number, county…"
                 value={search}
                 onChange={(e) => setSearch(e.target.value)}
               />
