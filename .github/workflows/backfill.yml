@@ -1,0 +1,47 @@
+name: backfill
+
+on:
+  workflow_dispatch:
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - name: Install
+        run: |
+          python -m pip install --upgrade pip
+          pip install -e '.'
+
+      - name: Apply schema (idempotent)
+        env:
+          DATABASE_URL: ${{ secrets.DATABASE_URL }}
+        run: |
+          python - <<'PY'
+          import os, psycopg
+          from pathlib import Path
+          with psycopg.connect(os.environ["DATABASE_URL"]) as conn, conn.cursor() as cur:
+              cur.execute(Path("etl/schema.sql").read_text())
+              conn.commit()
+          PY
+
+      - name: Backfill from data/snapshots/
+        env:
+          DATABASE_URL: ${{ secrets.DATABASE_URL }}
+        run: python -m etl.backfill
+
+      - name: Commit refreshed artifacts
+        run: |
+          git config user.name "oc-data-bot"
+          git config user.email "bot@users.noreply.github.com"
+          git add public/ || true
+          git diff --cached --quiet || git commit -m "chore(backfill): refresh public artifacts after backfill"
+          git push || true
