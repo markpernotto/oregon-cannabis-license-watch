@@ -214,7 +214,7 @@ export default function App() {
               <input
                 id="search"
                 type="search"
-                placeholder="Name, license number, county…"
+                placeholder="Name / license number"
                 value={search}
                 onChange={(e) => setSearch(e.target.value)}
               />
