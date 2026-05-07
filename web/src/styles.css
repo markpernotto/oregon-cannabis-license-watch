@@ -263,6 +263,8 @@ header p { margin: 0.25rem 0; color: var(--muted); font-size: 0.95rem; }
   white-space: nowrap;
 }
 
+.load-sentinel { height: 1px; }
+
 .empty, .loading, .error {
   text-align: center;
   padding: 3rem 1rem;

@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import type { Change, ChangesPayload } from "./types";
 
 const ALL = "__all__";
@@ -31,6 +31,8 @@ export default function App() {
   const [countyFilter, setCountyFilter] = useState(ALL);
   const [search, setSearch] = useState("");
   const [windowDays, setWindowDays] = useState<WindowDays>(readWindowFromUrl);
+  const [visibleCount, setVisibleCount] = useState(100);
+  const sentinelRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     fetch("/changes.json")
@@ -101,6 +103,24 @@ export default function App() {
       return true;
     });
   }, [inWindow, changeTypeFilter, licenseTypeFilter, countyFilter, search]);
+
+  // Reset visible count whenever filters change so we don't show a stale slice.
+  useEffect(() => { setVisibleCount(100); }, [filtered]);
+
+  const loadMore = useCallback(() => {
+    setVisibleCount((n) => Math.min(n + 100, filtered.length));
+  }, [filtered.length]);
+
+  useEffect(() => {
+    const el = sentinelRef.current;
+    if (!el) return;
+    const observer = new IntersectionObserver(
+      (entries) => { if (entries[0].isIntersecting) loadMore(); },
+      { rootMargin: "200px" },
+    );
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, [loadMore]);
 
   const handleWindowChange = (w: WindowDays) => {
     setWindowDays(w);
@@ -229,11 +249,16 @@ export default function App() {
           {filtered.length === 0 ? (
             <div className="empty">No changes match the current filters.</div>
           ) : (
-            <ul className="change-list">
-              {filtered.map((c) => (
-                <ChangeRow key={c.change_id} change={c} />
-              ))}
-            </ul>
+            <>
+              <ul className="change-list">
+                {filtered.slice(0, visibleCount).map((c) => (
+                  <ChangeRow key={c.change_id} change={c} />
+                ))}
+              </ul>
+              {visibleCount < filtered.length && (
+                <div ref={sentinelRef} className="load-sentinel" />
+              )}
+            </>
           )}
         </>
       )}
