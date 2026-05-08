@@ -34,6 +34,23 @@ SOURCE_URL = (
     "CannabisBusinessLicensesEndorsements/CannabisLicensesEndorsements"
 )
 
+# Returns the earliest date in the current unbroken consecutive daily run.
+# Uses a gaps-and-islands approach: subtracting row_number from the date
+# produces the same offset for all dates in a consecutive group.
+_CONSECUTIVE_START_QUERY = """
+WITH dates AS (
+    SELECT DISTINCT snapshot_date,
+           snapshot_date - (ROW_NUMBER() OVER (ORDER BY snapshot_date) || ' days')::interval AS grp
+    FROM licensees_snapshots
+),
+last_grp AS (
+    SELECT grp FROM dates ORDER BY snapshot_date DESC LIMIT 1
+)
+SELECT MIN(snapshot_date)::date AS first_consecutive_date
+FROM dates
+WHERE grp = (SELECT grp FROM last_grp)
+"""
+
 _QUERY = """
 SELECT lc.change_id, lc.observed_at, lc.license_number, lc.change_type,
        lc.field_name, lc.prev_value, lc.new_value, lc.diff_summary,
@@ -120,6 +137,8 @@ def publish(
     with psycopg.connect(database_url) as conn, conn.cursor(row_factory=dict_row) as cur:
         cur.execute(_QUERY, (cutoff,))
         rows = cur.fetchall()
+        cur.execute(_CONSECUTIVE_START_QUERY)
+        consecutive_start = cur.fetchone()["first_consecutive_date"]
 
     changes = [_to_change_dict(r) for r in rows]
 
@@ -130,6 +149,7 @@ def publish(
         "window_days": window_days,
         "total_changes": len(changes),
         "freshness_sla_hours": 26,
+        "first_snapshot_date": consecutive_start.isoformat() if consecutive_start else None,
         "changes": changes,
     }
 

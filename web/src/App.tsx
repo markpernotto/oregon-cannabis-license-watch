@@ -279,6 +279,13 @@ export default function App() {
           </a>
           .
         </p>
+        {data?.first_snapshot_date && (
+          <p>
+            Daily change history begins{" "}
+            <strong>{formatDate(data.first_snapshot_date)}</strong>.
+            No data exists before that date.
+          </p>
+        )}
         <p>
           Need history beyond 180 days?{" "}
           <a href={`${REPO_URL}/issues/new`} target="_blank" rel="noopener noreferrer">
@@ -351,6 +358,12 @@ function formatValue(v: unknown): string {
   if (v === null || v === undefined) return "(empty)";
   if (Array.isArray(v)) return v.length ? v.join(", ") : "(empty)";
   return String(v);
+}
+
+function formatDate(iso: string): string {
+  return new Date(iso + "T00:00:00").toLocaleDateString("en-US", {
+    month: "long", day: "numeric", year: "numeric",
+  });
 }
 
 function formatStaleness(iso: string): string {

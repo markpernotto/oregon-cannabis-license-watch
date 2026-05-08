@@ -23,5 +23,6 @@ export interface ChangesPayload {
   window_days: number;
   total_changes: number;
   freshness_sla_hours: number;
+  first_snapshot_date: string | null;
   changes: Change[];
 }
