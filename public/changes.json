@@ -1,12 +1,40 @@
 {
-  "generated_at": "2026-06-20T07:13:44.753112+00:00",
+  "generated_at": "2026-06-21T07:30:40.498261+00:00",
   "source": "OLCC Cannabis Licensee Public Report",
   "source_url": "https://data.olcc.state.or.us/t/OLCCPublic/views/CannabisBusinessLicensesEndorsements/CannabisLicensesEndorsements",
   "window_days": 180,
-  "total_changes": 743,
+  "total_changes": 744,
   "freshness_sla_hours": 26,
-  "first_snapshot_date": "2026-06-20",
+  "first_snapshot_date": "2026-06-21",
   "changes": [
+    {
+      "change_id": 744,
+      "observed_at": "2026-06-21T07:30:38.852687+00:00",
+      "snapshot_date": "2026-06-21",
+      "license_number": "020-1002788E39D",
+      "license_type": "RECREATIONAL_PRODUCER",
+      "legal_name": "NEBADON INC.",
+      "trade_name": "Nebadon, Inc.",
+      "county": "Multnomah",
+      "change_type": "REMOVED",
+      "field_name": null,
+      "prev_value": {
+        "tier": "Micro Tier II",
+        "county": "Multnomah",
+        "status": "ACTIVE",
+        "legal_name": "NEBADON INC.",
+        "trade_name": "Nebadon, Inc.",
+        "canopy_type": "Indoor",
+        "endorsements": [],
+        "license_type": "RECREATIONAL_PRODUCER",
+        "license_number": "020-1002788E39D",
+        "expiration_date": "2026-11-16",
+        "physical_address": "Exempt from Public Disclosure",
+        "sos_registration": null
+      },
+      "new_value": null,
+      "summary": "REMOVED: Nebadon, Inc. (020-1002788E39D)"
+    },
     {
       "change_id": 743,
       "observed_at": "2026-06-20T07:13:43.430103+00:00",
