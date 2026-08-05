@@ -1,12 +1,2539 @@
 {
-  "generated_at": "2026-08-04T06:47:00.627031+00:00",
+  "generated_at": "2026-08-05T06:48:18.336141+00:00",
   "source": "OLCC Cannabis Licensee Public Report",
   "source_url": "https://data.olcc.state.or.us/t/OLCCPublic/views/CannabisBusinessLicensesEndorsements/CannabisLicensesEndorsements",
   "window_days": 180,
-  "total_changes": 1377,
+  "total_changes": 1480,
   "freshness_sla_hours": 26,
-  "first_snapshot_date": "2026-08-04",
+  "first_snapshot_date": "2026-08-05",
   "changes": [
+    {
+      "change_id": 1480,
+      "observed_at": "2026-08-05T06:48:17.569200+00:00",
+      "snapshot_date": "2026-08-05",
+      "license_number": "050-22259",
+      "license_type": "RECREATIONAL_RETAILER",
+      "legal_name": "LUCKY PIFF EUGENE LLC",
+      "trade_name": "Lucky Piff Eugene LLC",
+      "county": "Lane",
+      "change_type": "FIELD_CHANGE",
+      "field_name": "endorsements",
+      "prev_value": [
+        "Marijuana Home Delivery",
+        "Medical Marijuana Retailer"
+      ],
+      "new_value": [
+        "Medical Marijuana Retailer",
+        "Marijuana Home Delivery"
+      ],
+      "summary": "050-22259 endorsements: Marijuana Home Delivery, Medical Marijuana Retailer -> Medical Marijuana Retailer, Marijuana Home Delivery"
+    },
+    {
+      "change_id": 1479,
+      "observed_at": "2026-08-05T06:48:17.569200+00:00",
+      "snapshot_date": "2026-08-05",
+      "license_number": "050-1021663B76F",
+      "license_type": "RECREATIONAL_RETAILER",
+      "legal_name": "HASH IT OUT LLC",
+      "trade_name": "Hash It Out",
+      "county": "Coos",
+      "change_type": "FIELD_CHANGE",
+      "field_name": "endorsements",
+      "prev_value": [
+        "Marijuana Home Delivery",
+        "Medical Marijuana Retailer"
+      ],
+      "new_value": [
+        "Medical Marijuana Retailer",
+        "Marijuana Home Delivery"
+      ],
+      "summary": "050-1021663B76F endorsements: Marijuana Home Delivery, Medical Marijuana Retailer -> Medical Marijuana Retailer, Marijuana Home Delivery"
+    },
+    {
+      "change_id": 1478,
+      "observed_at": "2026-08-05T06:48:17.569200+00:00",
+      "snapshot_date": "2026-08-05",
+      "license_number": "050-1016923EE82",
+      "license_type": "RECREATIONAL_RETAILER",
+      "legal_name": "POPS' LLC",
+      "trade_name": "POPS' LLC",
+      "county": "Curry",
+      "change_type": "FIELD_CHANGE",
+      "field_name": "endorsements",
+      "prev_value": [
+        "Marijuana Home Delivery",
+        "Medical Marijuana Retailer"
+      ],
+      "new_value": [
+        "Medical Marijuana Retailer",
+        "Marijuana Home Delivery"
+      ],
+      "summary": "050-1016923EE82 endorsements: Marijuana Home Delivery, Medical Marijuana Retailer -> Medical Marijuana Retailer, Marijuana Home Delivery"
+    },
+    {
+      "change_id": 1477,
+      "observed_at": "2026-08-05T06:48:17.569200+00:00",
+      "snapshot_date": "2026-08-05",
+      "license_number": "050-10160898042",
+      "license_type": "RECREATIONAL_RETAILER",
+      "legal_name": "BLOOM WELL INC",
+      "trade_name": "Substance",
+      "county": "Lake",
+      "change_type": "FIELD_CHANGE",
+      "field_name": "expiration_date",
+      "prev_value": null,
+      "new_value": "2027-10-06",
+      "summary": "050-10160898042 expiration_date: (empty) -> 2027-10-06"
+    },
+    {
+      "change_id": 1476,
+      "observed_at": "2026-08-05T06:48:17.569200+00:00",
+      "snapshot_date": "2026-08-05",
+      "license_number": "050-10160898042",
+      "license_type": "RECREATIONAL_RETAILER",
+      "legal_name": "BLOOM WELL INC",
+      "trade_name": "Substance",
+      "county": "Lake",
+      "change_type": "FIELD_CHANGE",
+      "field_name": "endorsements",
+      "prev_value": [
+        "Marijuana Home Delivery",
+        "Medical Marijuana Retailer"
+      ],
+      "new_value": [
+        "Medical Marijuana Retailer",
+        "Marijuana Home Delivery"
+      ],
+      "summary": "050-10160898042 endorsements: Marijuana Home Delivery, Medical Marijuana Retailer -> Medical Marijuana Retailer, Marijuana Home Delivery"
+    },
+    {
+      "change_id": 1475,
+      "observed_at": "2026-08-05T06:48:17.569200+00:00",
+      "snapshot_date": "2026-08-05",
+      "license_number": "050-10137563D3B",
+      "license_type": "RECREATIONAL_RETAILER",
+      "legal_name": "THE GREEN PLANET, INC.",
+      "trade_name": "The Green Planet",
+      "county": "Washington",
+      "change_type": "FIELD_CHANGE",
+      "field_name": "expiration_date",
+      "prev_value": null,
+      "new_value": "2027-08-02",
+      "summary": "050-10137563D3B expiration_date: (empty) -> 2027-08-02"
+    },
+    {
+      "change_id": 1474,
+      "observed_at": "2026-08-05T06:48:17.569200+00:00",
+      "snapshot_date": "2026-08-05",
+      "license_number": "050-10117317F08",
+      "license_type": "RECREATIONAL_RETAILER",
+      "legal_name": "ROCKY MTN DISPENSARY INC",
+      "trade_name": "Rocky Mtn Dispensary",
+      "county": "Grant",
+      "change_type": "FIELD_CHANGE",
+      "field_name": "expiration_date",
+      "prev_value": "2026-08-07",
+      "new_value": null,
+      "summary": "050-10117317F08 expiration_date: 2026-08-07 -> (empty)"
+    },
+    {
+      "change_id": 1473,
+      "observed_at": "2026-08-05T06:48:17.569200+00:00",
+      "snapshot_date": "2026-08-05",
+      "license_number": "050-10037199BA2",
+      "license_type": "RECREATIONAL_RETAILER",
+      "legal_name": "PLANTAE HEALTH CARE LLC",
+      "trade_name": "Plantae",
+      "county": "Jefferson",
+      "change_type": "FIELD_CHANGE",
+      "field_name": "endorsements",
+      "prev_value": [
+        "Marijuana Home Delivery",
+        "Medical Marijuana Retailer"
+      ],
+      "new_value": [
+        "Medical Marijuana Retailer",
+        "Marijuana Home Delivery"
+      ],
+      "summary": "050-10037199BA2 endorsements: Marijuana Home Delivery, Medical Marijuana Retailer -> Medical Marijuana Retailer, Marijuana Home Delivery"
+    },
+    {
+      "change_id": 1472,
+      "observed_at": "2026-08-05T06:48:17.569200+00:00",
+      "snapshot_date": "2026-08-05",
+      "license_number": "050-10013998C72",
+      "license_type": "RECREATIONAL_RETAILER",
+      "legal_name": "KELLY LYNN HUTSON & PHILIP J HUTSON",
+      "trade_name": "Pacific Wave",
+      "county": "Lincoln",
+      "change_type": "FIELD_CHANGE",
+      "field_name": "endorsements",
+      "prev_value": [
+        "Marijuana Home Delivery",
+        "Medical Marijuana Retailer"
+      ],
+      "new_value": [
+        "Medical Marijuana Retailer",
+        "Marijuana Home Delivery"
+      ],
+      "summary": "050-10013998C72 endorsements: Marijuana Home Delivery, Medical Marijuana Retailer -> Medical Marijuana Retailer, Marijuana Home Delivery"
+    },
+    {
+      "change_id": 1471,
+      "observed_at": "2026-08-05T06:48:17.569200+00:00",
+      "snapshot_date": "2026-08-05",
+      "license_number": "050-100069626B0",
+      "license_type": "RECREATIONAL_RETAILER",
+      "legal_name": "EMERALD CORNER CORP.",
+      "trade_name": "Oregon Farmacy",
+      "county": "Jackson",
+      "change_type": "FIELD_CHANGE",
+      "field_name": "endorsements",
+      "prev_value": [
+        "Marijuana Home Delivery",
+        "Medical Marijuana Retailer"
+      ],
+      "new_value": [
+        "Medical Marijuana Retailer",
+        "Marijuana Home Delivery"
+      ],
+      "summary": "050-100069626B0 endorsements: Marijuana Home Delivery, Medical Marijuana Retailer -> Medical Marijuana Retailer, Marijuana Home Delivery"
+    },
+    {
+      "change_id": 1470,
+      "observed_at": "2026-08-05T06:48:17.569200+00:00",
+      "snapshot_date": "2026-08-05",
+      "license_number": "030-8170",
+      "license_type": "RECREATIONAL_PROCESSOR",
+      "legal_name": "SRL GROUP, LLC",
+      "trade_name": "SRL Group LLC",
+      "county": "Jackson",
+      "change_type": "FIELD_CHANGE",
+      "field_name": "endorsements",
+      "prev_value": [
+        "Concentrate Processor",
+        "Industrial Hemp"
+      ],
+      "new_value": [
+        "Industrial Hemp",
+        "Concentrate Processor"
+      ],
+      "summary": "030-8170 endorsements: Concentrate Processor, Industrial Hemp -> Industrial Hemp, Concentrate Processor"
+    },
+    {
+      "change_id": 1469,
+      "observed_at": "2026-08-05T06:48:17.569200+00:00",
+      "snapshot_date": "2026-08-05",
+      "license_number": "030-3771",
+      "license_type": "RECREATIONAL_PROCESSOR",
+      "legal_name": "TREASURE VALLEY CANNABIS COMPANY, LLC",
+      "trade_name": "Treasure Valley Cannabis Company",
+      "county": "Jackson",
+      "change_type": "FIELD_CHANGE",
+      "field_name": "endorsements",
+      "prev_value": [
+        "Concentrate Processor",
+        "Edible Processor",
+        "Industrial Hemp",
+        "Medical Marijuana Processor",
+        "Topical Processor"
+      ],
+      "new_value": [
+        "Concentrate Processor",
+        "Edible Processor",
+        "Industrial Hemp",
+        "Topical Processor",
+        "Medical Marijuana Processor"
+      ],
+      "summary": "030-3771 endorsements: Concentrate Processor, Edible Processor, Industrial Hemp, Medical Marijuana Processor, Topical Processor -> Concentrate Processor, Edible Processor, Industrial Hemp, Topical Processor, Medical Marijuana Processor"
+    },
+    {
+      "change_id": 1468,
+      "observed_at": "2026-08-05T06:48:17.569200+00:00",
+      "snapshot_date": "2026-08-05",
+      "license_number": "030-30081",
+      "license_type": "RECREATIONAL_PROCESSOR",
+      "legal_name": "ATLANTIS 33 LLC",
+      "trade_name": "Atlantis 33 LLC",
+      "county": "Washington",
+      "change_type": "FIELD_CHANGE",
+      "field_name": "endorsements",
+      "prev_value": [
+        "Concentrate Processor",
+        "Edible Processor",
+        "Medical Marijuana Processor"
+      ],
+      "new_value": [
+        "Edible Processor",
+        "Concentrate Processor",
+        "Medical Marijuana Processor"
+      ],
+      "summary": "030-30081 endorsements: Concentrate Processor, Edible Processor, Medical Marijuana Processor -> Edible Processor, Concentrate Processor, Medical Marijuana Processor"
+    },
+    {
+      "change_id": 1467,
+      "observed_at": "2026-08-05T06:48:17.569200+00:00",
+      "snapshot_date": "2026-08-05",
+      "license_number": "030-23467",
+      "license_type": "RECREATIONAL_PROCESSOR",
+      "legal_name": "GRON CHOCOLATE, LLC",
+      "trade_name": "Gron Chocolate",
+      "county": "Multnomah",
+      "change_type": "FIELD_CHANGE",
+      "field_name": "endorsements",
+      "prev_value": [
+        "Concentrate Processor",
+        "Edible Processor",
+        "Extract Processor",
+        "Industrial Hemp",
+        "Medical Marijuana Processor"
+      ],
+      "new_value": [
+        "Edible Processor",
+        "Industrial Hemp",
+        "Medical Marijuana Processor",
+        "Concentrate Processor",
+        "Extract Processor"
+      ],
+      "summary": "030-23467 endorsements: Concentrate Processor, Edible Processor, Extract Processor, Industrial Hemp, Medical Marijuana Processor -> Edible Processor, Industrial Hemp, Medical Marijuana Processor, Concentrate Processor, Extract Processor"
+    },
+    {
+      "change_id": 1466,
+      "observed_at": "2026-08-05T06:48:17.569200+00:00",
+      "snapshot_date": "2026-08-05",
+      "license_number": "030-22942",
+      "license_type": "RECREATIONAL_PROCESSOR",
+      "legal_name": "TERRANOVA HOLDINGS LLC",
+      "trade_name": "Casbah Hash",
+      "county": "Jackson",
+      "change_type": "FIELD_CHANGE",
+      "field_name": "endorsements",
+      "prev_value": [
+        "Concentrate Processor",
+        "Industrial Hemp",
+        "Medical Marijuana Processor"
+      ],
+      "new_value": [
+        "Medical Marijuana Processor",
+        "Concentrate Processor",
+        "Industrial Hemp"
+      ],
+      "summary": "030-22942 endorsements: Concentrate Processor, Industrial Hemp, Medical Marijuana Processor -> Medical Marijuana Processor, Concentrate Processor, Industrial Hemp"
+    },
+    {
+      "change_id": 1465,
+      "observed_at": "2026-08-05T06:48:17.569200+00:00",
+      "snapshot_date": "2026-08-05",
+      "license_number": "030-22114",
+      "license_type": "RECREATIONAL_PROCESSOR",
+      "legal_name": "POWDER RIVER INDUSTRIES LLC",
+      "trade_name": "Nugget Candy Co",
+      "county": "Baker",
+      "change_type": "FIELD_CHANGE",
+      "field_name": "endorsements",
+      "prev_value": [
+        "Concentrate Processor",
+        "Edible Processor",
+        "Topical Processor"
+      ],
+      "new_value": [
+        "Topical Processor",
+        "Concentrate Processor",
+        "Edible Processor"
+      ],
+      "summary": "030-22114 endorsements: Concentrate Processor, Edible Processor, Topical Processor -> Topical Processor, Concentrate Processor, Edible Processor"
+    },
+    {
+      "change_id": 1464,
+      "observed_at": "2026-08-05T06:48:17.569200+00:00",
+      "snapshot_date": "2026-08-05",
+      "license_number": "030-20738",
+      "license_type": "RECREATIONAL_PROCESSOR",
+      "legal_name": "BONSAI OPERATIONS LLC",
+      "trade_name": "Bonsai",
+      "county": "Lane",
+      "change_type": "FIELD_CHANGE",
+      "field_name": "endorsements",
+      "prev_value": [
+        "Concentrate Processor",
+        "Edible Processor",
+        "Medical Marijuana Processor"
+      ],
+      "new_value": [
+        "Medical Marijuana Processor",
+        "Concentrate Processor",
+        "Edible Processor"
+      ],
+      "summary": "030-20738 endorsements: Concentrate Processor, Edible Processor, Medical Marijuana Processor -> Medical Marijuana Processor, Concentrate Processor, Edible Processor"
+    },
+    {
+      "change_id": 1463,
+      "observed_at": "2026-08-05T06:48:17.569200+00:00",
+      "snapshot_date": "2026-08-05",
+      "license_number": "030-18287",
+      "license_type": "RECREATIONAL_PROCESSOR",
+      "legal_name": "UPPA CREEK CO. LLC",
+      "trade_name": "Uppa Creek Co LLC",
+      "county": "Benton",
+      "change_type": "FIELD_CHANGE",
+      "field_name": "endorsements",
+      "prev_value": [
+        "Concentrate Processor",
+        "Industrial Hemp",
+        "Medical Marijuana Processor"
+      ],
+      "new_value": [
+        "Concentrate Processor",
+        "Medical Marijuana Processor",
+        "Industrial Hemp"
+      ],
+      "summary": "030-18287 endorsements: Concentrate Processor, Industrial Hemp, Medical Marijuana Processor -> Concentrate Processor, Medical Marijuana Processor, Industrial Hemp"
+    },
+    {
+      "change_id": 1462,
+      "observed_at": "2026-08-05T06:48:17.569200+00:00",
+      "snapshot_date": "2026-08-05",
+      "license_number": "030-12622",
+      "license_type": "RECREATIONAL_PROCESSOR",
+      "legal_name": "LIGHTHOUSE INDUSTRIES INC",
+      "trade_name": "Lighthouse, Shadowbox",
+      "county": "Multnomah",
+      "change_type": "FIELD_CHANGE",
+      "field_name": "endorsements",
+      "prev_value": [
+        "Concentrate Processor",
+        "Extract Processor"
+      ],
+      "new_value": [
+        "Extract Processor",
+        "Concentrate Processor"
+      ],
+      "summary": "030-12622 endorsements: Concentrate Processor, Extract Processor -> Extract Processor, Concentrate Processor"
+    },
+    {
+      "change_id": 1461,
+      "observed_at": "2026-08-05T06:48:17.569200+00:00",
+      "snapshot_date": "2026-08-05",
+      "license_number": "030-1025517A2F7",
+      "license_type": "RECREATIONAL_PROCESSOR",
+      "legal_name": "THE HONEY POT, L.L.C.",
+      "trade_name": "Black Castle Cannabis",
+      "county": "Marion",
+      "change_type": "FIELD_CHANGE",
+      "field_name": "endorsements",
+      "prev_value": [
+        "Concentrate Processor",
+        "Medical Marijuana Processor"
+      ],
+      "new_value": [
+        "Medical Marijuana Processor",
+        "Concentrate Processor"
+      ],
+      "summary": "030-1025517A2F7 endorsements: Concentrate Processor, Medical Marijuana Processor -> Medical Marijuana Processor, Concentrate Processor"
+    },
+    {
+      "change_id": 1460,
+      "observed_at": "2026-08-05T06:48:17.569200+00:00",
+      "snapshot_date": "2026-08-05",
+      "license_number": "030-10250611B97",
+      "license_type": "RECREATIONAL_PROCESSOR",
+      "legal_name": "PDX FACTOR EXTRACTS LLC",
+      "trade_name": "PDX FACTOR EXTRACTS LLC",
+      "county": "Washington",
+      "change_type": "FIELD_CHANGE",
+      "field_name": "endorsements",
+      "prev_value": [
+        "Concentrate Processor",
+        "Edible Processor",
+        "Extract Processor",
+        "Topical Processor"
+      ],
+      "new_value": [
+        "Extract Processor",
+        "Concentrate Processor",
+        "Edible Processor",
+        "Topical Processor"
+      ],
+      "summary": "030-10250611B97 endorsements: Concentrate Processor, Edible Processor, Extract Processor, Topical Processor -> Extract Processor, Concentrate Processor, Edible Processor, Topical Processor"
+    },
+    {
+      "change_id": 1459,
+      "observed_at": "2026-08-05T06:48:17.569200+00:00",
+      "snapshot_date": "2026-08-05",
+      "license_number": "030-102432606A4",
+      "license_type": "RECREATIONAL_PROCESSOR",
+      "legal_name": "HARMONY PROCESSING COMPANY LLC",
+      "trade_name": "Harmony Processing",
+      "county": "Multnomah",
+      "change_type": "FIELD_CHANGE",
+      "field_name": "endorsements",
+      "prev_value": [
+        "Concentrate Processor",
+        "Edible Processor",
+        "Medical Marijuana Processor"
+      ],
+      "new_value": [
+        "Edible Processor",
+        "Medical Marijuana Processor",
+        "Concentrate Processor"
+      ],
+      "summary": "030-102432606A4 endorsements: Concentrate Processor, Edible Processor, Medical Marijuana Processor -> Edible Processor, Medical Marijuana Processor, Concentrate Processor"
+    },
+    {
+      "change_id": 1458,
+      "observed_at": "2026-08-05T06:48:17.569200+00:00",
+      "snapshot_date": "2026-08-05",
+      "license_number": "030-1023754B23E",
+      "license_type": "RECREATIONAL_PROCESSOR",
+      "legal_name": "RN HOLDINGS LLC",
+      "trade_name": "RN Holdings LLC",
+      "county": "Clackamas",
+      "change_type": "FIELD_CHANGE",
+      "field_name": "endorsements",
+      "prev_value": [
+        "Concentrate Processor",
+        "Edible Processor",
+        "Industrial Hemp",
+        "Medical Marijuana Processor",
+        "Topical Processor"
+      ],
+      "new_value": [
+        "Medical Marijuana Processor",
+        "Concentrate Processor",
+        "Edible Processor",
+        "Industrial Hemp",
+        "Topical Processor"
+      ],
+      "summary": "030-1023754B23E endorsements: Concentrate Processor, Edible Processor, Industrial Hemp, Medical Marijuana Processor, Topical Processor -> Medical Marijuana Processor, Concentrate Processor, Edible Processor, Industrial Hemp, Topical Processor"
+    },
+    {
+      "change_id": 1457,
+      "observed_at": "2026-08-05T06:48:17.569200+00:00",
+      "snapshot_date": "2026-08-05",
+      "license_number": "030-10225662ED0",
+      "license_type": "RECREATIONAL_PROCESSOR",
+      "legal_name": "BHE LLC",
+      "trade_name": "Beehive Extracts",
+      "county": "Multnomah",
+      "change_type": "FIELD_CHANGE",
+      "field_name": "endorsements",
+      "prev_value": [
+        "Concentrate Processor",
+        "Edible Processor",
+        "Extract Processor"
+      ],
+      "new_value": [
+        "Edible Processor",
+        "Extract Processor",
+        "Concentrate Processor"
+      ],
+      "summary": "030-10225662ED0 endorsements: Concentrate Processor, Edible Processor, Extract Processor -> Edible Processor, Extract Processor, Concentrate Processor"
+    },
+    {
+      "change_id": 1456,
+      "observed_at": "2026-08-05T06:48:17.569200+00:00",
+      "snapshot_date": "2026-08-05",
+      "license_number": "030-1022242828D",
+      "license_type": "RECREATIONAL_PROCESSOR",
+      "legal_name": "LIGHTHOUSE INDUSTRIES INC",
+      "trade_name": "Lighthouse Industries Inc.",
+      "county": "Multnomah",
+      "change_type": "FIELD_CHANGE",
+      "field_name": "endorsements",
+      "prev_value": [
+        "Concentrate Processor",
+        "Edible Processor",
+        "Extract Processor",
+        "Industrial Hemp",
+        "Medical Marijuana Processor",
+        "Topical Processor"
+      ],
+      "new_value": [
+        "Edible Processor",
+        "Extract Processor",
+        "Industrial Hemp",
+        "Medical Marijuana Processor",
+        "Topical Processor",
+        "Concentrate Processor"
+      ],
+      "summary": "030-1022242828D endorsements: Concentrate Processor, Edible Processor, Extract Processor, Industrial Hemp, Medical Marijuana Processor, Topical Processor -> Edible Processor, Extract Processor, Industrial Hemp, Medical Marijuana Processor, Topical Processor, Concentrate Processor"
+    },
+    {
+      "change_id": 1455,
+      "observed_at": "2026-08-05T06:48:17.569200+00:00",
+      "snapshot_date": "2026-08-05",
+      "license_number": "030-102119562FB",
+      "license_type": "RECREATIONAL_PROCESSOR",
+      "legal_name": "NATURAL WONDERS LLC",
+      "trade_name": "Hidden Leaf Labs",
+      "county": "Multnomah",
+      "change_type": "FIELD_CHANGE",
+      "field_name": "endorsements",
+      "prev_value": [
+        "Processing for Cardholders",
+        "Concentrate Processor",
+        "Industrial Hemp",
+        "Medical Marijuana Processor"
+      ],
+      "new_value": [
+        "Industrial Hemp",
+        "Medical Marijuana Processor",
+        "Processing for Cardholders",
+        "Concentrate Processor"
+      ],
+      "summary": "030-102119562FB endorsements: Processing for Cardholders, Concentrate Processor, Industrial Hemp, Medical Marijuana Processor -> Industrial Hemp, Medical Marijuana Processor, Processing for Cardholders, Concentrate Processor"
+    },
+    {
+      "change_id": 1454,
+      "observed_at": "2026-08-05T06:48:17.569200+00:00",
+      "snapshot_date": "2026-08-05",
+      "license_number": "030-10202213085",
+      "license_type": "RECREATIONAL_PROCESSOR",
+      "legal_name": "CSGA HOLDINGS LLC",
+      "trade_name": "OG Extracts",
+      "county": "Clackamas",
+      "change_type": "FIELD_CHANGE",
+      "field_name": "endorsements",
+      "prev_value": [
+        "Concentrate Processor",
+        "Edible Processor",
+        "Extract Processor",
+        "Industrial Hemp"
+      ],
+      "new_value": [
+        "Extract Processor",
+        "Concentrate Processor",
+        "Edible Processor",
+        "Industrial Hemp"
+      ],
+      "summary": "030-10202213085 endorsements: Concentrate Processor, Edible Processor, Extract Processor, Industrial Hemp -> Extract Processor, Concentrate Processor, Edible Processor, Industrial Hemp"
+    },
+    {
+      "change_id": 1453,
+      "observed_at": "2026-08-05T06:48:17.569200+00:00",
+      "snapshot_date": "2026-08-05",
+      "license_number": "030-10192738D0C",
+      "license_type": "RECREATIONAL_PROCESSOR",
+      "legal_name": "THE NATURAL REFINERY LLC",
+      "trade_name": "Refinery Canna Connoisseur",
+      "county": "Multnomah",
+      "change_type": "FIELD_CHANGE",
+      "field_name": "endorsements",
+      "prev_value": [
+        "Concentrate Processor",
+        "Edible Processor",
+        "Industrial Hemp",
+        "Medical Marijuana Processor",
+        "Topical Processor"
+      ],
+      "new_value": [
+        "Edible Processor",
+        "Industrial Hemp",
+        "Medical Marijuana Processor",
+        "Topical Processor",
+        "Concentrate Processor"
+      ],
+      "summary": "030-10192738D0C endorsements: Concentrate Processor, Edible Processor, Industrial Hemp, Medical Marijuana Processor, Topical Processor -> Edible Processor, Industrial Hemp, Medical Marijuana Processor, Topical Processor, Concentrate Processor"
+    },
+    {
+      "change_id": 1452,
+      "observed_at": "2026-08-05T06:48:17.569200+00:00",
+      "snapshot_date": "2026-08-05",
+      "license_number": "030-10192422B8E",
+      "license_type": "RECREATIONAL_PROCESSOR",
+      "legal_name": "PACIFIC NORTHWEST PROVISIONS LLC",
+      "trade_name": "Pacific Northwest Provisions",
+      "county": "Marion",
+      "change_type": "FIELD_CHANGE",
+      "field_name": "endorsements",
+      "prev_value": [
+        "Concentrate Processor",
+        "Edible Processor"
+      ],
+      "new_value": [
+        "Edible Processor",
+        "Concentrate Processor"
+      ],
+      "summary": "030-10192422B8E endorsements: Concentrate Processor, Edible Processor -> Edible Processor, Concentrate Processor"
+    },
+    {
+      "change_id": 1451,
+      "observed_at": "2026-08-05T06:48:17.569200+00:00",
+      "snapshot_date": "2026-08-05",
+      "license_number": "030-1019059ED48",
+      "license_type": "RECREATIONAL_PROCESSOR",
+      "legal_name": "SMOKY FLOWER, LLC",
+      "trade_name": "Smoky Flower",
+      "county": "Clackamas",
+      "change_type": "FIELD_CHANGE",
+      "field_name": "endorsements",
+      "prev_value": [
+        "Processing for Cardholders",
+        "Concentrate Processor",
+        "Edible Processor",
+        "Industrial Hemp",
+        "Medical Marijuana Processor",
+        "Topical Processor"
+      ],
+      "new_value": [
+        "Edible Processor",
+        "Industrial Hemp",
+        "Medical Marijuana Processor",
+        "Processing for Cardholders",
+        "Topical Processor",
+        "Concentrate Processor"
+      ],
+      "summary": "030-1019059ED48 endorsements: Processing for Cardholders, Concentrate Processor, Edible Processor, Industrial Hemp, Medical Marijuana Processor, Topical Processor -> Edible Processor, Industrial Hemp, Medical Marijuana Processor, Processing for Cardholders, Topical Processor, Concentrate Processor"
+    },
+    {
+      "change_id": 1450,
+      "observed_at": "2026-08-05T06:48:17.569200+00:00",
+      "snapshot_date": "2026-08-05",
+      "license_number": "030-10175207DBD",
+      "license_type": "RECREATIONAL_PROCESSOR",
+      "legal_name": "YAK, INC.",
+      "trade_name": "Yak, Inc.",
+      "county": "Marion",
+      "change_type": "FIELD_CHANGE",
+      "field_name": "endorsements",
+      "prev_value": [
+        "Concentrate Processor",
+        "Medical Marijuana Processor"
+      ],
+      "new_value": [
+        "Medical Marijuana Processor",
+        "Concentrate Processor"
+      ],
+      "summary": "030-10175207DBD endorsements: Concentrate Processor, Medical Marijuana Processor -> Medical Marijuana Processor, Concentrate Processor"
+    },
+    {
+      "change_id": 1449,
+      "observed_at": "2026-08-05T06:48:17.569200+00:00",
+      "snapshot_date": "2026-08-05",
+      "license_number": "030-1017399EB0E",
+      "license_type": "RECREATIONAL_PROCESSOR",
+      "legal_name": "PNW OPERATOR LLC",
+      "trade_name": "Highly Cultivated Brands",
+      "county": "Multnomah",
+      "change_type": "FIELD_CHANGE",
+      "field_name": "endorsements",
+      "prev_value": [
+        "Concentrate Processor",
+        "Edible Processor",
+        "Industrial Hemp",
+        "Medical Marijuana Processor",
+        "Topical Processor"
+      ],
+      "new_value": [
+        "Edible Processor",
+        "Industrial Hemp",
+        "Medical Marijuana Processor",
+        "Topical Processor",
+        "Concentrate Processor"
+      ],
+      "summary": "030-1017399EB0E endorsements: Concentrate Processor, Edible Processor, Industrial Hemp, Medical Marijuana Processor, Topical Processor -> Edible Processor, Industrial Hemp, Medical Marijuana Processor, Topical Processor, Concentrate Processor"
+    },
+    {
+      "change_id": 1448,
+      "observed_at": "2026-08-05T06:48:17.569200+00:00",
+      "snapshot_date": "2026-08-05",
+      "license_number": "030-1017085F637",
+      "license_type": "RECREATIONAL_PROCESSOR",
+      "legal_name": "EMERALD VALLEY PROCESSORS LLC",
+      "trade_name": "Emerald Valley Processors",
+      "county": "Lane",
+      "change_type": "FIELD_CHANGE",
+      "field_name": "endorsements",
+      "prev_value": [
+        "Processing for Cardholders",
+        "Concentrate Processor",
+        "Edible Processor",
+        "Extract Processor",
+        "Industrial Hemp",
+        "Medical Marijuana Processor",
+        "Topical Processor"
+      ],
+      "new_value": [
+        "Edible Processor",
+        "Extract Processor",
+        "Industrial Hemp",
+        "Medical Marijuana Processor",
+        "Processing for Cardholders",
+        "Topical Processor",
+        "Concentrate Processor"
+      ],
+      "summary": "030-1017085F637 endorsements: Processing for Cardholders, Concentrate Processor, Edible Processor, Extract Processor, Industrial Hemp, Medical Marijuana Processor, Topical Processor -> Edible Processor, Extract Processor, Industrial Hemp, Medical Marijuana Processor, Processing for Cardholders, Topical Processor, Concentrate Processor"
+    },
+    {
+      "change_id": 1447,
+      "observed_at": "2026-08-05T06:48:17.569200+00:00",
+      "snapshot_date": "2026-08-05",
+      "license_number": "030-1016822069E",
+      "license_type": "RECREATIONAL_PROCESSOR",
+      "legal_name": "FALAHI, LLC",
+      "trade_name": "Falahi",
+      "county": "Lane",
+      "change_type": "FIELD_CHANGE",
+      "field_name": "endorsements",
+      "prev_value": [
+        "Concentrate Processor",
+        "Edible Processor",
+        "Industrial Hemp",
+        "Medical Marijuana Processor",
+        "Topical Processor"
+      ],
+      "new_value": [
+        "Edible Processor",
+        "Industrial Hemp",
+        "Medical Marijuana Processor",
+        "Topical Processor",
+        "Concentrate Processor"
+      ],
+      "summary": "030-1016822069E endorsements: Concentrate Processor, Edible Processor, Industrial Hemp, Medical Marijuana Processor, Topical Processor -> Edible Processor, Industrial Hemp, Medical Marijuana Processor, Topical Processor, Concentrate Processor"
+    },
+    {
+      "change_id": 1446,
+      "observed_at": "2026-08-05T06:48:17.569200+00:00",
+      "snapshot_date": "2026-08-05",
+      "license_number": "030-101659955FC",
+      "license_type": "RECREATIONAL_PROCESSOR",
+      "legal_name": "DAB FACTORY LLC",
+      "trade_name": "Dab Factory",
+      "county": "Washington",
+      "change_type": "FIELD_CHANGE",
+      "field_name": "endorsements",
+      "prev_value": [
+        "Edible Processor",
+        "Extract Processor"
+      ],
+      "new_value": [
+        "Extract Processor",
+        "Edible Processor"
+      ],
+      "summary": "030-101659955FC endorsements: Edible Processor, Extract Processor -> Extract Processor, Edible Processor"
+    },
+    {
+      "change_id": 1445,
+      "observed_at": "2026-08-05T06:48:17.569200+00:00",
+      "snapshot_date": "2026-08-05",
+      "license_number": "030-10165489E20",
+      "license_type": "RECREATIONAL_PROCESSOR",
+      "legal_name": "BNK LLC",
+      "trade_name": "Bo's Nose Knows",
+      "county": "Josephine",
+      "change_type": "FIELD_CHANGE",
+      "field_name": "endorsements",
+      "prev_value": [
+        "Concentrate Processor",
+        "Edible Processor",
+        "Medical Marijuana Processor",
+        "Topical Processor"
+      ],
+      "new_value": [
+        "Edible Processor",
+        "Medical Marijuana Processor",
+        "Topical Processor",
+        "Concentrate Processor"
+      ],
+      "summary": "030-10165489E20 endorsements: Concentrate Processor, Edible Processor, Medical Marijuana Processor, Topical Processor -> Edible Processor, Medical Marijuana Processor, Topical Processor, Concentrate Processor"
+    },
+    {
+      "change_id": 1444,
+      "observed_at": "2026-08-05T06:48:17.569200+00:00",
+      "snapshot_date": "2026-08-05",
+      "license_number": "030-1016276395D",
+      "license_type": "RECREATIONAL_PROCESSOR",
+      "legal_name": "BENJAMINSBUDZ LLC",
+      "trade_name": "Lifted Northwest",
+      "county": "Multnomah",
+      "change_type": "FIELD_CHANGE",
+      "field_name": "endorsements",
+      "prev_value": [
+        "Concentrate Processor",
+        "Edible Processor",
+        "Medical Marijuana Processor"
+      ],
+      "new_value": [
+        "Edible Processor",
+        "Medical Marijuana Processor",
+        "Concentrate Processor"
+      ],
+      "summary": "030-1016276395D endorsements: Concentrate Processor, Edible Processor, Medical Marijuana Processor -> Edible Processor, Medical Marijuana Processor, Concentrate Processor"
+    },
+    {
+      "change_id": 1443,
+      "observed_at": "2026-08-05T06:48:17.569200+00:00",
+      "snapshot_date": "2026-08-05",
+      "license_number": "030-1015248091F",
+      "license_type": "RECREATIONAL_PROCESSOR",
+      "legal_name": "FD PROJECT INC.",
+      "trade_name": "Fire Dept. Cannabis",
+      "county": "Washington",
+      "change_type": "FIELD_CHANGE",
+      "field_name": "endorsements",
+      "prev_value": [
+        "Concentrate Processor",
+        "Edible Processor",
+        "Industrial Hemp",
+        "Medical Marijuana Processor"
+      ],
+      "new_value": [
+        "Edible Processor",
+        "Industrial Hemp",
+        "Medical Marijuana Processor",
+        "Concentrate Processor"
+      ],
+      "summary": "030-1015248091F endorsements: Concentrate Processor, Edible Processor, Industrial Hemp, Medical Marijuana Processor -> Edible Processor, Industrial Hemp, Medical Marijuana Processor, Concentrate Processor"
+    },
+    {
+      "change_id": 1442,
+      "observed_at": "2026-08-05T06:48:17.569200+00:00",
+      "snapshot_date": "2026-08-05",
+      "license_number": "030-10149224AD8",
+      "license_type": "RECREATIONAL_PROCESSOR",
+      "legal_name": "VERDANT LEAF FARMS, LLC",
+      "trade_name": "Verdant Leaf",
+      "county": "Washington",
+      "change_type": "FIELD_CHANGE",
+      "field_name": "endorsements",
+      "prev_value": [
+        "Processing for Cardholders",
+        "Concentrate Processor",
+        "Edible Processor",
+        "Industrial Hemp",
+        "Medical Marijuana Processor",
+        "Topical Processor"
+      ],
+      "new_value": [
+        "Edible Processor",
+        "Industrial Hemp",
+        "Medical Marijuana Processor",
+        "Processing for Cardholders",
+        "Topical Processor",
+        "Concentrate Processor"
+      ],
+      "summary": "030-10149224AD8 endorsements: Processing for Cardholders, Concentrate Processor, Edible Processor, Industrial Hemp, Medical Marijuana Processor, Topical Processor -> Edible Processor, Industrial Hemp, Medical Marijuana Processor, Processing for Cardholders, Topical Processor, Concentrate Processor"
+    },
+    {
+      "change_id": 1441,
+      "observed_at": "2026-08-05T06:48:17.569200+00:00",
+      "snapshot_date": "2026-08-05",
+      "license_number": "030-1014647DE28",
+      "license_type": "RECREATIONAL_PROCESSOR",
+      "legal_name": "AGROTEK, LLC",
+      "trade_name": "Blue Collar",
+      "county": "Deschutes",
+      "change_type": "FIELD_CHANGE",
+      "field_name": "endorsements",
+      "prev_value": [
+        "Concentrate Processor",
+        "Edible Processor",
+        "Extract Processor",
+        "Industrial Hemp",
+        "Medical Marijuana Processor",
+        "Topical Processor"
+      ],
+      "new_value": [
+        "Edible Processor",
+        "Extract Processor",
+        "Industrial Hemp",
+        "Medical Marijuana Processor",
+        "Topical Processor",
+        "Concentrate Processor"
+      ],
+      "summary": "030-1014647DE28 endorsements: Concentrate Processor, Edible Processor, Extract Processor, Industrial Hemp, Medical Marijuana Processor, Topical Processor -> Edible Processor, Extract Processor, Industrial Hemp, Medical Marijuana Processor, Topical Processor, Concentrate Processor"
+    },
+    {
+      "change_id": 1440,
+      "observed_at": "2026-08-05T06:48:17.569200+00:00",
+      "snapshot_date": "2026-08-05",
+      "license_number": "030-10138951A28",
+      "license_type": "RECREATIONAL_PROCESSOR",
+      "legal_name": "M THRIVE ORGANICS LLC",
+      "trade_name": "M Thrive Organics LLC",
+      "county": "Wallowa",
+      "change_type": "FIELD_CHANGE",
+      "field_name": "endorsements",
+      "prev_value": [
+        "Concentrate Processor",
+        "Edible Processor",
+        "Industrial Hemp",
+        "Topical Processor"
+      ],
+      "new_value": [
+        "Edible Processor",
+        "Industrial Hemp",
+        "Topical Processor",
+        "Concentrate Processor"
+      ],
+      "summary": "030-10138951A28 endorsements: Concentrate Processor, Edible Processor, Industrial Hemp, Topical Processor -> Edible Processor, Industrial Hemp, Topical Processor, Concentrate Processor"
+    },
+    {
+      "change_id": 1439,
+      "observed_at": "2026-08-05T06:48:17.569200+00:00",
+      "snapshot_date": "2026-08-05",
+      "license_number": "030-1013712DE7C",
+      "license_type": "RECREATIONAL_PROCESSOR",
+      "legal_name": "EEK INC",
+      "trade_name": "Angel1",
+      "county": "Jackson",
+      "change_type": "FIELD_CHANGE",
+      "field_name": "endorsements",
+      "prev_value": [
+        "Processing for Cardholders",
+        "Concentrate Processor",
+        "Edible Processor",
+        "Industrial Hemp",
+        "Medical Marijuana Processor",
+        "Topical Processor",
+        "Alternating Proprietor Processor"
+      ],
+      "new_value": [
+        "Processing for Cardholders",
+        "Topical Processor",
+        "Alternating Proprietor Processor",
+        "Concentrate Processor",
+        "Edible Processor",
+        "Industrial Hemp",
+        "Medical Marijuana Processor"
+      ],
+      "summary": "030-1013712DE7C endorsements: Processing for Cardholders, Concentrate Processor, Edible Processor, Industrial Hemp, Medical Marijuana Processor, Topical Processor, Alternating Proprietor Processor -> Processing for Cardholders, Topical Processor, Alternating Proprietor Processor, Concentrate Processor, Edible Processor, Industrial Hemp, Medical Marijuana Processor"
+    },
+    {
+      "change_id": 1438,
+      "observed_at": "2026-08-05T06:48:17.569200+00:00",
+      "snapshot_date": "2026-08-05",
+      "license_number": "030-1013531D701",
+      "license_type": "RECREATIONAL_PROCESSOR",
+      "legal_name": "FOLIUM ORIGINALS, LLC",
+      "trade_name": "Karma Originals",
+      "county": "Clackamas",
+      "change_type": "FIELD_CHANGE",
+      "field_name": "endorsements",
+      "prev_value": [
+        "Concentrate Processor",
+        "Medical Marijuana Processor"
+      ],
+      "new_value": [
+        "Medical Marijuana Processor",
+        "Concentrate Processor"
+      ],
+      "summary": "030-1013531D701 endorsements: Concentrate Processor, Medical Marijuana Processor -> Medical Marijuana Processor, Concentrate Processor"
+    },
+    {
+      "change_id": 1437,
+      "observed_at": "2026-08-05T06:48:17.569200+00:00",
+      "snapshot_date": "2026-08-05",
+      "license_number": "030-1013480EA81",
+      "license_type": "RECREATIONAL_PROCESSOR",
+      "legal_name": "TRUECARE, INC.",
+      "trade_name": "TrueCare Farms",
+      "county": "Jackson",
+      "change_type": "FIELD_CHANGE",
+      "field_name": "endorsements",
+      "prev_value": [
+        "Concentrate Processor",
+        "Industrial Hemp",
+        "Topical Processor"
+      ],
+      "new_value": [
+        "Industrial Hemp",
+        "Topical Processor",
+        "Concentrate Processor"
+      ],
+      "summary": "030-1013480EA81 endorsements: Concentrate Processor, Industrial Hemp, Topical Processor -> Industrial Hemp, Topical Processor, Concentrate Processor"
+    },
+    {
+      "change_id": 1436,
+      "observed_at": "2026-08-05T06:48:17.569200+00:00",
+      "snapshot_date": "2026-08-05",
+      "license_number": "030-10131843A49",
+      "license_type": "RECREATIONAL_PROCESSOR",
+      "legal_name": "GORGE GROWN LLC",
+      "trade_name": "Gorge Grown",
+      "county": "Hood River",
+      "change_type": "FIELD_CHANGE",
+      "field_name": "endorsements",
+      "prev_value": [
+        "Processing for Cardholders",
+        "Concentrate Processor",
+        "Edible Processor",
+        "Extract Processor",
+        "Industrial Hemp",
+        "Medical Marijuana Processor",
+        "Topical Processor"
+      ],
+      "new_value": [
+        "Extract Processor",
+        "Industrial Hemp",
+        "Medical Marijuana Processor",
+        "Processing for Cardholders",
+        "Topical Processor",
+        "Concentrate Processor",
+        "Edible Processor"
+      ],
+      "summary": "030-10131843A49 endorsements: Processing for Cardholders, Concentrate Processor, Edible Processor, Extract Processor, Industrial Hemp, Medical Marijuana Processor, Topical Processor -> Extract Processor, Industrial Hemp, Medical Marijuana Processor, Processing for Cardholders, Topical Processor, Concentrate Processor, Edible Processor"
+    },
+    {
+      "change_id": 1435,
+      "observed_at": "2026-08-05T06:48:17.569200+00:00",
+      "snapshot_date": "2026-08-05",
+      "license_number": "030-10130201531",
+      "license_type": "RECREATIONAL_PROCESSOR",
+      "legal_name": "GRASSHOPPER FARM, LLC",
+      "trade_name": "Cascade Valley Cannabis",
+      "county": "Benton",
+      "change_type": "FIELD_CHANGE",
+      "field_name": "endorsements",
+      "prev_value": [
+        "Concentrate Processor",
+        "Industrial Hemp"
+      ],
+      "new_value": [
+        "Industrial Hemp",
+        "Concentrate Processor"
+      ],
+      "summary": "030-10130201531 endorsements: Concentrate Processor, Industrial Hemp -> Industrial Hemp, Concentrate Processor"
+    },
+    {
+      "change_id": 1434,
+      "observed_at": "2026-08-05T06:48:17.569200+00:00",
+      "snapshot_date": "2026-08-05",
+      "license_number": "030-1012464A6C3",
+      "license_type": "RECREATIONAL_PROCESSOR",
+      "legal_name": "HOTBOX FARMS LLC",
+      "trade_name": "Hotbox",
+      "county": "Malheur",
+      "change_type": "FIELD_CHANGE",
+      "field_name": "endorsements",
+      "prev_value": [
+        "Concentrate Processor",
+        "Edible Processor",
+        "Industrial Hemp",
+        "Medical Marijuana Processor",
+        "Topical Processor"
+      ],
+      "new_value": [
+        "Edible Processor",
+        "Industrial Hemp",
+        "Medical Marijuana Processor",
+        "Topical Processor",
+        "Concentrate Processor"
+      ],
+      "summary": "030-1012464A6C3 endorsements: Concentrate Processor, Edible Processor, Industrial Hemp, Medical Marijuana Processor, Topical Processor -> Edible Processor, Industrial Hemp, Medical Marijuana Processor, Topical Processor, Concentrate Processor"
+    },
+    {
+      "change_id": 1433,
+      "observed_at": "2026-08-05T06:48:17.569200+00:00",
+      "snapshot_date": "2026-08-05",
+      "license_number": "030-10123357091",
+      "license_type": "RECREATIONAL_PROCESSOR",
+      "legal_name": "MILLION ELEPHANTS LLC",
+      "trade_name": "Million Elephants",
+      "county": "Jackson",
+      "change_type": "FIELD_CHANGE",
+      "field_name": "endorsements",
+      "prev_value": [
+        "Processing for Cardholders",
+        "Concentrate Processor",
+        "Medical Marijuana Processor"
+      ],
+      "new_value": [
+        "Medical Marijuana Processor",
+        "Processing for Cardholders",
+        "Concentrate Processor"
+      ],
+      "summary": "030-10123357091 endorsements: Processing for Cardholders, Concentrate Processor, Medical Marijuana Processor -> Medical Marijuana Processor, Processing for Cardholders, Concentrate Processor"
+    },
+    {
+      "change_id": 1432,
+      "observed_at": "2026-08-05T06:48:17.569200+00:00",
+      "snapshot_date": "2026-08-05",
+      "license_number": "030-10119161D04",
+      "license_type": "RECREATIONAL_PROCESSOR",
+      "legal_name": "SOUTHEASTERN HEADQUARTERS LLC",
+      "trade_name": "Platinum Brotherz",
+      "county": "Clackamas",
+      "change_type": "FIELD_CHANGE",
+      "field_name": "endorsements",
+      "prev_value": [
+        "Concentrate Processor",
+        "Medical Marijuana Processor"
+      ],
+      "new_value": [
+        "Medical Marijuana Processor",
+        "Concentrate Processor"
+      ],
+      "summary": "030-10119161D04 endorsements: Concentrate Processor, Medical Marijuana Processor -> Medical Marijuana Processor, Concentrate Processor"
+    },
+    {
+      "change_id": 1431,
+      "observed_at": "2026-08-05T06:48:17.569200+00:00",
+      "snapshot_date": "2026-08-05",
+      "license_number": "030-10113612E4A",
+      "license_type": "RECREATIONAL_PROCESSOR",
+      "legal_name": "M & J AGRONOMICS, LLC",
+      "trade_name": "Arise Labs",
+      "county": "Lane",
+      "change_type": "FIELD_CHANGE",
+      "field_name": "endorsements",
+      "prev_value": [
+        "Concentrate Processor",
+        "Edible Processor",
+        "Industrial Hemp"
+      ],
+      "new_value": [
+        "Edible Processor",
+        "Industrial Hemp",
+        "Concentrate Processor"
+      ],
+      "summary": "030-10113612E4A endorsements: Concentrate Processor, Edible Processor, Industrial Hemp -> Edible Processor, Industrial Hemp, Concentrate Processor"
+    },
+    {
+      "change_id": 1430,
+      "observed_at": "2026-08-05T06:48:17.569200+00:00",
+      "snapshot_date": "2026-08-05",
+      "license_number": "030-10111695457",
+      "license_type": "RECREATIONAL_PROCESSOR",
+      "legal_name": "PROJECT 13 CORPORATION",
+      "trade_name": "Project 13 Corporation",
+      "county": "Clackamas",
+      "change_type": "FIELD_CHANGE",
+      "field_name": "endorsements",
+      "prev_value": [
+        "Processing for Cardholders",
+        "Concentrate Processor",
+        "Edible Processor",
+        "Industrial Hemp",
+        "Medical Marijuana Processor",
+        "Topical Processor"
+      ],
+      "new_value": [
+        "Edible Processor",
+        "Industrial Hemp",
+        "Medical Marijuana Processor",
+        "Processing for Cardholders",
+        "Topical Processor",
+        "Concentrate Processor"
+      ],
+      "summary": "030-10111695457 endorsements: Processing for Cardholders, Concentrate Processor, Edible Processor, Industrial Hemp, Medical Marijuana Processor, Topical Processor -> Edible Processor, Industrial Hemp, Medical Marijuana Processor, Processing for Cardholders, Topical Processor, Concentrate Processor"
+    },
+    {
+      "change_id": 1429,
+      "observed_at": "2026-08-05T06:48:17.569200+00:00",
+      "snapshot_date": "2026-08-05",
+      "license_number": "030-1011152C4C3",
+      "license_type": "RECREATIONAL_PROCESSOR",
+      "legal_name": "FRONTIER FARMS LLC",
+      "trade_name": "Frontier Farms - Processing",
+      "county": "Hood River",
+      "change_type": "FIELD_CHANGE",
+      "field_name": "endorsements",
+      "prev_value": [
+        "Concentrate Processor",
+        "Edible Processor",
+        "Industrial Hemp",
+        "Medical Marijuana Processor",
+        "Topical Processor"
+      ],
+      "new_value": [
+        "Edible Processor",
+        "Industrial Hemp",
+        "Medical Marijuana Processor",
+        "Topical Processor",
+        "Concentrate Processor"
+      ],
+      "summary": "030-1011152C4C3 endorsements: Concentrate Processor, Edible Processor, Industrial Hemp, Medical Marijuana Processor, Topical Processor -> Edible Processor, Industrial Hemp, Medical Marijuana Processor, Topical Processor, Concentrate Processor"
+    },
+    {
+      "change_id": 1428,
+      "observed_at": "2026-08-05T06:48:17.569200+00:00",
+      "snapshot_date": "2026-08-05",
+      "license_number": "030-1011085AA27",
+      "license_type": "RECREATIONAL_PROCESSOR",
+      "legal_name": "STAY CONCENTRATED, LLC",
+      "trade_name": "Craft Concentrates",
+      "county": "Multnomah",
+      "change_type": "FIELD_CHANGE",
+      "field_name": "endorsements",
+      "prev_value": [
+        "Concentrate Processor",
+        "Edible Processor",
+        "Medical Marijuana Processor"
+      ],
+      "new_value": [
+        "Edible Processor",
+        "Medical Marijuana Processor",
+        "Concentrate Processor"
+      ],
+      "summary": "030-1011085AA27 endorsements: Concentrate Processor, Edible Processor, Medical Marijuana Processor -> Edible Processor, Medical Marijuana Processor, Concentrate Processor"
+    },
+    {
+      "change_id": 1427,
+      "observed_at": "2026-08-05T06:48:17.569200+00:00",
+      "snapshot_date": "2026-08-05",
+      "license_number": "030-10109791BAC",
+      "license_type": "RECREATIONAL_PROCESSOR",
+      "legal_name": "IMPERIAL TRADING LLC",
+      "trade_name": "Imperial Solventless",
+      "county": "Lane",
+      "change_type": "FIELD_CHANGE",
+      "field_name": "endorsements",
+      "prev_value": [
+        "Concentrate Processor",
+        "Medical Marijuana Processor"
+      ],
+      "new_value": [
+        "Medical Marijuana Processor",
+        "Concentrate Processor"
+      ],
+      "summary": "030-10109791BAC endorsements: Concentrate Processor, Medical Marijuana Processor -> Medical Marijuana Processor, Concentrate Processor"
+    },
+    {
+      "change_id": 1426,
+      "observed_at": "2026-08-05T06:48:17.569200+00:00",
+      "snapshot_date": "2026-08-05",
+      "license_number": "030-10109614F60",
+      "license_type": "RECREATIONAL_PROCESSOR",
+      "legal_name": "EVOLUTION GROUP LLC",
+      "trade_name": "Evolution Group LLC",
+      "county": "Deschutes",
+      "change_type": "FIELD_CHANGE",
+      "field_name": "endorsements",
+      "prev_value": [
+        "Concentrate Processor",
+        "Edible Processor",
+        "Industrial Hemp",
+        "Medical Marijuana Processor",
+        "Topical Processor"
+      ],
+      "new_value": [
+        "Edible Processor",
+        "Industrial Hemp",
+        "Medical Marijuana Processor",
+        "Topical Processor",
+        "Concentrate Processor"
+      ],
+      "summary": "030-10109614F60 endorsements: Concentrate Processor, Edible Processor, Industrial Hemp, Medical Marijuana Processor, Topical Processor -> Edible Processor, Industrial Hemp, Medical Marijuana Processor, Topical Processor, Concentrate Processor"
+    },
+    {
+      "change_id": 1425,
+      "observed_at": "2026-08-05T06:48:17.569200+00:00",
+      "snapshot_date": "2026-08-05",
+      "license_number": "030-1009646F7F8",
+      "license_type": "RECREATIONAL_PROCESSOR",
+      "legal_name": "HASH HAMILTON .COM LLC",
+      "trade_name": "HeadzStash",
+      "county": "Marion",
+      "change_type": "FIELD_CHANGE",
+      "field_name": "endorsements",
+      "prev_value": [
+        "Concentrate Processor",
+        "Edible Processor",
+        "Extract Processor",
+        "Industrial Hemp",
+        "Topical Processor"
+      ],
+      "new_value": [
+        "Extract Processor",
+        "Industrial Hemp",
+        "Concentrate Processor",
+        "Edible Processor",
+        "Topical Processor"
+      ],
+      "summary": "030-1009646F7F8 endorsements: Concentrate Processor, Edible Processor, Extract Processor, Industrial Hemp, Topical Processor -> Extract Processor, Industrial Hemp, Concentrate Processor, Edible Processor, Topical Processor"
+    },
+    {
+      "change_id": 1424,
+      "observed_at": "2026-08-05T06:48:17.569200+00:00",
+      "snapshot_date": "2026-08-05",
+      "license_number": "030-10089920184",
+      "license_type": "RECREATIONAL_PROCESSOR",
+      "legal_name": "G AND M MANUFACTURING LLC",
+      "trade_name": "Nelson and Company Organics",
+      "county": "Clackamas",
+      "change_type": "FIELD_CHANGE",
+      "field_name": "endorsements",
+      "prev_value": [
+        "Concentrate Processor",
+        "Edible Processor"
+      ],
+      "new_value": [
+        "Edible Processor",
+        "Concentrate Processor"
+      ],
+      "summary": "030-10089920184 endorsements: Concentrate Processor, Edible Processor -> Edible Processor, Concentrate Processor"
+    },
+    {
+      "change_id": 1423,
+      "observed_at": "2026-08-05T06:48:17.569200+00:00",
+      "snapshot_date": "2026-08-05",
+      "license_number": "030-1008988D8B4",
+      "license_type": "RECREATIONAL_PROCESSOR",
+      "legal_name": "ABSTRACT EXTRACTS LLC",
+      "trade_name": "Medicine Farm Botanicals",
+      "county": "Lane",
+      "change_type": "FIELD_CHANGE",
+      "field_name": "endorsements",
+      "prev_value": [
+        "Concentrate Processor",
+        "Industrial Hemp",
+        "Topical Processor"
+      ],
+      "new_value": [
+        "Industrial Hemp",
+        "Topical Processor",
+        "Concentrate Processor"
+      ],
+      "summary": "030-1008988D8B4 endorsements: Concentrate Processor, Industrial Hemp, Topical Processor -> Industrial Hemp, Topical Processor, Concentrate Processor"
+    },
+    {
+      "change_id": 1422,
+      "observed_at": "2026-08-05T06:48:17.569200+00:00",
+      "snapshot_date": "2026-08-05",
+      "license_number": "030-100863092D3",
+      "license_type": "RECREATIONAL_PROCESSOR",
+      "legal_name": "SOL CULTIVATIONS INC./ SOL SAP LIMITED PARTNERSHIP",
+      "trade_name": "Sol Cultivations INC",
+      "county": "Jackson",
+      "change_type": "FIELD_CHANGE",
+      "field_name": "endorsements",
+      "prev_value": [
+        "Concentrate Processor",
+        "Industrial Hemp"
+      ],
+      "new_value": [
+        "Industrial Hemp",
+        "Concentrate Processor"
+      ],
+      "summary": "030-100863092D3 endorsements: Concentrate Processor, Industrial Hemp -> Industrial Hemp, Concentrate Processor"
+    },
+    {
+      "change_id": 1421,
+      "observed_at": "2026-08-05T06:48:17.569200+00:00",
+      "snapshot_date": "2026-08-05",
+      "license_number": "030-100848592B2",
+      "license_type": "RECREATIONAL_PROCESSOR",
+      "legal_name": "REBEL ROOTS FARMS INC",
+      "trade_name": "Rebel Roots Farms",
+      "county": "Jackson",
+      "change_type": "FIELD_CHANGE",
+      "field_name": "endorsements",
+      "prev_value": [
+        "Processing for Cardholders",
+        "Concentrate Processor",
+        "Edible Processor",
+        "Industrial Hemp",
+        "Medical Marijuana Processor",
+        "Topical Processor"
+      ],
+      "new_value": [
+        "Edible Processor",
+        "Industrial Hemp",
+        "Medical Marijuana Processor",
+        "Processing for Cardholders",
+        "Topical Processor",
+        "Concentrate Processor"
+      ],
+      "summary": "030-100848592B2 endorsements: Processing for Cardholders, Concentrate Processor, Edible Processor, Industrial Hemp, Medical Marijuana Processor, Topical Processor -> Edible Processor, Industrial Hemp, Medical Marijuana Processor, Processing for Cardholders, Topical Processor, Concentrate Processor"
+    },
+    {
+      "change_id": 1420,
+      "observed_at": "2026-08-05T06:48:17.569200+00:00",
+      "snapshot_date": "2026-08-05",
+      "license_number": "030-1008311722F",
+      "license_type": "RECREATIONAL_PROCESSOR",
+      "legal_name": "SRS FARMS, LLC",
+      "trade_name": "ALTERED ALCHEMY, ANTHOLOGY, VAPE TREE, DAB TREE",
+      "county": "Jackson",
+      "change_type": "FIELD_CHANGE",
+      "field_name": "endorsements",
+      "prev_value": [
+        "Concentrate Processor",
+        "Edible Processor",
+        "Extract Processor",
+        "Industrial Hemp",
+        "Medical Marijuana Processor",
+        "Topical Processor"
+      ],
+      "new_value": [
+        "Edible Processor",
+        "Extract Processor",
+        "Topical Processor",
+        "Concentrate Processor",
+        "Industrial Hemp",
+        "Medical Marijuana Processor"
+      ],
+      "summary": "030-1008311722F endorsements: Concentrate Processor, Edible Processor, Extract Processor, Industrial Hemp, Medical Marijuana Processor, Topical Processor -> Edible Processor, Extract Processor, Topical Processor, Concentrate Processor, Industrial Hemp, Medical Marijuana Processor"
+    },
+    {
+      "change_id": 1419,
+      "observed_at": "2026-08-05T06:48:17.569200+00:00",
+      "snapshot_date": "2026-08-05",
+      "license_number": "030-1008055E8E6",
+      "license_type": "RECREATIONAL_PROCESSOR",
+      "legal_name": "FNX, LLC",
+      "trade_name": "Funk Extracts/Hashland Extractions",
+      "county": "Jackson",
+      "change_type": "FIELD_CHANGE",
+      "field_name": "endorsements",
+      "prev_value": [
+        "Concentrate Processor",
+        "Extract Processor",
+        "Industrial Hemp"
+      ],
+      "new_value": [
+        "Extract Processor",
+        "Industrial Hemp",
+        "Concentrate Processor"
+      ],
+      "summary": "030-1008055E8E6 endorsements: Concentrate Processor, Extract Processor, Industrial Hemp -> Extract Processor, Industrial Hemp, Concentrate Processor"
+    },
+    {
+      "change_id": 1418,
+      "observed_at": "2026-08-05T06:48:17.569200+00:00",
+      "snapshot_date": "2026-08-05",
+      "license_number": "030-1007608C8F5",
+      "license_type": "RECREATIONAL_PROCESSOR",
+      "legal_name": "GREEN BOX MFG LLC",
+      "trade_name": "Green Box MFG LLC",
+      "county": "Benton",
+      "change_type": "FIELD_CHANGE",
+      "field_name": "endorsements",
+      "prev_value": [
+        "Concentrate Processor",
+        "Edible Processor",
+        "Industrial Hemp",
+        "Topical Processor"
+      ],
+      "new_value": [
+        "Edible Processor",
+        "Industrial Hemp",
+        "Topical Processor",
+        "Concentrate Processor"
+      ],
+      "summary": "030-1007608C8F5 endorsements: Concentrate Processor, Edible Processor, Industrial Hemp, Topical Processor -> Edible Processor, Industrial Hemp, Topical Processor, Concentrate Processor"
+    },
+    {
+      "change_id": 1417,
+      "observed_at": "2026-08-05T06:48:17.569200+00:00",
+      "snapshot_date": "2026-08-05",
+      "license_number": "030-1007601BF59",
+      "license_type": "RECREATIONAL_PROCESSOR",
+      "legal_name": "LEFT HAND LABS, LLC",
+      "trade_name": "Left Hand Labs",
+      "county": "Lane",
+      "change_type": "FIELD_CHANGE",
+      "field_name": "endorsements",
+      "prev_value": [
+        "Concentrate Processor",
+        "Edible Processor",
+        "Industrial Hemp",
+        "Medical Marijuana Processor",
+        "Topical Processor"
+      ],
+      "new_value": [
+        "Edible Processor",
+        "Industrial Hemp",
+        "Medical Marijuana Processor",
+        "Topical Processor",
+        "Concentrate Processor"
+      ],
+      "summary": "030-1007601BF59 endorsements: Concentrate Processor, Edible Processor, Industrial Hemp, Medical Marijuana Processor, Topical Processor -> Edible Processor, Industrial Hemp, Medical Marijuana Processor, Topical Processor, Concentrate Processor"
+    },
+    {
+      "change_id": 1416,
+      "observed_at": "2026-08-05T06:48:17.569200+00:00",
+      "snapshot_date": "2026-08-05",
+      "license_number": "030-1007405A532",
+      "license_type": "RECREATIONAL_PROCESSOR",
+      "legal_name": "MCTSA MANAGEMENT CORP",
+      "trade_name": "14941 SW 72ND AVE TIGARD OR 97224",
+      "county": "Washington",
+      "change_type": "FIELD_CHANGE",
+      "field_name": "endorsements",
+      "prev_value": [
+        "Concentrate Processor",
+        "Edible Processor",
+        "Industrial Hemp",
+        "Medical Marijuana Processor",
+        "Topical Processor"
+      ],
+      "new_value": [
+        "Edible Processor",
+        "Industrial Hemp",
+        "Medical Marijuana Processor",
+        "Topical Processor",
+        "Concentrate Processor"
+      ],
+      "summary": "030-1007405A532 endorsements: Concentrate Processor, Edible Processor, Industrial Hemp, Medical Marijuana Processor, Topical Processor -> Edible Processor, Industrial Hemp, Medical Marijuana Processor, Topical Processor, Concentrate Processor"
+    },
+    {
+      "change_id": 1415,
+      "observed_at": "2026-08-05T06:48:17.569200+00:00",
+      "snapshot_date": "2026-08-05",
+      "license_number": "030-100722839D8",
+      "license_type": "RECREATIONAL_PROCESSOR",
+      "legal_name": "STB ENTERPRISES LLC",
+      "trade_name": "SugarTop Buddery",
+      "county": "Lane",
+      "change_type": "FIELD_CHANGE",
+      "field_name": "endorsements",
+      "prev_value": [
+        "Concentrate Processor",
+        "Edible Processor",
+        "Industrial Hemp",
+        "Medical Marijuana Processor",
+        "Topical Processor"
+      ],
+      "new_value": [
+        "Medical Marijuana Processor",
+        "Topical Processor",
+        "Concentrate Processor",
+        "Edible Processor",
+        "Industrial Hemp"
+      ],
+      "summary": "030-100722839D8 endorsements: Concentrate Processor, Edible Processor, Industrial Hemp, Medical Marijuana Processor, Topical Processor -> Medical Marijuana Processor, Topical Processor, Concentrate Processor, Edible Processor, Industrial Hemp"
+    },
+    {
+      "change_id": 1414,
+      "observed_at": "2026-08-05T06:48:17.569200+00:00",
+      "snapshot_date": "2026-08-05",
+      "license_number": "030-1007127DC50",
+      "license_type": "RECREATIONAL_PROCESSOR",
+      "legal_name": "ELITEXTRX, LLC",
+      "trade_name": "Elitextrx, LLC",
+      "county": "Multnomah",
+      "change_type": "FIELD_CHANGE",
+      "field_name": "endorsements",
+      "prev_value": [
+        "Concentrate Processor",
+        "Edible Processor",
+        "Extract Processor",
+        "Industrial Hemp",
+        "Medical Marijuana Processor",
+        "Topical Processor"
+      ],
+      "new_value": [
+        "Edible Processor",
+        "Extract Processor",
+        "Industrial Hemp",
+        "Medical Marijuana Processor",
+        "Topical Processor",
+        "Concentrate Processor"
+      ],
+      "summary": "030-1007127DC50 endorsements: Concentrate Processor, Edible Processor, Extract Processor, Industrial Hemp, Medical Marijuana Processor, Topical Processor -> Edible Processor, Extract Processor, Industrial Hemp, Medical Marijuana Processor, Topical Processor, Concentrate Processor"
+    },
+    {
+      "change_id": 1413,
+      "observed_at": "2026-08-05T06:48:17.569200+00:00",
+      "snapshot_date": "2026-08-05",
+      "license_number": "030-1007021E099",
+      "license_type": "RECREATIONAL_PROCESSOR",
+      "legal_name": "SUMMIT CANNABIS LLC",
+      "trade_name": "Summit Cannabis",
+      "county": "Jackson",
+      "change_type": "FIELD_CHANGE",
+      "field_name": "endorsements",
+      "prev_value": [
+        "Concentrate Processor",
+        "Edible Processor"
+      ],
+      "new_value": [
+        "Edible Processor",
+        "Concentrate Processor"
+      ],
+      "summary": "030-1007021E099 endorsements: Concentrate Processor, Edible Processor -> Edible Processor, Concentrate Processor"
+    },
+    {
+      "change_id": 1412,
+      "observed_at": "2026-08-05T06:48:17.569200+00:00",
+      "snapshot_date": "2026-08-05",
+      "license_number": "030-1006488724F",
+      "license_type": "RECREATIONAL_PROCESSOR",
+      "legal_name": "C&R PRODUCTS LLC",
+      "trade_name": "C&R Products, LLC",
+      "county": "Polk",
+      "change_type": "FIELD_CHANGE",
+      "field_name": "endorsements",
+      "prev_value": [
+        "Concentrate Processor",
+        "Edible Processor",
+        "Industrial Hemp"
+      ],
+      "new_value": [
+        "Edible Processor",
+        "Industrial Hemp",
+        "Concentrate Processor"
+      ],
+      "summary": "030-1006488724F endorsements: Concentrate Processor, Edible Processor, Industrial Hemp -> Edible Processor, Industrial Hemp, Concentrate Processor"
+    },
+    {
+      "change_id": 1411,
+      "observed_at": "2026-08-05T06:48:17.569200+00:00",
+      "snapshot_date": "2026-08-05",
+      "license_number": "030-1006352F90E",
+      "license_type": "RECREATIONAL_PROCESSOR",
+      "legal_name": "HIGH LATITUDE EXTRACTS, LLC",
+      "trade_name": "High Latitude Extracts",
+      "county": "Hood River",
+      "change_type": "FIELD_CHANGE",
+      "field_name": "endorsements",
+      "prev_value": [
+        "Concentrate Processor",
+        "Extract Processor"
+      ],
+      "new_value": [
+        "Extract Processor",
+        "Concentrate Processor"
+      ],
+      "summary": "030-1006352F90E endorsements: Concentrate Processor, Extract Processor -> Extract Processor, Concentrate Processor"
+    },
+    {
+      "change_id": 1410,
+      "observed_at": "2026-08-05T06:48:17.569200+00:00",
+      "snapshot_date": "2026-08-05",
+      "license_number": "030-10060921E9A",
+      "license_type": "RECREATIONAL_PROCESSOR",
+      "legal_name": "PHAT DAWG PHARMS LLC",
+      "trade_name": "Phat Dawg Pharms LLC",
+      "county": "Josephine",
+      "change_type": "FIELD_CHANGE",
+      "field_name": "endorsements",
+      "prev_value": [
+        "Processing for Cardholders",
+        "Concentrate Processor",
+        "Extract Processor",
+        "Industrial Hemp",
+        "Topical Processor"
+      ],
+      "new_value": [
+        "Extract Processor",
+        "Industrial Hemp",
+        "Processing for Cardholders",
+        "Topical Processor",
+        "Concentrate Processor"
+      ],
+      "summary": "030-10060921E9A endorsements: Processing for Cardholders, Concentrate Processor, Extract Processor, Industrial Hemp, Topical Processor -> Extract Processor, Industrial Hemp, Processing for Cardholders, Topical Processor, Concentrate Processor"
+    },
+    {
+      "change_id": 1409,
+      "observed_at": "2026-08-05T06:48:17.569200+00:00",
+      "snapshot_date": "2026-08-05",
+      "license_number": "030-10058674ACA",
+      "license_type": "RECREATIONAL_PROCESSOR",
+      "legal_name": "M THRIVE ORGANICS LLC",
+      "trade_name": "M Thrive Organics LLC",
+      "county": "Wasco",
+      "change_type": "FIELD_CHANGE",
+      "field_name": "endorsements",
+      "prev_value": [
+        "Concentrate Processor",
+        "Industrial Hemp",
+        "Topical Processor"
+      ],
+      "new_value": [
+        "Industrial Hemp",
+        "Topical Processor",
+        "Concentrate Processor"
+      ],
+      "summary": "030-10058674ACA endorsements: Concentrate Processor, Industrial Hemp, Topical Processor -> Industrial Hemp, Topical Processor, Concentrate Processor"
+    },
+    {
+      "change_id": 1408,
+      "observed_at": "2026-08-05T06:48:17.569200+00:00",
+      "snapshot_date": "2026-08-05",
+      "license_number": "030-1005593A41A",
+      "license_type": "RECREATIONAL_PROCESSOR",
+      "legal_name": "THE NEW AMSTERDAM LLC",
+      "trade_name": "The New Amsterdam",
+      "county": "Multnomah",
+      "change_type": "FIELD_CHANGE",
+      "field_name": "endorsements",
+      "prev_value": [
+        "Concentrate Processor",
+        "Edible Processor",
+        "Industrial Hemp",
+        "Medical Marijuana Processor",
+        "Topical Processor"
+      ],
+      "new_value": [
+        "Edible Processor",
+        "Industrial Hemp",
+        "Medical Marijuana Processor",
+        "Topical Processor",
+        "Concentrate Processor"
+      ],
+      "summary": "030-1005593A41A endorsements: Concentrate Processor, Edible Processor, Industrial Hemp, Medical Marijuana Processor, Topical Processor -> Edible Processor, Industrial Hemp, Medical Marijuana Processor, Topical Processor, Concentrate Processor"
+    },
+    {
+      "change_id": 1407,
+      "observed_at": "2026-08-05T06:48:17.569200+00:00",
+      "snapshot_date": "2026-08-05",
+      "license_number": "030-1005518D8B5",
+      "license_type": "RECREATIONAL_PROCESSOR",
+      "legal_name": "SITKA NORTHWEST CORPORATION",
+      "trade_name": "Sitka Northwest LLC",
+      "county": "Marion",
+      "change_type": "FIELD_CHANGE",
+      "field_name": "endorsements",
+      "prev_value": [
+        "Concentrate Processor",
+        "Extract Processor",
+        "Industrial Hemp"
+      ],
+      "new_value": [
+        "Extract Processor",
+        "Industrial Hemp",
+        "Concentrate Processor"
+      ],
+      "summary": "030-1005518D8B5 endorsements: Concentrate Processor, Extract Processor, Industrial Hemp -> Extract Processor, Industrial Hemp, Concentrate Processor"
+    },
+    {
+      "change_id": 1406,
+      "observed_at": "2026-08-05T06:48:17.569200+00:00",
+      "snapshot_date": "2026-08-05",
+      "license_number": "030-10053907E1E",
+      "license_type": "RECREATIONAL_PROCESSOR",
+      "legal_name": "CHRONIC EXTRACTS LLC",
+      "trade_name": "Chronic Extracts",
+      "county": "Josephine",
+      "change_type": "FIELD_CHANGE",
+      "field_name": "endorsements",
+      "prev_value": [
+        "Concentrate Processor",
+        "Extract Processor",
+        "Industrial Hemp",
+        "Medical Marijuana Processor"
+      ],
+      "new_value": [
+        "Extract Processor",
+        "Industrial Hemp",
+        "Medical Marijuana Processor",
+        "Concentrate Processor"
+      ],
+      "summary": "030-10053907E1E endorsements: Concentrate Processor, Extract Processor, Industrial Hemp, Medical Marijuana Processor -> Extract Processor, Industrial Hemp, Medical Marijuana Processor, Concentrate Processor"
+    },
+    {
+      "change_id": 1405,
+      "observed_at": "2026-08-05T06:48:17.569200+00:00",
+      "snapshot_date": "2026-08-05",
+      "license_number": "030-10051970949",
+      "license_type": "RECREATIONAL_PROCESSOR",
+      "legal_name": "OM EXTRACTS, LLC",
+      "trade_name": "OM Extracts",
+      "county": "Jackson",
+      "change_type": "FIELD_CHANGE",
+      "field_name": "endorsements",
+      "prev_value": [
+        "Concentrate Processor",
+        "Edible Processor",
+        "Extract Processor",
+        "Industrial Hemp",
+        "Medical Marijuana Processor",
+        "Topical Processor"
+      ],
+      "new_value": [
+        "Medical Marijuana Processor",
+        "Concentrate Processor",
+        "Edible Processor",
+        "Extract Processor",
+        "Industrial Hemp",
+        "Topical Processor"
+      ],
+      "summary": "030-10051970949 endorsements: Concentrate Processor, Edible Processor, Extract Processor, Industrial Hemp, Medical Marijuana Processor, Topical Processor -> Medical Marijuana Processor, Concentrate Processor, Edible Processor, Extract Processor, Industrial Hemp, Topical Processor"
+    },
+    {
+      "change_id": 1404,
+      "observed_at": "2026-08-05T06:48:17.569200+00:00",
+      "snapshot_date": "2026-08-05",
+      "license_number": "030-1005038E5F2",
+      "license_type": "RECREATIONAL_PROCESSOR",
+      "legal_name": "DECIBEL FARMS INC.",
+      "trade_name": "Decibel Farms",
+      "county": "Jackson",
+      "change_type": "FIELD_CHANGE",
+      "field_name": "endorsements",
+      "prev_value": [
+        "Concentrate Processor",
+        "Edible Processor",
+        "Industrial Hemp",
+        "Topical Processor"
+      ],
+      "new_value": [
+        "Concentrate Processor",
+        "Edible Processor",
+        "Topical Processor",
+        "Industrial Hemp"
+      ],
+      "summary": "030-1005038E5F2 endorsements: Concentrate Processor, Edible Processor, Industrial Hemp, Topical Processor -> Concentrate Processor, Edible Processor, Topical Processor, Industrial Hemp"
+    },
+    {
+      "change_id": 1403,
+      "observed_at": "2026-08-05T06:48:17.569200+00:00",
+      "snapshot_date": "2026-08-05",
+      "license_number": "030-100495262ED",
+      "license_type": "RECREATIONAL_PROCESSOR",
+      "legal_name": "STERLING GOLD, LLC",
+      "trade_name": "Sterling Gold",
+      "county": "Josephine",
+      "change_type": "FIELD_CHANGE",
+      "field_name": "endorsements",
+      "prev_value": [
+        "Concentrate Processor",
+        "Extract Processor",
+        "Industrial Hemp"
+      ],
+      "new_value": [
+        "Extract Processor",
+        "Industrial Hemp",
+        "Concentrate Processor"
+      ],
+      "summary": "030-100495262ED endorsements: Concentrate Processor, Extract Processor, Industrial Hemp -> Extract Processor, Industrial Hemp, Concentrate Processor"
+    },
+    {
+      "change_id": 1402,
+      "observed_at": "2026-08-05T06:48:17.569200+00:00",
+      "snapshot_date": "2026-08-05",
+      "license_number": "030-10047196AA8",
+      "license_type": "RECREATIONAL_PROCESSOR",
+      "legal_name": "MCCM SCIENTIFIC LLC",
+      "trade_name": "Hapy Kitchen/Umbrella Extracts",
+      "county": "Multnomah",
+      "change_type": "FIELD_CHANGE",
+      "field_name": "endorsements",
+      "prev_value": [
+        "Concentrate Processor",
+        "Edible Processor",
+        "Industrial Hemp",
+        "Medical Marijuana Processor",
+        "Topical Processor"
+      ],
+      "new_value": [
+        "Edible Processor",
+        "Industrial Hemp",
+        "Medical Marijuana Processor",
+        "Topical Processor",
+        "Concentrate Processor"
+      ],
+      "summary": "030-10047196AA8 endorsements: Concentrate Processor, Edible Processor, Industrial Hemp, Medical Marijuana Processor, Topical Processor -> Edible Processor, Industrial Hemp, Medical Marijuana Processor, Topical Processor, Concentrate Processor"
+    },
+    {
+      "change_id": 1401,
+      "observed_at": "2026-08-05T06:48:17.569200+00:00",
+      "snapshot_date": "2026-08-05",
+      "license_number": "030-10046634C7F",
+      "license_type": "RECREATIONAL_PROCESSOR",
+      "legal_name": "KELLY LYNN HUTSON & PHILIP J HUTSON",
+      "trade_name": "Pacific Wave",
+      "county": "Clatsop",
+      "change_type": "FIELD_CHANGE",
+      "field_name": "endorsements",
+      "prev_value": [
+        "Edible Processor",
+        "Industrial Hemp",
+        "Medical Marijuana Processor",
+        "Topical Processor"
+      ],
+      "new_value": [
+        "Edible Processor",
+        "Medical Marijuana Processor",
+        "Topical Processor",
+        "Industrial Hemp"
+      ],
+      "summary": "030-10046634C7F endorsements: Edible Processor, Industrial Hemp, Medical Marijuana Processor, Topical Processor -> Edible Processor, Medical Marijuana Processor, Topical Processor, Industrial Hemp"
+    },
+    {
+      "change_id": 1400,
+      "observed_at": "2026-08-05T06:48:17.569200+00:00",
+      "snapshot_date": "2026-08-05",
+      "license_number": "030-10044826EA5",
+      "license_type": "RECREATIONAL_PROCESSOR",
+      "legal_name": "CAPITAL CANNABIS LLC",
+      "trade_name": "Capital Cannabis",
+      "county": "Lane",
+      "change_type": "FIELD_CHANGE",
+      "field_name": "endorsements",
+      "prev_value": [
+        "Concentrate Processor",
+        "Extract Processor",
+        "Industrial Hemp"
+      ],
+      "new_value": [
+        "Extract Processor",
+        "Industrial Hemp",
+        "Concentrate Processor"
+      ],
+      "summary": "030-10044826EA5 endorsements: Concentrate Processor, Extract Processor, Industrial Hemp -> Extract Processor, Industrial Hemp, Concentrate Processor"
+    },
+    {
+      "change_id": 1399,
+      "observed_at": "2026-08-05T06:48:17.569200+00:00",
+      "snapshot_date": "2026-08-05",
+      "license_number": "030-1003931C0EA",
+      "license_type": "RECREATIONAL_PROCESSOR",
+      "legal_name": "HGHA, LLC",
+      "trade_name": "HGX",
+      "county": "Jackson",
+      "change_type": "FIELD_CHANGE",
+      "field_name": "endorsements",
+      "prev_value": [
+        "Concentrate Processor",
+        "Industrial Hemp",
+        "Medical Marijuana Processor"
+      ],
+      "new_value": [
+        "Industrial Hemp",
+        "Medical Marijuana Processor",
+        "Concentrate Processor"
+      ],
+      "summary": "030-1003931C0EA endorsements: Concentrate Processor, Industrial Hemp, Medical Marijuana Processor -> Industrial Hemp, Medical Marijuana Processor, Concentrate Processor"
+    },
+    {
+      "change_id": 1398,
+      "observed_at": "2026-08-05T06:48:17.569200+00:00",
+      "snapshot_date": "2026-08-05",
+      "license_number": "030-1003919CE3E",
+      "license_type": "RECREATIONAL_PROCESSOR",
+      "legal_name": "NW KIND LLC",
+      "trade_name": "NW Kind",
+      "county": "Deschutes",
+      "change_type": "FIELD_CHANGE",
+      "field_name": "endorsements",
+      "prev_value": [
+        "Concentrate Processor",
+        "Edible Processor",
+        "Extract Processor",
+        "Industrial Hemp"
+      ],
+      "new_value": [
+        "Edible Processor",
+        "Extract Processor",
+        "Industrial Hemp",
+        "Concentrate Processor"
+      ],
+      "summary": "030-1003919CE3E endorsements: Concentrate Processor, Edible Processor, Extract Processor, Industrial Hemp -> Edible Processor, Extract Processor, Industrial Hemp, Concentrate Processor"
+    },
+    {
+      "change_id": 1397,
+      "observed_at": "2026-08-05T06:48:17.569200+00:00",
+      "snapshot_date": "2026-08-05",
+      "license_number": "030-1003243FF26",
+      "license_type": "RECREATIONAL_PROCESSOR",
+      "legal_name": "TRULY PURE LLC",
+      "trade_name": "TRULY PURE LLC",
+      "county": "Multnomah",
+      "change_type": "FIELD_CHANGE",
+      "field_name": "endorsements",
+      "prev_value": [
+        "Processing for Cardholders",
+        "Concentrate Processor",
+        "Edible Processor",
+        "Extract Processor",
+        "Industrial Hemp",
+        "Medical Marijuana Processor"
+      ],
+      "new_value": [
+        "Extract Processor",
+        "Industrial Hemp",
+        "Medical Marijuana Processor",
+        "Processing for Cardholders",
+        "Concentrate Processor",
+        "Edible Processor"
+      ],
+      "summary": "030-1003243FF26 endorsements: Processing for Cardholders, Concentrate Processor, Edible Processor, Extract Processor, Industrial Hemp, Medical Marijuana Processor -> Extract Processor, Industrial Hemp, Medical Marijuana Processor, Processing for Cardholders, Concentrate Processor, Edible Processor"
+    },
+    {
+      "change_id": 1396,
+      "observed_at": "2026-08-05T06:48:17.569200+00:00",
+      "snapshot_date": "2026-08-05",
+      "license_number": "030-1003030B124",
+      "license_type": "RECREATIONAL_PROCESSOR",
+      "legal_name": "FIRSTEMERALD, LLC",
+      "trade_name": "Happy Cabbage Farms",
+      "county": "Benton",
+      "change_type": "FIELD_CHANGE",
+      "field_name": "endorsements",
+      "prev_value": [
+        "Concentrate Processor",
+        "Edible Processor",
+        "Industrial Hemp",
+        "Topical Processor"
+      ],
+      "new_value": [
+        "Edible Processor",
+        "Industrial Hemp",
+        "Topical Processor",
+        "Concentrate Processor"
+      ],
+      "summary": "030-1003030B124 endorsements: Concentrate Processor, Edible Processor, Industrial Hemp, Topical Processor -> Edible Processor, Industrial Hemp, Topical Processor, Concentrate Processor"
+    },
+    {
+      "change_id": 1395,
+      "observed_at": "2026-08-05T06:48:17.569200+00:00",
+      "snapshot_date": "2026-08-05",
+      "license_number": "030-10029992F83",
+      "license_type": "RECREATIONAL_PROCESSOR",
+      "legal_name": "GOLDEN JASMINE LLC",
+      "trade_name": "Golden Jasmine",
+      "county": "Deschutes",
+      "change_type": "FIELD_CHANGE",
+      "field_name": "endorsements",
+      "prev_value": [
+        "Concentrate Processor",
+        "Extract Processor",
+        "Industrial Hemp",
+        "Topical Processor"
+      ],
+      "new_value": [
+        "Extract Processor",
+        "Industrial Hemp",
+        "Topical Processor",
+        "Concentrate Processor"
+      ],
+      "summary": "030-10029992F83 endorsements: Concentrate Processor, Extract Processor, Industrial Hemp, Topical Processor -> Extract Processor, Industrial Hemp, Topical Processor, Concentrate Processor"
+    },
+    {
+      "change_id": 1394,
+      "observed_at": "2026-08-05T06:48:17.569200+00:00",
+      "snapshot_date": "2026-08-05",
+      "license_number": "030-10029569003",
+      "license_type": "RECREATIONAL_PROCESSOR",
+      "legal_name": "SELF MADE FARMS, LLC",
+      "trade_name": "Self Made Cannabis Company",
+      "county": "Multnomah",
+      "change_type": "FIELD_CHANGE",
+      "field_name": "endorsements",
+      "prev_value": [
+        "Concentrate Processor",
+        "Edible Processor",
+        "Extract Processor",
+        "Industrial Hemp",
+        "Medical Marijuana Processor"
+      ],
+      "new_value": [
+        "Edible Processor",
+        "Extract Processor",
+        "Industrial Hemp",
+        "Medical Marijuana Processor",
+        "Concentrate Processor"
+      ],
+      "summary": "030-10029569003 endorsements: Concentrate Processor, Edible Processor, Extract Processor, Industrial Hemp, Medical Marijuana Processor -> Edible Processor, Extract Processor, Industrial Hemp, Medical Marijuana Processor, Concentrate Processor"
+    },
+    {
+      "change_id": 1393,
+      "observed_at": "2026-08-05T06:48:17.569200+00:00",
+      "snapshot_date": "2026-08-05",
+      "license_number": "030-10025752074",
+      "license_type": "RECREATIONAL_PROCESSOR",
+      "legal_name": "APIS HYVE LLC",
+      "trade_name": "Apis Hyve LLC",
+      "county": "Lane",
+      "change_type": "FIELD_CHANGE",
+      "field_name": "endorsements",
+      "prev_value": [
+        "Concentrate Processor",
+        "Edible Processor",
+        "Extract Processor",
+        "Industrial Hemp",
+        "Topical Processor"
+      ],
+      "new_value": [
+        "Edible Processor",
+        "Extract Processor",
+        "Industrial Hemp",
+        "Topical Processor",
+        "Concentrate Processor"
+      ],
+      "summary": "030-10025752074 endorsements: Concentrate Processor, Edible Processor, Extract Processor, Industrial Hemp, Topical Processor -> Edible Processor, Extract Processor, Industrial Hemp, Topical Processor, Concentrate Processor"
+    },
+    {
+      "change_id": 1392,
+      "observed_at": "2026-08-05T06:48:17.569200+00:00",
+      "snapshot_date": "2026-08-05",
+      "license_number": "030-1002348C969",
+      "license_type": "RECREATIONAL_PROCESSOR",
+      "legal_name": "BOBSLED FARMS LLC",
+      "trade_name": "Bobsled",
+      "county": "Clackamas",
+      "change_type": "FIELD_CHANGE",
+      "field_name": "endorsements",
+      "prev_value": [
+        "Concentrate Processor",
+        "Edible Processor",
+        "Extract Processor",
+        "Industrial Hemp",
+        "Topical Processor"
+      ],
+      "new_value": [
+        "Edible Processor",
+        "Extract Processor",
+        "Industrial Hemp",
+        "Topical Processor",
+        "Concentrate Processor"
+      ],
+      "summary": "030-1002348C969 endorsements: Concentrate Processor, Edible Processor, Extract Processor, Industrial Hemp, Topical Processor -> Edible Processor, Extract Processor, Industrial Hemp, Topical Processor, Concentrate Processor"
+    },
+    {
+      "change_id": 1391,
+      "observed_at": "2026-08-05T06:48:17.569200+00:00",
+      "snapshot_date": "2026-08-05",
+      "license_number": "030-100220323C3",
+      "license_type": "RECREATIONAL_PROCESSOR",
+      "legal_name": "SIMPLEE GREEN, LLC",
+      "trade_name": "MaryJans, Fenyx",
+      "county": "Lane",
+      "change_type": "FIELD_CHANGE",
+      "field_name": "endorsements",
+      "prev_value": [
+        "Processing for Cardholders",
+        "Concentrate Processor",
+        "Edible Processor",
+        "Industrial Hemp",
+        "Medical Marijuana Processor",
+        "Topical Processor"
+      ],
+      "new_value": [
+        "Processing for Cardholders",
+        "Topical Processor",
+        "Concentrate Processor",
+        "Edible Processor",
+        "Industrial Hemp",
+        "Medical Marijuana Processor"
+      ],
+      "summary": "030-100220323C3 endorsements: Processing for Cardholders, Concentrate Processor, Edible Processor, Industrial Hemp, Medical Marijuana Processor, Topical Processor -> Processing for Cardholders, Topical Processor, Concentrate Processor, Edible Processor, Industrial Hemp, Medical Marijuana Processor"
+    },
+    {
+      "change_id": 1390,
+      "observed_at": "2026-08-05T06:48:17.569200+00:00",
+      "snapshot_date": "2026-08-05",
+      "license_number": "030-100216401B3",
+      "license_type": "RECREATIONAL_PROCESSOR",
+      "legal_name": "PACIFIC ENTERPRISE HOLDINGS LLC",
+      "trade_name": "Oregrown",
+      "county": "Deschutes",
+      "change_type": "FIELD_CHANGE",
+      "field_name": "endorsements",
+      "prev_value": [
+        "Concentrate Processor",
+        "Edible Processor",
+        "Extract Processor",
+        "Industrial Hemp",
+        "Topical Processor"
+      ],
+      "new_value": [
+        "Industrial Hemp",
+        "Topical Processor",
+        "Concentrate Processor",
+        "Edible Processor",
+        "Extract Processor"
+      ],
+      "summary": "030-100216401B3 endorsements: Concentrate Processor, Edible Processor, Extract Processor, Industrial Hemp, Topical Processor -> Industrial Hemp, Topical Processor, Concentrate Processor, Edible Processor, Extract Processor"
+    },
+    {
+      "change_id": 1389,
+      "observed_at": "2026-08-05T06:48:17.569200+00:00",
+      "snapshot_date": "2026-08-05",
+      "license_number": "030-10021400628",
+      "license_type": "RECREATIONAL_PROCESSOR",
+      "legal_name": "CHOSEN VENTURES, LLC",
+      "trade_name": "Dirty Arm Farm",
+      "county": "Jackson",
+      "change_type": "FIELD_CHANGE",
+      "field_name": "endorsements",
+      "prev_value": [
+        "Concentrate Processor",
+        "Edible Processor",
+        "Extract Processor",
+        "Industrial Hemp",
+        "Topical Processor"
+      ],
+      "new_value": [
+        "Edible Processor",
+        "Extract Processor",
+        "Industrial Hemp",
+        "Topical Processor",
+        "Concentrate Processor"
+      ],
+      "summary": "030-10021400628 endorsements: Concentrate Processor, Edible Processor, Extract Processor, Industrial Hemp, Topical Processor -> Edible Processor, Extract Processor, Industrial Hemp, Topical Processor, Concentrate Processor"
+    },
+    {
+      "change_id": 1388,
+      "observed_at": "2026-08-05T06:48:17.569200+00:00",
+      "snapshot_date": "2026-08-05",
+      "license_number": "030-1001972282D",
+      "license_type": "RECREATIONAL_PROCESSOR",
+      "legal_name": "C&R OREGON CORPORATION",
+      "trade_name": "C&R Oregon Corporation",
+      "county": "Benton",
+      "change_type": "FIELD_CHANGE",
+      "field_name": "endorsements",
+      "prev_value": [
+        "Concentrate Processor",
+        "Edible Processor",
+        "Industrial Hemp",
+        "Medical Marijuana Processor",
+        "Topical Processor"
+      ],
+      "new_value": [
+        "Edible Processor",
+        "Industrial Hemp",
+        "Medical Marijuana Processor",
+        "Topical Processor",
+        "Concentrate Processor"
+      ],
+      "summary": "030-1001972282D endorsements: Concentrate Processor, Edible Processor, Industrial Hemp, Medical Marijuana Processor, Topical Processor -> Edible Processor, Industrial Hemp, Medical Marijuana Processor, Topical Processor, Concentrate Processor"
+    },
+    {
+      "change_id": 1387,
+      "observed_at": "2026-08-05T06:48:17.569200+00:00",
+      "snapshot_date": "2026-08-05",
+      "license_number": "030-10019138B73",
+      "license_type": "RECREATIONAL_PROCESSOR",
+      "legal_name": "OG PROCESSING, LLC || OG GARDENS, LLC || OG LEASING, LLC",
+      "trade_name": "OG Processing",
+      "county": "Marion",
+      "change_type": "FIELD_CHANGE",
+      "field_name": "endorsements",
+      "prev_value": [
+        "Concentrate Processor",
+        "Extract Processor",
+        "Industrial Hemp",
+        "Medical Marijuana Processor"
+      ],
+      "new_value": [
+        "Extract Processor",
+        "Industrial Hemp",
+        "Medical Marijuana Processor",
+        "Concentrate Processor"
+      ],
+      "summary": "030-10019138B73 endorsements: Concentrate Processor, Extract Processor, Industrial Hemp, Medical Marijuana Processor -> Extract Processor, Industrial Hemp, Medical Marijuana Processor, Concentrate Processor"
+    },
+    {
+      "change_id": 1386,
+      "observed_at": "2026-08-05T06:48:17.569200+00:00",
+      "snapshot_date": "2026-08-05",
+      "license_number": "030-10018696219",
+      "license_type": "RECREATIONAL_PROCESSOR",
+      "legal_name": "GREEN STATE OF MIND, INC.",
+      "trade_name": "Green State of Mind, Inc.",
+      "county": "Washington",
+      "change_type": "FIELD_CHANGE",
+      "field_name": "endorsements",
+      "prev_value": [
+        "Concentrate Processor",
+        "Edible Processor",
+        "Industrial Hemp",
+        "Medical Marijuana Processor"
+      ],
+      "new_value": [
+        "Edible Processor",
+        "Industrial Hemp",
+        "Medical Marijuana Processor",
+        "Concentrate Processor"
+      ],
+      "summary": "030-10018696219 endorsements: Concentrate Processor, Edible Processor, Industrial Hemp, Medical Marijuana Processor -> Edible Processor, Industrial Hemp, Medical Marijuana Processor, Concentrate Processor"
+    },
+    {
+      "change_id": 1385,
+      "observed_at": "2026-08-05T06:48:17.569200+00:00",
+      "snapshot_date": "2026-08-05",
+      "license_number": "030-1001338114B",
+      "license_type": "RECREATIONAL_PROCESSOR",
+      "legal_name": "SUBLIME SOLUTIONS, LLC",
+      "trade_name": "Sublime Solutions, LLC",
+      "county": "Lane",
+      "change_type": "FIELD_CHANGE",
+      "field_name": "endorsements",
+      "prev_value": [
+        "Concentrate Processor",
+        "Edible Processor",
+        "Extract Processor",
+        "Industrial Hemp",
+        "Medical Marijuana Processor"
+      ],
+      "new_value": [
+        "Edible Processor",
+        "Extract Processor",
+        "Industrial Hemp",
+        "Medical Marijuana Processor",
+        "Concentrate Processor"
+      ],
+      "summary": "030-1001338114B endorsements: Concentrate Processor, Edible Processor, Extract Processor, Industrial Hemp, Medical Marijuana Processor -> Edible Processor, Extract Processor, Industrial Hemp, Medical Marijuana Processor, Concentrate Processor"
+    },
+    {
+      "change_id": 1384,
+      "observed_at": "2026-08-05T06:48:17.569200+00:00",
+      "snapshot_date": "2026-08-05",
+      "license_number": "030-1000621D09A",
+      "license_type": "RECREATIONAL_PROCESSOR",
+      "legal_name": "TIM AND TOBIN'S FARM COMPANY",
+      "trade_name": "Sky High Farms",
+      "county": "Multnomah",
+      "change_type": "FIELD_CHANGE",
+      "field_name": "endorsements",
+      "prev_value": [
+        "Concentrate Processor",
+        "Edible Processor",
+        "Extract Processor",
+        "Medical Marijuana Processor",
+        "Topical Processor"
+      ],
+      "new_value": [
+        "Edible Processor",
+        "Extract Processor",
+        "Medical Marijuana Processor",
+        "Topical Processor",
+        "Concentrate Processor"
+      ],
+      "summary": "030-1000621D09A endorsements: Concentrate Processor, Edible Processor, Extract Processor, Medical Marijuana Processor, Topical Processor -> Edible Processor, Extract Processor, Medical Marijuana Processor, Topical Processor, Concentrate Processor"
+    },
+    {
+      "change_id": 1383,
+      "observed_at": "2026-08-05T06:48:17.569200+00:00",
+      "snapshot_date": "2026-08-05",
+      "license_number": "030-10003736729",
+      "license_type": "RECREATIONAL_PROCESSOR",
+      "legal_name": "TOP SHELF, INC.",
+      "trade_name": "Botanical Laboratories",
+      "county": "Multnomah",
+      "change_type": "FIELD_CHANGE",
+      "field_name": "endorsements",
+      "prev_value": [
+        "Concentrate Processor",
+        "Edible Processor",
+        "Extract Processor"
+      ],
+      "new_value": [
+        "Edible Processor",
+        "Extract Processor",
+        "Concentrate Processor"
+      ],
+      "summary": "030-10003736729 endorsements: Concentrate Processor, Edible Processor, Extract Processor -> Edible Processor, Extract Processor, Concentrate Processor"
+    },
+    {
+      "change_id": 1382,
+      "observed_at": "2026-08-05T06:48:17.569200+00:00",
+      "snapshot_date": "2026-08-05",
+      "license_number": "020-10102894797",
+      "license_type": "RECREATIONAL_PRODUCER",
+      "legal_name": "SACRED ACRES HOLDINGS LLC",
+      "trade_name": "Sacred Acres",
+      "county": "Jackson",
+      "change_type": "FIELD_CHANGE",
+      "field_name": "endorsements",
+      "prev_value": [
+        "Medically Designated Canopy",
+        "Propagation Producer"
+      ],
+      "new_value": [
+        "Propagation Producer",
+        "Medically Designated Canopy"
+      ],
+      "summary": "020-10102894797 endorsements: Medically Designated Canopy, Propagation Producer -> Propagation Producer, Medically Designated Canopy"
+    },
+    {
+      "change_id": 1381,
+      "observed_at": "2026-08-05T06:48:17.569200+00:00",
+      "snapshot_date": "2026-08-05",
+      "license_number": "020-1005602453F",
+      "license_type": "RECREATIONAL_PRODUCER",
+      "legal_name": "OREGON DREAMS LLC",
+      "trade_name": "Oregon Dreams",
+      "county": "Benton",
+      "change_type": "FIELD_CHANGE",
+      "field_name": "expiration_date",
+      "prev_value": "2026-05-08",
+      "new_value": null,
+      "summary": "020-1005602453F expiration_date: 2026-05-08 -> (empty)"
+    },
+    {
+      "change_id": 1380,
+      "observed_at": "2026-08-05T06:48:17.569200+00:00",
+      "snapshot_date": "2026-08-05",
+      "license_number": "050-1016538BD86",
+      "license_type": "RECREATIONAL_RETAILER",
+      "legal_name": "RANDOM POINT LLC",
+      "trade_name": "Arcanna",
+      "county": "Multnomah",
+      "change_type": "REMOVED",
+      "field_name": null,
+      "prev_value": {
+        "tier": null,
+        "county": "Multnomah",
+        "status": "ACTIVE",
+        "legal_name": "RANDOM POINT LLC",
+        "trade_name": "Arcanna",
+        "canopy_type": null,
+        "endorsements": [
+          "Marijuana Home Delivery",
+          "Medical Marijuana Retailer"
+        ],
+        "license_type": "RECREATIONAL_RETAILER",
+        "license_number": "050-1016538BD86",
+        "expiration_date": "2027-03-09",
+        "physical_address": "4605 NE FREMONT ST STE 105, PORTLAND OR  97213-1708",
+        "sos_registration": null
+      },
+      "new_value": null,
+      "summary": "REMOVED: Arcanna (050-1016538BD86)"
+    },
+    {
+      "change_id": 1379,
+      "observed_at": "2026-08-05T06:48:17.569200+00:00",
+      "snapshot_date": "2026-08-05",
+      "license_number": "020-30529",
+      "license_type": "RECREATIONAL_PRODUCER",
+      "legal_name": "YY GARDENS LLC",
+      "trade_name": "YY Gardens",
+      "county": "Multnomah",
+      "change_type": "NEW",
+      "field_name": null,
+      "prev_value": null,
+      "new_value": {
+        "tier": "Tier II",
+        "county": "Multnomah",
+        "status": "ACTIVE",
+        "legal_name": "YY GARDENS LLC",
+        "trade_name": "YY Gardens",
+        "canopy_type": "Indoor",
+        "endorsements": [],
+        "license_type": "RECREATIONAL_PRODUCER",
+        "license_number": "020-30529",
+        "expiration_date": "2027-08-02",
+        "physical_address": "Exempt from Public Disclosure",
+        "sos_registration": null
+      },
+      "summary": "NEW RECREATIONAL_PRODUCER: YY Gardens (020-30529)"
+    },
+    {
+      "change_id": 1378,
+      "observed_at": "2026-08-05T06:48:17.569200+00:00",
+      "snapshot_date": "2026-08-05",
+      "license_number": "020-30506",
+      "license_type": "RECREATIONAL_PRODUCER",
+      "legal_name": "CULTIFY, LLC||HUMBOLDT BOYZ, LLC",
+      "trade_name": "Cultify/Humboldt Boyz",
+      "county": "Josephine",
+      "change_type": "NEW",
+      "field_name": null,
+      "prev_value": null,
+      "new_value": {
+        "tier": "Tier II",
+        "county": "Josephine",
+        "status": "ACTIVE",
+        "legal_name": "CULTIFY, LLC||HUMBOLDT BOYZ, LLC",
+        "trade_name": "Cultify/Humboldt Boyz",
+        "canopy_type": "Indoor",
+        "endorsements": [],
+        "license_type": "RECREATIONAL_PRODUCER",
+        "license_number": "020-30506",
+        "expiration_date": "2027-08-02",
+        "physical_address": "Exempt from Public Disclosure",
+        "sos_registration": null
+      },
+      "summary": "NEW RECREATIONAL_PRODUCER: Cultify/Humboldt Boyz (020-30506)"
+    },
     {
       "change_id": 1377,
       "observed_at": "2026-08-04T06:47:00.417344+00:00",
