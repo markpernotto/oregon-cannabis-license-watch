@@ -10,8 +10,6 @@
   --removed-bg: #fde8e8;
   --change: #1d4ed8;
   --change-bg: #e8eefc;
-  --notice: #a35a00;
-  --notice-bg: #fdf3e4;
   --max-width: 64rem;
 }
 
@@ -25,8 +23,6 @@
     --new-bg: #0a3a17;
     --removed-bg: #4a1313;
     --change-bg: #0e2657;
-    --notice: #e0a458;
-    --notice-bg: #2e2314;
   }
 }
 
@@ -91,22 +87,28 @@ header p { margin: 0.25rem 0; color: var(--muted); font-size: 0.95rem; }
 
 .about {
   margin: 0.6rem 0 0;
-  max-width: 62ch;
   color: var(--fg);
   font-size: 0.95rem;
   line-height: 1.55;
 }
 
-.notice {
-  margin: 0.85rem 0 0;
-  max-width: 62ch;
-  padding: 0.7rem 0.85rem;
-  border-left: 3px solid var(--notice);
-  border-radius: 0 4px 4px 0;
-  background: var(--notice-bg);
-  color: var(--fg);
+.list-end {
+  margin: 1.25rem 0 0;
+  padding-top: 1rem;
+  border-top: 1px solid var(--border);
+  color: var(--muted);
   font-size: 0.9rem;
-  line-height: 1.5;
+  text-align: center;
+}
+
+.list-end button {
+  padding: 0;
+  border: 0;
+  background: none;
+  color: var(--change);
+  font: inherit;
+  text-decoration: underline;
+  cursor: pointer;
 }
 
 .window-toggle {

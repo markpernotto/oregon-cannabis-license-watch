@@ -122,28 +122,10 @@ export default function App() {
     return () => observer.disconnect();
   }, [loadMore]);
 
-  // Driven by coverage_gaps in changes.json, so it narrows and disappears on
-  // its own as gaps age out of the window instead of lingering as stale copy.
-  const gapNotice = useMemo(() => {
-    if (!data?.coverage_gaps?.length) return null;
-    const cutoff = new Date(Date.now() - windowDays * 86_400_000);
-    const visible = data.coverage_gaps.filter((g) => new Date(g.end) >= cutoff);
-    if (!visible.length) return null;
-
-    const missingDays = visible.reduce((sum, g) => sum + g.days, 0);
-    const latest = visible[visible.length - 1];
-    const span =
-      latest.start === latest.end
-        ? formatDate(latest.start)
-        : `${formatDate(latest.start)} – ${formatDate(latest.end)}`;
-
-    const scope =
-      visible.length === 1
-        ? `${missingDays} day${missingDays === 1 ? "" : "s"} with no snapshot (${span})`
-        : `${missingDays} days with no snapshot across ${visible.length} gaps, most recently ${span}`;
-
-    return `This window has ${scope}. Changes that happened during a gap aren't lost — they surface on the first snapshot after it, dated to that day rather than to when they actually happened.`;
-  }, [data, windowDays]);
+  // The next-largest window, if there is one. Used to explain where the list
+  // stops — infinite scroll is bounded by the window, which otherwise just
+  // looks like the feed running out.
+  const nextWindow = VALID_WINDOWS.find((w) => w > windowDays) ?? null;
 
   const handleWindowChange = (w: WindowDays) => {
     setWindowDays(w);
@@ -162,8 +144,6 @@ export default function App() {
           changed. Each row below is one change, with the snapshot and
           checksum it came from, so you can verify it yourself.
         </p>
-
-        {gapNotice && <p className="notice">{gapNotice}</p>}
 
         {data && (
           <div className="meta">
@@ -268,8 +248,21 @@ export default function App() {
                   <ChangeRow key={c.change_id} change={c} />
                 ))}
               </ul>
-              {visibleCount < filtered.length && (
+              {visibleCount < filtered.length ? (
                 <div ref={sentinelRef} className="load-sentinel" />
+              ) : (
+                <p className="list-end">
+                  End of the last {windowDays} days.
+                  {nextWindow && (
+                    <>
+                      {" "}
+                      <button type="button" onClick={() => handleWindowChange(nextWindow)}>
+                        Show {nextWindow} days
+                      </button>{" "}
+                      to go further back.
+                    </>
+                  )}
+                </p>
               )}
             </>
           )}
