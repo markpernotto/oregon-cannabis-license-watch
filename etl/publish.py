@@ -14,12 +14,14 @@ import sys
 import xml.etree.ElementTree as ET
 from datetime import UTC, date, datetime, timedelta
 from email.utils import format_datetime
+from itertools import pairwise
 from pathlib import Path
 
 import psycopg
 from psycopg.rows import dict_row
 
 from etl import __version__
+from etl.extract import SOURCE_LANDING_URL
 
 DEFAULT_OUT_DIR = Path("public")
 # 180-day window so the UI can offer 30/90/180 client-side without refetching.
@@ -28,27 +30,11 @@ DEFAULT_OUT_DIR = Path("public")
 DEFAULT_WINDOW_DAYS = 180
 
 PROJECT_URL = "https://github.com/markpernotto/oregon-cannabis-license-watch"
-SOURCE_NAME = "OLCC Cannabis Licensee Public Report"
-SOURCE_URL = (
-    "https://data.olcc.state.or.us/t/OLCCPublic/views/"
-    "CannabisBusinessLicensesEndorsements/CannabisLicensesEndorsements"
-)
+SOURCE_NAME = "OLCC Cannabis Business Licenses & Endorsements (Oregon Open Data Portal)"
+SOURCE_URL = SOURCE_LANDING_URL
 
-# Returns the earliest date in the current unbroken consecutive daily run.
-# Uses a gaps-and-islands approach: subtracting row_number from the date
-# produces the same offset for all dates in a consecutive group.
-_CONSECUTIVE_START_QUERY = """
-WITH dates AS (
-    SELECT DISTINCT snapshot_date,
-           snapshot_date - (ROW_NUMBER() OVER (ORDER BY snapshot_date) || ' days')::interval AS grp
-    FROM licensees_snapshots
-),
-last_grp AS (
-    SELECT grp FROM dates ORDER BY snapshot_date DESC LIMIT 1
-)
-SELECT MIN(snapshot_date)::date AS first_consecutive_date
-FROM dates
-WHERE grp = (SELECT grp FROM last_grp)
+_SNAPSHOT_DATES_QUERY = """
+SELECT DISTINCT snapshot_date FROM licensees_snapshots ORDER BY snapshot_date
 """
 
 _QUERY = """
@@ -67,6 +53,49 @@ LEFT JOIN LATERAL (
 WHERE lc.observed_at >= %s
 ORDER BY lc.observed_at DESC, lc.change_id DESC
 """
+
+
+def _coverage(dates: list[date]) -> dict:
+    """Describe what the series actually covers.
+
+    `first_snapshot_date` is the true start of history. `consecutive_since`
+    is the start of the current unbroken daily run — those two diverge once
+    there is a gap, and conflating them would have let the 2026-08 source
+    migration erase four months of real history from the site's own
+    description of itself.
+    """
+    if not dates:
+        return {
+            "first_snapshot_date": None,
+            "latest_snapshot_date": None,
+            "consecutive_since": None,
+            "coverage_gaps": [],
+        }
+
+    gaps = []
+    for prev, nxt in pairwise(dates):
+        missing = (nxt - prev).days - 1
+        if missing > 0:
+            gaps.append(
+                {
+                    "start": (prev + timedelta(days=1)).isoformat(),
+                    "end": (nxt - timedelta(days=1)).isoformat(),
+                    "days": missing,
+                }
+            )
+
+    consecutive_since = dates[0]
+    for prev, nxt in reversed(list(pairwise(dates))):
+        if (nxt - prev).days != 1:
+            consecutive_since = nxt
+            break
+
+    return {
+        "first_snapshot_date": dates[0].isoformat(),
+        "latest_snapshot_date": dates[-1].isoformat(),
+        "consecutive_since": consecutive_since.isoformat(),
+        "coverage_gaps": gaps,
+    }
 
 
 def _json_default(value):
@@ -104,7 +133,8 @@ def _build_rss(changes: list[dict], generated_at: datetime) -> bytes:
     ET.SubElement(channel, "title").text = "Oregon Cannabis License Changes"
     ET.SubElement(channel, "link").text = PROJECT_URL
     ET.SubElement(channel, "description").text = (
-        "Daily change feed derived from the OLCC Cannabis Licensee public report."
+        "Daily change feed derived from OLCC cannabis license data "
+        "published on the Oregon Open Data Portal."
     )
     ET.SubElement(channel, "language").text = "en-us"
     ET.SubElement(channel, "pubDate").text = format_datetime(generated_at)
@@ -137,8 +167,8 @@ def publish(
     with psycopg.connect(database_url) as conn, conn.cursor(row_factory=dict_row) as cur:
         cur.execute(_QUERY, (cutoff,))
         rows = cur.fetchall()
-        cur.execute(_CONSECUTIVE_START_QUERY)
-        consecutive_start = cur.fetchone()["first_consecutive_date"]
+        cur.execute(_SNAPSHOT_DATES_QUERY)
+        coverage = _coverage([r["snapshot_date"] for r in cur.fetchall()])
 
     changes = [_to_change_dict(r) for r in rows]
 
@@ -149,7 +179,7 @@ def publish(
         "window_days": window_days,
         "total_changes": len(changes),
         "freshness_sla_hours": 26,
-        "first_snapshot_date": consecutive_start.isoformat() if consecutive_start else None,
+        **coverage,
         "changes": changes,
     }
 

@@ -14,7 +14,9 @@ CREATE TABLE IF NOT EXISTS licensees_snapshots (
     tier                   TEXT,
     canopy_type            TEXT,
     sos_registration       TEXT,
+    effective_date         DATE,
     expiration_date        DATE,
+    inactive_date          DATE,
     raw_row                JSONB       NOT NULL,
     source_url             TEXT        NOT NULL,
     source_retrieved_at    TIMESTAMPTZ NOT NULL,
@@ -25,6 +27,12 @@ CREATE TABLE IF NOT EXISTS licensees_snapshots (
 
 CREATE INDEX IF NOT EXISTS licensees_snapshots_license_number_idx
     ON licensees_snapshots (license_number);
+
+-- Added 2026-08 with the move to the Oregon Open Data Portal, which publishes
+-- license term dates the retired Tableau view did not. Existing deployments
+-- pick these up here rather than through a separate migration.
+ALTER TABLE licensees_snapshots ADD COLUMN IF NOT EXISTS effective_date DATE;
+ALTER TABLE licensees_snapshots ADD COLUMN IF NOT EXISTS inactive_date  DATE;
 
 CREATE TABLE IF NOT EXISTS license_changes (
     change_id              BIGSERIAL   PRIMARY KEY,
@@ -61,7 +69,9 @@ CREATE UNIQUE INDEX IF NOT EXISTS license_changes_unique_observation_idx
 
 -- "Current" means: present in the most recent overall snapshot. A license
 -- that was removed today should not appear here, even though we still have
--- its prior snapshot rows in licensees_snapshots.
+-- its prior snapshot rows in licensees_snapshots. Note that since 2026-08
+-- the source also carries non-ACTIVE licenses, so "current" is not a
+-- synonym for "active" -- filter on status when that is what you mean.
 CREATE OR REPLACE VIEW licensees_current AS
 SELECT *
 FROM licensees_snapshots

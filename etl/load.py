@@ -17,13 +17,13 @@ INSERT INTO licensees_snapshots (
     snapshot_date, license_number, license_type, status,
     legal_name, trade_name, endorsements, county,
     physical_address, tier, canopy_type, sos_registration,
-    expiration_date, raw_row,
+    effective_date, expiration_date, inactive_date, raw_row,
     source_url, source_retrieved_at, source_checksum, extraction_version
 ) VALUES (
     %(snapshot_date)s, %(license_number)s, %(license_type)s, %(status)s,
     %(legal_name)s, %(trade_name)s, %(endorsements)s, %(county)s,
     %(physical_address)s, %(tier)s, %(canopy_type)s, %(sos_registration)s,
-    %(expiration_date)s, %(raw_row)s,
+    %(effective_date)s, %(expiration_date)s, %(inactive_date)s, %(raw_row)s,
     %(source_url)s, %(source_retrieved_at)s, %(source_checksum)s, %(extraction_version)s
 )
 ON CONFLICT (snapshot_date, license_number) DO UPDATE SET
@@ -37,7 +37,9 @@ ON CONFLICT (snapshot_date, license_number) DO UPDATE SET
     tier                = EXCLUDED.tier,
     canopy_type         = EXCLUDED.canopy_type,
     sos_registration    = EXCLUDED.sos_registration,
+    effective_date      = EXCLUDED.effective_date,
     expiration_date     = EXCLUDED.expiration_date,
+    inactive_date       = EXCLUDED.inactive_date,
     raw_row             = EXCLUDED.raw_row,
     source_url          = EXCLUDED.source_url,
     source_retrieved_at = EXCLUDED.source_retrieved_at,

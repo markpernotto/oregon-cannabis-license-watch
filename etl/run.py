@@ -2,7 +2,7 @@
 End-to-end pipeline runner: extract -> transform -> load -> diff.
 
 Usage:
-    python -m etl.run                              # full pipeline against live OLCC
+    python -m etl.run                              # full pipeline against the live source
     python -m etl.run --seed data/snapshots/seed.csv --as-of 2026-04-24
                                                    # load a local CSV as a backfilled snapshot
 """
@@ -20,7 +20,7 @@ from dotenv import load_dotenv
 
 from etl import __version__
 from etl.diff import diff
-from etl.extract import OLCC_LICENSEE_URL, extract
+from etl.extract import SOURCE_CSV_URL, extract
 from etl.load import load
 from etl.publish import publish
 from etl.transform import Provenance, transform
@@ -37,7 +37,7 @@ def _provenance_for_seed(path: Path, as_of: date) -> Provenance:
 
 
 def _live_pipeline(database_url: str) -> None:
-    print(f"[1/5] extracting from {OLCC_LICENSEE_URL}")
+    print(f"[1/5] extracting from {SOURCE_CSV_URL}")
     result = extract()
     print(f"      wrote {result.path} ({result.row_count} rows)")
     print(f"      sha256: {result.source_checksum}")

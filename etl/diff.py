@@ -2,9 +2,24 @@
 Diff: compare the latest licensees_snapshots snapshot against the prior one
 and emit license_changes rows.
 
-Emits NEW, REMOVED, and one FIELD_CHANGE row per changed field. The source
-view is filtered to ACTIVE-only, so de-activations manifest as REMOVED — we
-don't emit STATUS_CHANGE because we'd never see the alternative.
+Emits NEW, REMOVED, and one FIELD_CHANGE row per changed field.
+
+Since the 2026-08 move to the Oregon Open Data Portal the source publishes
+non-ACTIVE licenses too, which changes what each event means:
+
+- De-activation now shows up as a FIELD_CHANGE on `status`
+  (ACTIVE -> INACTIVE / EXPIRED) rather than as REMOVED. REMOVED is back to
+  meaning what it says: the row left the published dataset entirely.
+- A license whose first appearance is already non-ACTIVE does not emit NEW.
+  It is not news that a license we never saw operating is closed, and
+  announcing it would have made the source migration look like ~1,000 new
+  licenses opening overnight.
+- A field the prior snapshot never populated for *any* license is treated as
+  newly published by the source, not as a change to every license at once.
+  `effective_date` arrived this way: the Tableau view never carried it, so
+  without this the migration would have emitted ~2,600 identical
+  NULL -> date events in one night. The rule is general — it covers the next
+  column the source adds too.
 
 Idempotent: a unique index on
 (source_snapshot_date, license_number, change_type, field_name) backs an
@@ -16,11 +31,14 @@ Graceful first-run: if there is no prior snapshot, returns 0 (no error).
 
 from __future__ import annotations
 
+import logging
 from datetime import UTC, date, datetime
 
 import psycopg
 from psycopg.rows import dict_row
 from psycopg.types.json import Jsonb
+
+LOG = logging.getLogger(__name__)
 
 # Fields compared for FIELD_CHANGE detection. Provenance and snapshot_date
 # are intentionally excluded; raw_row is excluded because it duplicates these.
@@ -35,7 +53,9 @@ COMPARED_FIELDS = (
     "tier",
     "canopy_type",
     "sos_registration",
+    "effective_date",
     "expiration_date",
+    "inactive_date",
 )
 
 _SNAPSHOT_FIELDS = (
@@ -60,6 +80,23 @@ INSERT INTO license_changes (
 ON CONFLICT (source_snapshot_date, license_number, change_type, field_name)
 DO NOTHING
 """
+
+
+def _newly_published_fields(prior_rows: list[dict], today_rows: list[dict]) -> frozenset[str]:
+    """Fields the prior snapshot carried for nobody and this one carries for somebody.
+
+    A source that starts publishing a column mid-history would otherwise read
+    as every license changing on the same night. Requires a non-empty overlap
+    so that an empty prior snapshot can't silence real changes.
+    """
+    if not prior_rows or not today_rows:
+        return frozenset()
+    return frozenset(
+        field
+        for field in COMPARED_FIELDS
+        if all(row[field] is None for row in prior_rows)
+        and any(row[field] is not None for row in today_rows)
+    )
 
 
 def _summary_new(row: dict) -> str:
@@ -111,8 +148,13 @@ def diff(database_url: str, snapshot_date: date) -> int:
 
         changes: list[dict] = []
 
+        suppressed_new = 0
         for lic in sorted(today_keys - prior_keys):
             row = today[lic]
+            if row["status"] != "ACTIVE":
+                # First sighting is already closed; see module docstring.
+                suppressed_new += 1
+                continue
             changes.append(
                 {
                     "observed_at": observed_at,
@@ -141,10 +183,26 @@ def diff(database_url: str, snapshot_date: date) -> int:
                 }
             )
 
-        for lic in sorted(today_keys & prior_keys):
+        overlap = sorted(today_keys & prior_keys)
+        newly_published = _newly_published_fields(
+            [prior[lic] for lic in overlap],
+            [today[lic] for lic in overlap],
+        )
+        for field in newly_published:
+            LOG.info(
+                "field %r was unpopulated in %s and is populated in %s; "
+                "treating as a source schema change, not a per-license change",
+                field,
+                prior_date,
+                snapshot_date,
+            )
+
+        for lic in overlap:
             t = today[lic]
             p = prior[lic]
             for field in COMPARED_FIELDS:
+                if field in newly_published:
+                    continue
                 if t[field] != p[field]:
                     changes.append(
                         {
@@ -158,6 +216,12 @@ def diff(database_url: str, snapshot_date: date) -> int:
                             "source_snapshot_date": snapshot_date,
                         }
                     )
+
+        if suppressed_new:
+            LOG.info(
+                "suppressed %d NEW event(s) for licenses first seen non-ACTIVE",
+                suppressed_new,
+            )
 
         if changes:
             cur.executemany(_INSERT_CHANGE_SQL, changes)

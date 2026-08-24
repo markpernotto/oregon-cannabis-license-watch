@@ -10,6 +10,8 @@
   --removed-bg: #fde8e8;
   --change: #1d4ed8;
   --change-bg: #e8eefc;
+  --notice: #a35a00;
+  --notice-bg: #fdf3e4;
   --max-width: 64rem;
 }
 
@@ -23,6 +25,8 @@
     --new-bg: #0a3a17;
     --removed-bg: #4a1313;
     --change-bg: #0e2657;
+    --notice: #e0a458;
+    --notice-bg: #2e2314;
   }
 }
 
@@ -86,25 +90,23 @@ header p { margin: 0.25rem 0; color: var(--muted); font-size: 0.95rem; }
 .rss-cta:hover { text-decoration: underline; }
 
 .about {
-  margin-top: 1rem;
-  padding: 0.75rem 0;
-  border-top: 1px dashed var(--border);
-}
-
-.about > summary {
-  cursor: pointer;
-  font-size: 0.9rem;
-  color: var(--muted);
-  user-select: none;
-  list-style: revert;
-}
-
-.about[open] > summary { margin-bottom: 0.5rem; }
-
-.about p {
+  margin: 0.6rem 0 0;
+  max-width: 62ch;
+  color: var(--fg);
   font-size: 0.95rem;
-  margin: 0.5rem 0;
-  max-width: 60ch;
+  line-height: 1.55;
+}
+
+.notice {
+  margin: 0.85rem 0 0;
+  max-width: 62ch;
+  padding: 0.7rem 0.85rem;
+  border-left: 3px solid var(--notice);
+  border-radius: 0 4px 4px 0;
+  background: var(--notice-bg);
+  color: var(--fg);
+  font-size: 0.9rem;
+  line-height: 1.5;
 }
 
 .window-toggle {

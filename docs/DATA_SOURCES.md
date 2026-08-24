@@ -7,13 +7,14 @@ entries live in [DATA_CATALOG.md](DATA_CATALOG.md) as each source is ingested.
 
 | Source | Agency | Format | Status |
 |---|---|---|---|
-| [Cannabis Licensee Public Report](https://data.olcc.state.or.us/t/OLCCPublic/views/CannabisBusinessLicensesEndorsements/CannabisLicensesEndorsements) | OLCC | Tableau Server CSV | Verified 2026-04-24 |
+| [Cannabis Business Licenses & Endorsements](https://data.oregon.gov/d/q32u-cmam) | OLCC via Oregon Open Data Portal | Socrata SODA / CSV | Verified 2026-08-24 |
+| ~~Cannabis Licensee Public Report (Tableau Server)~~ | OLCC | Tableau Server CSV | Retired 2026-08 — see [SOURCE_HISTORY.md](SOURCE_HISTORY.md) |
 
 ## Phase 2 (planned)
 
 | Source | Agency | Format |
 |---|---|---|
-| [Market Data Tableau](https://data.olcc.state.or.us/#/site/OLCCPublic/views/MarketDataTableau/MainScreen) | OLCC | Tableau Server CSV |
+| [OLCC Marijuana Market Data](https://data.oregon.gov/stories/s/qutr-cyzn) | OLCC via Oregon Open Data Portal | Socrata SODA (5 datasets) |
 | [Cannabis Thefts](https://www.oregon.gov/olcc/marijuana/Pages/marijuana-thefts.aspx) | OLCC | Tableau (embedded) |
 | [Monthly Marijuana Tax Distribution](https://www.oregon.gov/dor/programs/businesses/Documents/Marjuana_monthly_financial_reporting_distributions_public.pdf) | OR DOR | PDF |
 | [OHA OMMP Statistics](https://www.oregon.gov/oha/ph/DiseasesConditions/ChronicDisease/MedicalMarijuanaProgram/Pages/data.aspx) | OHA | PDF (quarterly) |

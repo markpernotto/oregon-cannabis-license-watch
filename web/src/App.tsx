@@ -122,6 +122,29 @@ export default function App() {
     return () => observer.disconnect();
   }, [loadMore]);
 
+  // Driven by coverage_gaps in changes.json, so it narrows and disappears on
+  // its own as gaps age out of the window instead of lingering as stale copy.
+  const gapNotice = useMemo(() => {
+    if (!data?.coverage_gaps?.length) return null;
+    const cutoff = new Date(Date.now() - windowDays * 86_400_000);
+    const visible = data.coverage_gaps.filter((g) => new Date(g.end) >= cutoff);
+    if (!visible.length) return null;
+
+    const missingDays = visible.reduce((sum, g) => sum + g.days, 0);
+    const latest = visible[visible.length - 1];
+    const span =
+      latest.start === latest.end
+        ? formatDate(latest.start)
+        : `${formatDate(latest.start)} – ${formatDate(latest.end)}`;
+
+    const scope =
+      visible.length === 1
+        ? `${missingDays} day${missingDays === 1 ? "" : "s"} with no snapshot (${span})`
+        : `${missingDays} days with no snapshot across ${visible.length} gaps, most recently ${span}`;
+
+    return `This window has ${scope}. Changes that happened during a gap aren't lost — they surface on the first snapshot after it, dated to that day rather than to when they actually happened.`;
+  }, [data, windowDays]);
+
   const handleWindowChange = (w: WindowDays) => {
     setWindowDays(w);
     writeWindowToUrl(w);
@@ -131,26 +154,16 @@ export default function App() {
     <main>
       <header>
         <h1>Oregon Cannabis License Watch</h1>
-        <p>Daily change feed from the OLCC Cannabis Licensee public report.</p>
+        <p className="about">
+          Oregon publishes a list of every business licensed to grow, process,
+          sell, or test cannabis, but the list only shows what's true{" "}
+          <em>right now</em> — it keeps no history. This site snapshots that
+          list every night, compares it to the day before, and records what
+          changed. Each row below is one change, with the snapshot and
+          checksum it came from, so you can verify it yourself.
+        </p>
 
-        <details className="about">
-          <summary>What is this?</summary>
-          <p>
-            Oregon publishes a list of every business licensed to grow, process,
-            sell, or test cannabis. The list shows what's true <em>right now</em>;
-            it doesn't keep history. This project takes a snapshot every night,
-            compares it to yesterday's, and publishes what changed — new
-            licenses, removed licenses, name updates, expiration renewals.
-          </p>
-          <p>
-            Each row below is one change. Every change carries provenance
-            (which snapshot it came from, when, with a checksum) so you can
-            verify it independently. The same data is available as{" "}
-            <a href={REPO_URL}>open-source code</a>, raw{" "}
-            <a href="/changes.json">JSON</a>, and an{" "}
-            <a href="/rss.xml">RSS feed</a>.
-          </p>
-        </details>
+        {gapNotice && <p className="notice">{gapNotice}</p>}
 
         {data && (
           <div className="meta">
@@ -279,11 +292,26 @@ export default function App() {
           </a>
           .
         </p>
+        <p>
+          OLCC retired the Tableau server this site read from in August 2026;
+          it now reads the same data from the{" "}
+          <a href="https://data.oregon.gov/d/q32u-cmam" target="_blank" rel="noopener noreferrer">
+            Oregon Open Data Portal
+          </a>
+          . That switch cost two weeks of coverage — the portal publishes only
+          current state, so those days can't be reconstructed.
+        </p>
         {data?.first_snapshot_date && (
           <p>
             Daily change history begins{" "}
             <strong>{formatDate(data.first_snapshot_date)}</strong>.
             No data exists before that date.
+            {data.consecutive_since && data.consecutive_since !== data.first_snapshot_date && (
+              <>
+                {" "}Unbroken daily coverage since{" "}
+                <strong>{formatDate(data.consecutive_since)}</strong>.
+              </>
+            )}
           </p>
         )}
         <p>

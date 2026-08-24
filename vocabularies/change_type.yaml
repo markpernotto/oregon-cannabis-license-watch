@@ -4,27 +4,35 @@ description: >
   Controlled vocabulary for the change_type column in license_changes. This
   is a project-defined vocabulary, not an authority vocabulary — changes are
   detected by diffing successive snapshots.
-verified_at: 2026-04-24
+verified_at: 2026-08-24
 
 terms:
   - id: NEW
     preferred_label: New
     definition: >
       A license_number appeared in the latest snapshot that was not present
-      in the immediately prior snapshot. May represent a newly-issued license
-      or a previously-removed license reappearing.
+      in the immediately prior snapshot, and was ACTIVE on arrival. May
+      represent a newly-issued license or a previously-removed license
+      reappearing. A license whose first sighting is already INACTIVE or
+      EXPIRED does not emit NEW — see docs/SOURCE_HISTORY.md.
 
   - id: REMOVED
     preferred_label: Removed
     definition: >
       A license_number present in the prior snapshot is absent from the
-      latest snapshot. Covers any de-activation reason (surrender, revocation,
-      expiration, non-renewal) — the source does not distinguish.
+      latest snapshot, i.e. the row left the published dataset entirely.
+      Before the 2026-08 source migration this was also how de-activation
+      appeared, because the old view was filtered to active licenses only.
+      De-activation is now a FIELD_CHANGE on status instead, so REMOVED
+      should be rare.
 
   - id: FIELD_CHANGE
     preferred_label: Field Change
     definition: >
       A single field on an otherwise-continuously-present license changed
-      between snapshots. field_name names the field (trade_name, tier,
-      canopy_type, endorsements, county, physical_address, etc.).
+      between snapshots. field_name names the field (status, trade_name,
+      tier, canopy_type, endorsements, county, physical_address,
+      effective_date, expiration_date, inactive_date, etc.).
       prev_value and new_value are JSONB to accommodate scalars and arrays.
+      field_name == "status" carries de-activations and reinstatements;
+      field_name == "expiration_date" carries renewals.

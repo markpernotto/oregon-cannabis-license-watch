@@ -33,7 +33,7 @@ The stack favors tools that are actually used in industry DE work. The line we h
 | Hosting | Neon (Postgres), Cloudflare R2 (objects), Fly.io (API), Vercel (frontend) | Cheap/free, sane free tiers |
 | PDF parsing | `pdfplumber` | Better multi-column results than `tabula-py` for Oregon DOR PDFs |
 | HTML scraping | `requests` + `beautifulsoup4`; `playwright` only if JS-required | Keep simple |
-| Tableau extraction | Direct `.csv` URL form (verified — see `docs/TABLEAU_RESEARCH.md`) | OLCC's Tableau Server exposes a stable CSV export endpoint |
+| Extraction | Socrata SODA CSV export (verified — see `docs/SOURCE_HISTORY.md`) | OLCC publishes the dataset on the Oregon Open Data Portal; the earlier Tableau Server export was retired 2026-08 |
 | Data quality | `pytest` + targeted assertions (Phase 1); Great Expectations or dbt tests (Phase 2) | Progressive rigor |
 | Local analytics | DuckDB (Phase 2, optional) | Modern in-process analytics engine; worth touching |
 
@@ -49,8 +49,8 @@ All public records. Attribute the agency in README and in-app. Scrape on a human
 
 | Source | URL | Format | Update | Phase |
 |---|---|---|---|---|
-| OLCC Cannabis Licensee Tableau | https://data.olcc.state.or.us/t/OLCCPublic/views/CannabisBusinessLicensesEndorsements/CannabisLicensesEndorsements | CSV export | Weekly-ish | **1 + 2** |
-| OLCC Market Data Tableau | https://data.olcc.state.or.us/#/site/OLCCPublic/views/MarketDataTableau/MainScreen | CSV | Monthly | 2 |
+| OLCC Cannabis Business Licenses & Endorsements | https://data.oregon.gov/d/q32u-cmam | Socrata SODA / CSV | Daily | **1 + 2** |
+| OLCC Marijuana Market Data | https://data.oregon.gov/stories/s/qutr-cyzn | Socrata SODA (5 datasets) | Monthly | 2 |
 | OLCC Cannabis Thefts | https://www.oregon.gov/olcc/marijuana/Pages/marijuana-thefts.aspx | Tableau | Irregular | 2 |
 | OR DOR monthly marijuana tax distribution | https://www.oregon.gov/dor/programs/businesses/Documents/Marjuana_monthly_financial_reporting_distributions_public.pdf | PDF | Monthly | 2 |
 | OLCC "Where the Money Goes" | https://www.oregon.gov/olcc/Pages/Where-The-Money-Goes.aspx | HTML + PDFs | Quarterly | 2 |
@@ -103,7 +103,7 @@ A daily job that snapshots the OLCC active licensee dataset, diffs against the p
 
 ## Schema
 
-Schema reflects verified OLCC source columns (see `docs/TABLEAU_RESEARCH.md`). The OLCC view exposes fewer fields than initially speculated: no `issued_date`, no standalone `city`, and `Status` is always `ACTIVE` because the view is pre-filtered. Columns below use the canonical naming after transform; the `raw_row` JSONB column preserves the original source row.
+Schema reflects verified OLCC source columns (see `docs/SOURCE_HISTORY.md`). There is still no standalone `city`, but the Open Data Portal does publish term dates: `effective_date` fills the `issued_date` role this plan originally wanted, and `inactive_date` plus `license_expired` replace the always-`ACTIVE` `Status` column of the retired Tableau view. Columns below use the canonical naming after transform; the `raw_row` JSONB column preserves the original source row.
 
 ### `licensees_snapshots` (raw landing)
 
@@ -191,8 +191,7 @@ oregon-cannabis-license-watch/
 │   ├── publish.py
 │   ├── run.py                # CLI: extract → transform → load → diff
 │   ├── vocab.py              # controlled-vocabulary loader
-│   ├── schema.sql
-│   └── certs/                # bundled TLS intermediate (OLCC server omits)
+│   └── schema.sql
 ├── vocabularies/
 │   ├── license_type.yaml
 │   ├── status.yaml
@@ -212,7 +211,7 @@ oregon-cannabis-license-watch/
 │   ├── ARCHITECTURE.md
 │   ├── DATA_CATALOG.md
 │   ├── DATA_SOURCES.md
-│   ├── TABLEAU_RESEARCH.md
+│   ├── SOURCE_HISTORY.md
 │   └── diagrams/
 ├── LICENSE                   # MIT (code)
 ├── LICENSE-DATA              # CC0 (derived data)
@@ -227,8 +226,8 @@ oregon-cannabis-license-watch/
 
 | Risk | Mitigation |
 |---|---|
-| OLCC TLS chain is incomplete (verified) | Bundle the Sectigo intermediate at `etl/certs/`; merge with certifi at runtime. Refresh procedure documented. |
-| OLCC Tableau endpoint is unreliable or changes URL form | Manual download is an acceptable fallback; the project does not bypass any access control. |
+| OLCC re-homes the dataset again (happened 2026-08) | `etl.extract` fails closed on a missing column or a truncated page; the nightly opens an issue. Recovery is documented in `docs/SOURCE_HISTORY.md`. |
+| Socrata throttles anonymous requests | Optional `SOCRATA_APP_TOKEN` moves the job to a per-application quota. |
 | Initial snapshot has nothing to diff against | First run emits zero changes, not errors (verified). |
 | Dates/enums drift in source data | `raw_row JSONB` preserves source row; transforms log unknown enum values rather than failing. Real-world `*` sentinel values for dates handled. |
 | Neon free tier pauses after inactivity | ~2s cold start, acceptable for nightly batch |

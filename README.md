@@ -30,17 +30,49 @@ something I got wrong, please open an issue.
 
 ## Status
 
-Phase 1 is functionally complete and deployed: the backend pipeline is
-running nightly against live OLCC data, the React UI is live on Vercel,
-and the public RSS feed is consumable in any reader. The five-day
-green-nightly streak (last item in the Phase 1 Definition of Done) is in
-progress.
+Phase 1 is functionally complete and deployed: the pipeline runs nightly,
+the React UI is live on Vercel, and the public RSS feed works in any reader.
+
+### The August 2026 source change
+
+**What broke.** OLCC decommissioned the Tableau server this project read
+from. Nightly runs failed from 2026-08-10; by 2026-08-24 the host was
+answering as an empty Apache directory index. The failure surfaced as a bare
+`401` in a traceback, and nothing in the pipeline was watching for it, so it
+sat broken for two weeks.
+
+**What we do now.** The same dataset is published on the
+[Oregon Open Data Portal](https://data.oregon.gov/d/q32u-cmam) as a Socrata
+dataset, and the extractor reads it from there. It is a straight upgrade: a
+real API with filtering and `Last-Modified` headers instead of a scraped
+Tableau export behind a broken TLS chain, refreshed daily rather than
+"weekly-ish", and carrying three fields the old view never published —
+`effective_date` (the issue date this project always wanted), `inactive_date`,
+and an explicit expired flag.
+
+**What it cost.** Snapshots for 2026-08-10 through 2026-08-23 do not exist
+and cannot be recovered — the portal publishes current state only, with no
+history to backfill from. Changes that happened in those two weeks appear on
+the 2026-08-24 snapshot, dated to that day rather than to when they actually
+happened. The site labels the gap rather than hiding it.
+
+**What it changed downstream.** The new source is not pre-filtered to active
+licenses, so de-activation is now an observable `status` change instead of a
+license silently vanishing, and `REMOVED` goes back to meaning "left the
+dataset". The source's grain is the license *term*, not the license, so
+`etl.transform` collapses to the term in effect on the snapshot date.
+
+Full account, including the diff rules the migration forced and what would
+break this again, in [docs/SOURCE_HISTORY.md](docs/SOURCE_HISTORY.md).
+
+The five-day green-nightly streak (last item in the Phase 1 Definition of
+Done) restarts from the first clean run on the new source.
 
 ## How it works (the short version)
 
 ```
-OLCC website  ──► extract ──► transform ──► load ──► diff ──► publish
-(public data)     (download)   (clean up)   (DB)     (compare)  (write JSON+RSS)
+Oregon Open  ──► extract ──► transform ──► load ──► diff ──► publish
+Data Portal      (download)   (clean up)   (DB)     (compare)  (write JSON+RSS)
                                                                        │
                                                                        ▼
                                                              web UI · RSS readers
@@ -76,8 +108,10 @@ pip install -e '.[dev]'
 # Local Postgres (any Postgres 16+ works; docker compose up db included)
 psql "$DATABASE_URL" -f etl/schema.sql
 
-# Run the full pipeline against live OLCC
+# Run the full pipeline against the live source
 python -m etl.run
+# Optional: set SOCRATA_APP_TOKEN in .env first to get off the shared
+# anonymous request quota. The pipeline works fine without one.
 
 # Run the test suite
 pytest                                      # unit tests only
@@ -93,21 +127,20 @@ npm run dev   # http://localhost:5199/
 
 - `etl/` — the five pipeline modules (extract, transform, load, diff, publish)
   plus `run.py` (CLI), `vocab.py` (controlled-vocabulary loader), and
-  `schema.sql`. The TLS chain workaround lives in `etl/certs/` because OLCC's
-  server doesn't ship the intermediate certificate; see the README there
-  for the why.
+  `schema.sql`.
 - `vocabularies/` — controlled vocabularies for license type, status, and
   change type. SKOS-lite YAML. Kept versioned because vocabularies drift.
 - `web/` — Vite + React + TypeScript. Reads `public/changes.json` directly.
 - `data/snapshots/` — daily CSVs (archival series).
-- `docs/` — architecture, data catalog, data sources, Tableau-extraction
-  research notes.
-- `tests/` — 27 tests. Unit tests run in CI; integration tests need a
+- `docs/` — architecture, data catalog, data sources, and the history of
+  where this data has been fetched from.
+- `tests/` — 47 tests. Unit tests run in CI; integration tests need a
   Postgres at `$DATABASE_URL`.
 
 ## Data sources
 
-This phase tracks one source: the OLCC Cannabis Licensee public report.
+This phase tracks one source: OLCC Cannabis Business Licenses &
+Endorsements, published on the Oregon Open Data Portal.
 Future phases will add tax distribution PDFs, market data, theft reports,
 and more. Inventory in [docs/DATA_SOURCES.md](docs/DATA_SOURCES.md);
 catalog entry per dataset in [docs/DATA_CATALOG.md](docs/DATA_CATALOG.md).

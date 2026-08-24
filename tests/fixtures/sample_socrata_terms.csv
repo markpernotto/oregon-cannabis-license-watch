@@ -1,0 +1,7 @@
+license_number,business_name,business_licenses,license_type,license_expired,effective_date,expiration_date,inactive_date,sos_registration_number,physical_address,county,tier,canopy_type,endorsement
+020-RENEWED,Renewal Farms,"RENEWAL FARMS, LLC",RECREATIONAL PRODUCER,No,2025-05-02,2026-05-01,,,Exempt from Public Disclosure,Lane,Tier I,Outdoor,
+020-RENEWED,Renewal Farms,"RENEWAL FARMS, LLC",RECREATIONAL PRODUCER,No,2026-05-02,2027-05-01,,,Exempt from Public Disclosure,Lane,Tier II,Outdoor,
+050-LAPSED,Lapsed Retail,LAPSED RETAIL INC,RECREATIONAL RETAILER,Yes,2024-03-01,2025-02-28,,,101 MAIN ST BEND OR  97701,Deschutes,,,
+050-ENDED,Ended Retail,ENDED RETAIL INC,RECREATIONAL RETAILER,Yes,2024-03-01,2025-02-28,2024-09-15,,202 OAK ST SALEM OR  97301,Marion,,,
+010-SAMPLER,Sample Collectors,"SAMPLE COLLECTORS, LLC",SAMPLING LABORATORY,No,2026-01-01,2026-12-31,,,303 PINE ST EUGENE OR  97401,Lane,,,
+020-RENEWALONLY,Future Farms,"FUTURE FARMS, LLC",RECREATIONAL PRODUCER,No,2027-01-01,2027-12-31,,,Exempt from Public Disclosure,Jackson,Tier I,Indoor,

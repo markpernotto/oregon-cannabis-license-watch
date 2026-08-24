@@ -1,13 +1,13 @@
 # Architecture
 
 High-level view of the pipeline. Detailed plan in [PLAN.md](../PLAN.md);
-verified source-extraction research in [TABLEAU_RESEARCH.md](TABLEAU_RESEARCH.md).
+verified source-extraction research in [SOURCE_HISTORY.md](SOURCE_HISTORY.md).
 
 ## Phase 1 dataflow
 
 ```mermaid
 flowchart TD
-    A[OLCC Tableau Server<br/>direct .csv export] -->|GitHub Actions nightly cron| B(extract.py)
+    A[Oregon Open Data Portal<br/>Socrata q32u-cmam] -->|GitHub Actions nightly cron| B(extract.py)
     B -->|data/snapshots/YYYY-MM-DD.csv| C(transform.py)
     B -->|optional: R2 bucket| Z[(Cloudflare R2<br/>raw archive)]
     C --> D(load.py)
@@ -29,7 +29,8 @@ flowchart TD
 - **`etl/load.py`** — UPSERTs into `licensees_snapshots` keyed on
   `(snapshot_date, license_number)`.
 - **`etl/diff.py`** — compares today's snapshot to yesterday's, writes
-  `NEW / REMOVED / FIELD_CHANGE` rows. Idempotent.
+  `NEW / REMOVED / FIELD_CHANGE` rows. Idempotent. De-activation is a
+  `status` FIELD_CHANGE; `REMOVED` means the row left the source dataset.
 - **`etl/publish.py`** — regenerates public RSS + JSON from `license_changes`.
 - **`api/` (Phase 1 end)** — FastAPI app serving `/api/changes/*` and
   `/api/licensees/*`.

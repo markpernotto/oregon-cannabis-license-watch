@@ -1,4 +1,148 @@
-# Tableau Extraction Research — Open Questions
+# Source History
+
+How this project gets OLCC licensee data, and how that has changed.
+
+| Period | Source | Status |
+|---|---|---|
+| 2026-04-24 .. 2026-08-09 | OLCC Tableau Server (`data.olcc.state.or.us`) | **Retired** — server decommissioned |
+| 2026-08-24 .. | Oregon Open Data Portal, Socrata `q32u-cmam` | **Current** |
+
+---
+
+## Migration: Tableau Server -> Oregon Open Data Portal (2026-08)
+
+### What happened
+
+Nightly runs failed from 2026-08-10. The extractor got `401 Client Error` on
+the Tableau CSV endpoint; by 2026-08-24 the whole host answered as a bare
+Apache instance with an empty directory index:
+
+```
+GET https://data.olcc.state.or.us/                   -> 200, "Index of /", no entries
+GET .../CannabisLicensesEndorsements.csv             -> 404, no X-Tableau header
+```
+
+OLCC had decommissioned the Tableau deployment. Its
+[Marijuana Licensed Businesses page](https://www.oregon.gov/olcc/marijuana/Pages/Recreational-Marijuana-Licensee-Reports.aspx)
+now points at the Oregon Open Data Portal. No notice reached us because the
+old endpoint never announced a deprecation — the lesson being that a
+source-availability check belongs in the pipeline, not in the operator's
+memory.
+
+Last snapshot from the old source: `2026-08-09`. First from the new one:
+`2026-08-24`. The 14-day gap is unrecoverable — the portal publishes current
+state only, with no history to backfill from.
+
+### The new source
+
+| | |
+|---|---|
+| Dataset | `q32u-cmam` — OLCC Cannabis Business Licenses & Endorsements |
+| Landing page | https://data.oregon.gov/d/q32u-cmam |
+| Extraction URL | `https://data.oregon.gov/resource/q32u-cmam.csv?$limit=50000&$order=:id` |
+| Platform | Socrata (SODA 2.1) |
+| Refresh | Daily (`X-SODA2-Truth-Last-Modified` observed moving every day) |
+| Rows | 3,760 source rows / 3,666 licenses (2026-08-24) |
+| Auth | None. `X-App-Token` optional, moves us off the shared anonymous quota |
+| TLS | Ordinary public chain — the Sectigo intermediate hack is gone |
+
+It is a better source than what it replaced: a real API with SoQL filtering,
+`Last-Modified` headers, and stable ordering, instead of a scraped Tableau
+export behind a broken cert chain.
+
+### Schema differences
+
+| Tableau (retired) | Socrata (current) | Note |
+|---|---|---|
+| `Business Licenses` | `business_licenses` | Legal entity name |
+| `Business Name` | `business_name` | Trade name / DBA |
+| `PhysicalAddress` | `physical_address` | |
+| `Endorsement` | `endorsement` | Still comma-separated in one field |
+| `Expiration Date` (M/D/YYYY) | `expiration_date` (ISO) | |
+| `Status` (always `ACTIVE`) | *(none)* | Replaced by the two below |
+| — | `license_expired` | Yes/No, curated by OLCC |
+| — | `inactive_date` | Set when a license ended early |
+| — | `effective_date` | The issue date `PLAN.md` always wanted |
+
+Three consequences the pipeline had to absorb:
+
+**1. The dataset is no longer active-only.** It carries 1,034 closed licenses
+alongside 2,726 active ones. `etl.transform._derive_status` maps
+`license_expired` + `inactive_date` onto the status vocabulary: `No` ->
+`ACTIVE`, `Yes` + an inactive date -> `INACTIVE`, `Yes` without one ->
+`EXPIRED`. Most inactive dates fall *before* the term's expiration date, so
+those licenses were surrendered or revoked rather than left to lapse — the
+source does not say which, so we do not guess.
+
+`license_expired` is authoritative, not derivable from dates: 177 licenses
+are flagged active while sitting past their printed expiration date, because
+OLCC keeps a license active during renewal.
+
+**2. The grain is the license term, not the license.** 94 licenses publish
+two rows — a current term and a renewal already on file. `etl.transform`
+collapses these to the term in effect on the snapshot date, so the
+`(snapshot_date, license_number)` primary key still holds. The uncollapsed
+rows stay in the committed snapshot CSV, so nothing is lost. A renewal
+surfaces later as an `expiration_date` change, when it becomes the live term.
+
+**3. De-activation changed shape.** The old view dropped a license when it
+stopped being active, so `REMOVED` was the only de-activation signal we had.
+Now the license stays in the dataset with a new status, so de-activation is a
+`status` FIELD_CHANGE and `REMOVED` means the row left the dataset entirely.
+
+### Diff rules the migration forced
+
+Two suppression rules in `etl.diff`, both general rather than one-off
+migration patches:
+
+- **No `NEW` for a license first seen non-ACTIVE.** 1,009 of the newly-visible
+  closed licenses would otherwise have been announced as openings on the first
+  night.
+- **No `FIELD_CHANGE` for a field the prior snapshot populated for nobody.**
+  `effective_date` arrived this way and would have emitted 2,620 identical
+  `NULL -> date` events. The rule keys on "no license had one", so a single
+  license gaining a value is still reported normally.
+
+With both in place the boundary snapshot emitted **189** changes — 139
+renewals, 22 status changes, 14 new licenses, and a handful of field edits
+across a 15-day gap. That is a plausible fortnight, not a migration artifact.
+
+### Getting a Socrata app token (optional)
+
+The nightly works without one. Anonymous SODA requests are throttled by
+source IP from a shared pool; a token moves the job into its own quota, which
+matters mainly because GitHub Actions runners share IPs with everyone else on
+the platform. Socrata's own guidance is that tokenless requests get "a much
+lower throttling limit", and throttling surfaces as HTTP 429.
+
+1. Create a free account at https://data.oregon.gov (or sign in).
+2. Go to your profile -> Developer Settings -> Create New App Token.
+   Direct link: https://data.oregon.gov/profile/edit/developer_settings
+3. Name it something identifiable (e.g. `oregon-cannabis-license-watch`).
+4. Copy the **App Token** — not the secret token. It is not a credential in
+   the usual sense: it identifies the application, not a user, and grants no
+   access beyond what anonymous callers already have.
+5. Local: put it in `.env` as `SOCRATA_APP_TOKEN=...`.
+   CI: add it as a repository secret named `SOCRATA_APP_TOKEN`; the nightly
+   workflow already passes it through.
+
+`etl.extract` sends it as the `X-App-Token` header, which is the method
+Socrata prefers over the `$$app_token` query parameter.
+
+### What would break this again
+
+- OLCC re-homes the dataset, or the `q32u-cmam` identifier changes.
+- A column is renamed — `etl.extract` fails closed on missing expected columns.
+- The dataset grows past `PAGE_LIMIT` (50,000 rows against ~3,800 today);
+  `etl.extract` raises rather than silently truncating.
+- `license_expired` stops being Yes/No — `_derive_status` warns and falls back.
+
+---
+
+## Appendix: original Tableau research (2026-04)
+
+Kept for provenance. **Every endpoint below is dead** — this documents how the
+first source was chosen and what it cost to run, not how to reach it today.
 
 **Status:** Research needed before committing to an automated extraction approach.
 **Default until answered:** manual CSV download, once per refresh cycle.

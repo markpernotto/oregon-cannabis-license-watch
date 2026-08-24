@@ -16,6 +16,14 @@ export interface Change {
   summary: string;
 }
 
+export interface CoverageGap {
+  /** First missing day, inclusive. */
+  start: string;
+  /** Last missing day, inclusive. */
+  end: string;
+  days: number;
+}
+
 export interface ChangesPayload {
   generated_at: string;
   source: string;
@@ -23,6 +31,11 @@ export interface ChangesPayload {
   window_days: number;
   total_changes: number;
   freshness_sla_hours: number;
+  /** Start of history. Unlike `consecutive_since`, a gap does not move it. */
   first_snapshot_date: string | null;
+  latest_snapshot_date: string | null;
+  /** Start of the current unbroken daily run. */
+  consecutive_since: string | null;
+  coverage_gaps: CoverageGap[];
   changes: Change[];
 }

@@ -1,5 +1,7 @@
 """Integration tests for etl.publish. Require Postgres at $DATABASE_URL."""
 
+import csv
+import io
 import json
 import os
 import xml.etree.ElementTree as ET
@@ -11,7 +13,7 @@ import pytest
 from etl.diff import diff
 from etl.load import load
 from etl.publish import publish
-from etl.transform import Provenance, transform
+from etl.transform import SOCRATA_COLUMNS, Provenance, transform
 
 DATABASE_URL = os.getenv("DATABASE_URL")
 
@@ -44,16 +46,31 @@ def clean_db():
         conn.commit()
 
 
+DEFAULTS = {
+    "license_number": "020-PUB1",
+    "business_name": "Trade Name",
+    "business_licenses": "PUB CO",
+    "license_type": "RECREATIONAL PRODUCER",
+    "license_expired": "No",
+    "effective_date": "2029-01-01",
+    "expiration_date": "2030-01-01",
+    "inactive_date": "",
+    "sos_registration_number": "",
+    "physical_address": "Exempt from Public Disclosure",
+    "county": "Lane",
+    "tier": "Tier I",
+    "canopy_type": "Indoor",
+    "endorsement": "",
+}
+
+
 def _csv_for(rows: list[dict]) -> bytes:
-    headers = [
-        "Business Licenses", "Business Name", "Canopy Type", "County", "Endorsement",
-        "License Number", "License Type", "PhysicalAddress", "SOS Registration Number",
-        "Status", "Tier", "Expiration Date",
-    ]
-    lines = [",".join(headers)]
+    buf = io.StringIO()
+    writer = csv.DictWriter(buf, fieldnames=SOCRATA_COLUMNS)
+    writer.writeheader()
     for row in rows:
-        lines.append(",".join(str(row.get(h, " ")) for h in headers))
-    return ("\n".join(lines) + "\n").encode()
+        writer.writerow({**DEFAULTS, **row})
+    return buf.getvalue().encode()
 
 
 def _load(snapshot_date: date, rows: list[dict]) -> None:
@@ -65,15 +82,11 @@ def _load(snapshot_date: date, rows: list[dict]) -> None:
 @skip_if_no_db
 def test_publish_writes_artifacts(clean_db, tmp_path):
     d1, d2 = clean_db
-    _load(d1, [
-        {"License Number": "020-PUB1", "License Type": "RECREATIONAL PRODUCER",
-         "Status": "ACTIVE", "Business Licenses": "PUB CO", "Expiration Date": "1/1/2030"},
-    ])
+    _load(d1, [{"license_number": "020-PUB1"}])
     _load(d2, [
-        {"License Number": "020-PUB1", "License Type": "RECREATIONAL PRODUCER",
-         "Status": "ACTIVE", "Business Licenses": "PUB CO", "Expiration Date": "1/1/2030"},
-        {"License Number": "050-PUB2", "License Type": "RECREATIONAL RETAILER",
-         "Status": "ACTIVE", "Business Licenses": "RETAIL CO", "Expiration Date": "2/1/2030"},
+        {"license_number": "020-PUB1"},
+        {"license_number": "050-PUB2", "license_type": "RECREATIONAL RETAILER",
+         "business_licenses": "RETAIL CO", "tier": "", "canopy_type": ""},
     ])
     diff(DATABASE_URL, d2)
 
@@ -83,7 +96,8 @@ def test_publish_writes_artifacts(clean_db, tmp_path):
     assert result["rss_path"].exists()
 
     payload = json.loads(result["json_path"].read_text())
-    assert payload["source"] == "OLCC Cannabis Licensee Public Report"
+    assert "Oregon Open Data Portal" in payload["source"]
+    assert payload["source_url"].startswith("https://data.oregon.gov/d/")
     assert payload["total_changes"] >= 1
     assert payload["freshness_sla_hours"] == 26
     new_entries = [c for c in payload["changes"] if c["change_type"] == "NEW"]

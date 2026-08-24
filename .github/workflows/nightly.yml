@@ -40,6 +40,9 @@ jobs:
         env:
           DATABASE_URL: ${{ secrets.DATABASE_URL }}
           EXTRACTOR_USER_AGENT: "OregonCannabisDataProject/0.1 (+mark@pernotto.com)"
+          # Optional. Unset is fine — it only moves us off Socrata's shared
+          # anonymous request quota.
+          SOCRATA_APP_TOKEN: ${{ secrets.SOCRATA_APP_TOKEN }}
         run: python -m etl.run
 
       - name: Commit snapshot + artifacts
