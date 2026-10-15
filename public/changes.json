@@ -1,12 +1,12 @@
 {
-  "generated_at": "2026-10-14T06:02:06.732479+00:00",
+  "generated_at": "2026-10-15T06:02:17.403590+00:00",
   "source": "OLCC Cannabis Business Licenses & Endorsements (Oregon Open Data Portal)",
   "source_url": "https://data.oregon.gov/d/q32u-cmam",
   "window_days": 180,
   "total_changes": 30565,
   "freshness_sla_hours": 26,
   "first_snapshot_date": "2026-04-24",
-  "latest_snapshot_date": "2026-10-14",
+  "latest_snapshot_date": "2026-10-15",
   "consecutive_since": "2026-10-06",
   "coverage_gaps": [
     {
