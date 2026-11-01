@@ -1,12 +1,12 @@
 {
-  "generated_at": "2026-10-31T06:01:21.407348+00:00",
+  "generated_at": "2026-11-01T06:01:13.813735+00:00",
   "source": "OLCC Cannabis Business Licenses & Endorsements (Oregon Open Data Portal)",
   "source_url": "https://data.oregon.gov/d/q32u-cmam",
   "window_days": 180,
-  "total_changes": 30597,
+  "total_changes": 30601,
   "freshness_sla_hours": 26,
   "first_snapshot_date": "2026-04-24",
-  "latest_snapshot_date": "2026-10-31",
+  "latest_snapshot_date": "2026-11-01",
   "consecutive_since": "2026-10-06",
   "coverage_gaps": [
     {
@@ -41,6 +41,66 @@
     }
   ],
   "changes": [
+    {
+      "change_id": 30601,
+      "observed_at": "2026-11-01T06:01:12.426270+00:00",
+      "snapshot_date": "2026-11-01",
+      "license_number": "050-1025293A1E7",
+      "license_type": "RECREATIONAL_RETAILER",
+      "legal_name": "BUDZ RETAIL, LLC",
+      "trade_name": "Budz Barn",
+      "county": "Jackson",
+      "change_type": "FIELD_CHANGE",
+      "field_name": "expiration_date",
+      "prev_value": "2026-10-31",
+      "new_value": "2027-10-31",
+      "summary": "050-1025293A1E7 expiration_date: 2026-10-31 -> 2027-10-31"
+    },
+    {
+      "change_id": 30600,
+      "observed_at": "2026-11-01T06:01:12.426270+00:00",
+      "snapshot_date": "2026-11-01",
+      "license_number": "050-1025293A1E7",
+      "license_type": "RECREATIONAL_RETAILER",
+      "legal_name": "BUDZ RETAIL, LLC",
+      "trade_name": "Budz Barn",
+      "county": "Jackson",
+      "change_type": "FIELD_CHANGE",
+      "field_name": "effective_date",
+      "prev_value": "2026-07-27",
+      "new_value": "2026-11-01",
+      "summary": "050-1025293A1E7 effective_date: 2026-07-27 -> 2026-11-01"
+    },
+    {
+      "change_id": 30599,
+      "observed_at": "2026-11-01T06:01:12.426270+00:00",
+      "snapshot_date": "2026-11-01",
+      "license_number": "020-1024075FC02",
+      "license_type": "RECREATIONAL_PRODUCER",
+      "legal_name": "BUDDHA LEAF FARMS LLC",
+      "trade_name": "Buddha Leaf Farms",
+      "county": "Jackson",
+      "change_type": "FIELD_CHANGE",
+      "field_name": "expiration_date",
+      "prev_value": "2026-10-31",
+      "new_value": "2027-10-31",
+      "summary": "020-1024075FC02 expiration_date: 2026-10-31 -> 2027-10-31"
+    },
+    {
+      "change_id": 30598,
+      "observed_at": "2026-11-01T06:01:12.426270+00:00",
+      "snapshot_date": "2026-11-01",
+      "license_number": "020-1024075FC02",
+      "license_type": "RECREATIONAL_PRODUCER",
+      "legal_name": "BUDDHA LEAF FARMS LLC",
+      "trade_name": "Buddha Leaf Farms",
+      "county": "Jackson",
+      "change_type": "FIELD_CHANGE",
+      "field_name": "effective_date",
+      "prev_value": "2025-11-01",
+      "new_value": "2026-11-01",
+      "summary": "020-1024075FC02 effective_date: 2025-11-01 -> 2026-11-01"
+    },
     {
       "change_id": 30597,
       "observed_at": "2026-10-31T06:01:20.801326+00:00",
